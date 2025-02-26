@@ -24,6 +24,11 @@ export type Admins = $Result.DefaultSelection<Prisma.$AdminsPayload>
  */
 export type Organizacao = $Result.DefaultSelection<Prisma.$OrganizacaoPayload>
 /**
+ * Model UsuariosOrganizacao
+ * 
+ */
+export type UsuariosOrganizacao = $Result.DefaultSelection<Prisma.$UsuariosOrganizacaoPayload>
+/**
  * Model ChavesApi
  * 
  */
@@ -198,6 +203,16 @@ export class PrismaClient<
     * ```
     */
   get organizacao(): Prisma.OrganizacaoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.usuariosOrganizacao`: Exposes CRUD operations for the **UsuariosOrganizacao** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UsuariosOrganizacaos
+    * const usuariosOrganizacaos = await prisma.usuariosOrganizacao.findMany()
+    * ```
+    */
+  get usuariosOrganizacao(): Prisma.UsuariosOrganizacaoDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.chavesApi`: Exposes CRUD operations for the **ChavesApi** model.
@@ -700,6 +715,7 @@ export namespace Prisma {
   export const ModelName: {
     Admins: 'Admins',
     Organizacao: 'Organizacao',
+    UsuariosOrganizacao: 'UsuariosOrganizacao',
     ChavesApi: 'ChavesApi',
     Usuarios: 'Usuarios',
     JwtToken: 'JwtToken',
@@ -721,7 +737,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "admins" | "organizacao" | "chavesApi" | "usuarios" | "jwtToken" | "templates" | "variaveisTemplate" | "statusDocumentos"
+      modelProps: "admins" | "organizacao" | "usuariosOrganizacao" | "chavesApi" | "usuarios" | "jwtToken" | "templates" | "variaveisTemplate" | "statusDocumentos"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -854,6 +870,72 @@ export namespace Prisma {
           count: {
             args: Prisma.OrganizacaoCountArgs<ExtArgs>
             result: $Utils.Optional<OrganizacaoCountAggregateOutputType> | number
+          }
+        }
+      }
+      UsuariosOrganizacao: {
+        payload: Prisma.$UsuariosOrganizacaoPayload<ExtArgs>
+        fields: Prisma.UsuariosOrganizacaoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UsuariosOrganizacaoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UsuariosOrganizacaoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>
+          }
+          findFirst: {
+            args: Prisma.UsuariosOrganizacaoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UsuariosOrganizacaoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>
+          }
+          findMany: {
+            args: Prisma.UsuariosOrganizacaoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>[]
+          }
+          create: {
+            args: Prisma.UsuariosOrganizacaoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>
+          }
+          createMany: {
+            args: Prisma.UsuariosOrganizacaoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.UsuariosOrganizacaoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>
+          }
+          update: {
+            args: Prisma.UsuariosOrganizacaoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>
+          }
+          deleteMany: {
+            args: Prisma.UsuariosOrganizacaoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UsuariosOrganizacaoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UsuariosOrganizacaoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsuariosOrganizacaoPayload>
+          }
+          aggregate: {
+            args: Prisma.UsuariosOrganizacaoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUsuariosOrganizacao>
+          }
+          groupBy: {
+            args: Prisma.UsuariosOrganizacaoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UsuariosOrganizacaoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UsuariosOrganizacaoCountArgs<ExtArgs>
+            result: $Utils.Optional<UsuariosOrganizacaoCountAggregateOutputType> | number
           }
         }
       }
@@ -1339,6 +1421,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     admins?: AdminsOmit
     organizacao?: OrganizacaoOmit
+    usuariosOrganizacao?: UsuariosOrganizacaoOmit
     chavesApi?: ChavesApiOmit
     usuarios?: UsuariosOmit
     jwtToken?: JwtTokenOmit
@@ -1440,10 +1523,12 @@ export namespace Prisma {
 
   export type OrganizacaoCountOutputType = {
     ChavesApi: number
+    UsuariosOrganizacao: number
   }
 
   export type OrganizacaoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ChavesApi?: boolean | OrganizacaoCountOutputTypeCountChavesApiArgs
+    UsuariosOrganizacao?: boolean | OrganizacaoCountOutputTypeCountUsuariosOrganizacaoArgs
   }
 
   // Custom InputTypes
@@ -1464,23 +1549,30 @@ export namespace Prisma {
     where?: ChavesApiWhereInput
   }
 
+  /**
+   * OrganizacaoCountOutputType without action
+   */
+  export type OrganizacaoCountOutputTypeCountUsuariosOrganizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsuariosOrganizacaoWhereInput
+  }
+
 
   /**
    * Count Type UsuariosCountOutputType
    */
 
   export type UsuariosCountOutputType = {
-    Organizacao: number
     ChavesApi: number
     JwtToken: number
     Templates: number
+    UsuariosOrganizacao: number
   }
 
   export type UsuariosCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Organizacao?: boolean | UsuariosCountOutputTypeCountOrganizacaoArgs
     ChavesApi?: boolean | UsuariosCountOutputTypeCountChavesApiArgs
     JwtToken?: boolean | UsuariosCountOutputTypeCountJwtTokenArgs
     Templates?: boolean | UsuariosCountOutputTypeCountTemplatesArgs
+    UsuariosOrganizacao?: boolean | UsuariosCountOutputTypeCountUsuariosOrganizacaoArgs
   }
 
   // Custom InputTypes
@@ -1492,13 +1584,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the UsuariosCountOutputType
      */
     select?: UsuariosCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * UsuariosCountOutputType without action
-   */
-  export type UsuariosCountOutputTypeCountOrganizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OrganizacaoWhereInput
   }
 
   /**
@@ -1520,6 +1605,13 @@ export namespace Prisma {
    */
   export type UsuariosCountOutputTypeCountTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TemplatesWhereInput
+  }
+
+  /**
+   * UsuariosCountOutputType without action
+   */
+  export type UsuariosCountOutputTypeCountUsuariosOrganizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsuariosOrganizacaoWhereInput
   }
 
 
@@ -2477,12 +2569,10 @@ export namespace Prisma {
 
   export type OrganizacaoAvgAggregateOutputType = {
     id: number | null
-    usuariosId: number | null
   }
 
   export type OrganizacaoSumAggregateOutputType = {
     id: number | null
-    usuariosId: number | null
   }
 
   export type OrganizacaoMinAggregateOutputType = {
@@ -2490,7 +2580,6 @@ export namespace Prisma {
     nome_organizacao: string | null
     usuario_criacao: string | null
     is_ativo: boolean | null
-    usuariosId: number | null
   }
 
   export type OrganizacaoMaxAggregateOutputType = {
@@ -2498,7 +2587,6 @@ export namespace Prisma {
     nome_organizacao: string | null
     usuario_criacao: string | null
     is_ativo: boolean | null
-    usuariosId: number | null
   }
 
   export type OrganizacaoCountAggregateOutputType = {
@@ -2506,19 +2594,16 @@ export namespace Prisma {
     nome_organizacao: number
     usuario_criacao: number
     is_ativo: number
-    usuariosId: number
     _all: number
   }
 
 
   export type OrganizacaoAvgAggregateInputType = {
     id?: true
-    usuariosId?: true
   }
 
   export type OrganizacaoSumAggregateInputType = {
     id?: true
-    usuariosId?: true
   }
 
   export type OrganizacaoMinAggregateInputType = {
@@ -2526,7 +2611,6 @@ export namespace Prisma {
     nome_organizacao?: true
     usuario_criacao?: true
     is_ativo?: true
-    usuariosId?: true
   }
 
   export type OrganizacaoMaxAggregateInputType = {
@@ -2534,7 +2618,6 @@ export namespace Prisma {
     nome_organizacao?: true
     usuario_criacao?: true
     is_ativo?: true
-    usuariosId?: true
   }
 
   export type OrganizacaoCountAggregateInputType = {
@@ -2542,7 +2625,6 @@ export namespace Prisma {
     nome_organizacao?: true
     usuario_criacao?: true
     is_ativo?: true
-    usuariosId?: true
     _all?: true
   }
 
@@ -2637,7 +2719,6 @@ export namespace Prisma {
     nome_organizacao: string
     usuario_criacao: string
     is_ativo: boolean
-    usuariosId: number
     _count: OrganizacaoCountAggregateOutputType | null
     _avg: OrganizacaoAvgAggregateOutputType | null
     _sum: OrganizacaoSumAggregateOutputType | null
@@ -2664,9 +2745,8 @@ export namespace Prisma {
     nome_organizacao?: boolean
     usuario_criacao?: boolean
     is_ativo?: boolean
-    usuariosId?: boolean
-    id_usuario?: boolean | Organizacao$id_usuarioArgs<ExtArgs>
     ChavesApi?: boolean | Organizacao$ChavesApiArgs<ExtArgs>
+    UsuariosOrganizacao?: boolean | Organizacao$UsuariosOrganizacaoArgs<ExtArgs>
     _count?: boolean | OrganizacaoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["organizacao"]>
 
@@ -2677,28 +2757,26 @@ export namespace Prisma {
     nome_organizacao?: boolean
     usuario_criacao?: boolean
     is_ativo?: boolean
-    usuariosId?: boolean
   }
 
-  export type OrganizacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome_organizacao" | "usuario_criacao" | "is_ativo" | "usuariosId", ExtArgs["result"]["organizacao"]>
+  export type OrganizacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome_organizacao" | "usuario_criacao" | "is_ativo", ExtArgs["result"]["organizacao"]>
   export type OrganizacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    id_usuario?: boolean | Organizacao$id_usuarioArgs<ExtArgs>
     ChavesApi?: boolean | Organizacao$ChavesApiArgs<ExtArgs>
+    UsuariosOrganizacao?: boolean | Organizacao$UsuariosOrganizacaoArgs<ExtArgs>
     _count?: boolean | OrganizacaoCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $OrganizacaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Organizacao"
     objects: {
-      id_usuario: Prisma.$UsuariosPayload<ExtArgs> | null
       ChavesApi: Prisma.$ChavesApiPayload<ExtArgs>[]
+      UsuariosOrganizacao: Prisma.$UsuariosOrganizacaoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nome_organizacao: string
       usuario_criacao: string
       is_ativo: boolean
-      usuariosId: number
     }, ExtArgs["result"]["organizacao"]>
     composites: {}
   }
@@ -3039,8 +3117,8 @@ export namespace Prisma {
    */
   export interface Prisma__OrganizacaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    id_usuario<T extends Organizacao$id_usuarioArgs<ExtArgs> = {}>(args?: Subset<T, Organizacao$id_usuarioArgs<ExtArgs>>): Prisma__UsuariosClient<$Result.GetResult<Prisma.$UsuariosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     ChavesApi<T extends Organizacao$ChavesApiArgs<ExtArgs> = {}>(args?: Subset<T, Organizacao$ChavesApiArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChavesApiPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    UsuariosOrganizacao<T extends Organizacao$UsuariosOrganizacaoArgs<ExtArgs> = {}>(args?: Subset<T, Organizacao$UsuariosOrganizacaoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3074,7 +3152,6 @@ export namespace Prisma {
     readonly nome_organizacao: FieldRef<"Organizacao", 'String'>
     readonly usuario_criacao: FieldRef<"Organizacao", 'String'>
     readonly is_ativo: FieldRef<"Organizacao", 'Boolean'>
-    readonly usuariosId: FieldRef<"Organizacao", 'Int'>
   }
     
 
@@ -3418,25 +3495,6 @@ export namespace Prisma {
   }
 
   /**
-   * Organizacao.id_usuario
-   */
-  export type Organizacao$id_usuarioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Usuarios
-     */
-    select?: UsuariosSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Usuarios
-     */
-    omit?: UsuariosOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UsuariosInclude<ExtArgs> | null
-    where?: UsuariosWhereInput
-  }
-
-  /**
    * Organizacao.ChavesApi
    */
   export type Organizacao$ChavesApiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3461,6 +3519,30 @@ export namespace Prisma {
   }
 
   /**
+   * Organizacao.UsuariosOrganizacao
+   */
+  export type Organizacao$UsuariosOrganizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    where?: UsuariosOrganizacaoWhereInput
+    orderBy?: UsuariosOrganizacaoOrderByWithRelationInput | UsuariosOrganizacaoOrderByWithRelationInput[]
+    cursor?: UsuariosOrganizacaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UsuariosOrganizacaoScalarFieldEnum | UsuariosOrganizacaoScalarFieldEnum[]
+  }
+
+  /**
    * Organizacao without action
    */
   export type OrganizacaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3476,6 +3558,959 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: OrganizacaoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UsuariosOrganizacao
+   */
+
+  export type AggregateUsuariosOrganizacao = {
+    _count: UsuariosOrganizacaoCountAggregateOutputType | null
+    _avg: UsuariosOrganizacaoAvgAggregateOutputType | null
+    _sum: UsuariosOrganizacaoSumAggregateOutputType | null
+    _min: UsuariosOrganizacaoMinAggregateOutputType | null
+    _max: UsuariosOrganizacaoMaxAggregateOutputType | null
+  }
+
+  export type UsuariosOrganizacaoAvgAggregateOutputType = {
+    id: number | null
+    organizacaoId: number | null
+    usuariosId: number | null
+  }
+
+  export type UsuariosOrganizacaoSumAggregateOutputType = {
+    id: number | null
+    organizacaoId: number | null
+    usuariosId: number | null
+  }
+
+  export type UsuariosOrganizacaoMinAggregateOutputType = {
+    id: number | null
+    organizacaoId: number | null
+    usuariosId: number | null
+  }
+
+  export type UsuariosOrganizacaoMaxAggregateOutputType = {
+    id: number | null
+    organizacaoId: number | null
+    usuariosId: number | null
+  }
+
+  export type UsuariosOrganizacaoCountAggregateOutputType = {
+    id: number
+    organizacaoId: number
+    usuariosId: number
+    _all: number
+  }
+
+
+  export type UsuariosOrganizacaoAvgAggregateInputType = {
+    id?: true
+    organizacaoId?: true
+    usuariosId?: true
+  }
+
+  export type UsuariosOrganizacaoSumAggregateInputType = {
+    id?: true
+    organizacaoId?: true
+    usuariosId?: true
+  }
+
+  export type UsuariosOrganizacaoMinAggregateInputType = {
+    id?: true
+    organizacaoId?: true
+    usuariosId?: true
+  }
+
+  export type UsuariosOrganizacaoMaxAggregateInputType = {
+    id?: true
+    organizacaoId?: true
+    usuariosId?: true
+  }
+
+  export type UsuariosOrganizacaoCountAggregateInputType = {
+    id?: true
+    organizacaoId?: true
+    usuariosId?: true
+    _all?: true
+  }
+
+  export type UsuariosOrganizacaoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UsuariosOrganizacao to aggregate.
+     */
+    where?: UsuariosOrganizacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsuariosOrganizacaos to fetch.
+     */
+    orderBy?: UsuariosOrganizacaoOrderByWithRelationInput | UsuariosOrganizacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UsuariosOrganizacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsuariosOrganizacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsuariosOrganizacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UsuariosOrganizacaos
+    **/
+    _count?: true | UsuariosOrganizacaoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UsuariosOrganizacaoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UsuariosOrganizacaoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UsuariosOrganizacaoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UsuariosOrganizacaoMaxAggregateInputType
+  }
+
+  export type GetUsuariosOrganizacaoAggregateType<T extends UsuariosOrganizacaoAggregateArgs> = {
+        [P in keyof T & keyof AggregateUsuariosOrganizacao]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUsuariosOrganizacao[P]>
+      : GetScalarType<T[P], AggregateUsuariosOrganizacao[P]>
+  }
+
+
+
+
+  export type UsuariosOrganizacaoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsuariosOrganizacaoWhereInput
+    orderBy?: UsuariosOrganizacaoOrderByWithAggregationInput | UsuariosOrganizacaoOrderByWithAggregationInput[]
+    by: UsuariosOrganizacaoScalarFieldEnum[] | UsuariosOrganizacaoScalarFieldEnum
+    having?: UsuariosOrganizacaoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UsuariosOrganizacaoCountAggregateInputType | true
+    _avg?: UsuariosOrganizacaoAvgAggregateInputType
+    _sum?: UsuariosOrganizacaoSumAggregateInputType
+    _min?: UsuariosOrganizacaoMinAggregateInputType
+    _max?: UsuariosOrganizacaoMaxAggregateInputType
+  }
+
+  export type UsuariosOrganizacaoGroupByOutputType = {
+    id: number
+    organizacaoId: number
+    usuariosId: number
+    _count: UsuariosOrganizacaoCountAggregateOutputType | null
+    _avg: UsuariosOrganizacaoAvgAggregateOutputType | null
+    _sum: UsuariosOrganizacaoSumAggregateOutputType | null
+    _min: UsuariosOrganizacaoMinAggregateOutputType | null
+    _max: UsuariosOrganizacaoMaxAggregateOutputType | null
+  }
+
+  type GetUsuariosOrganizacaoGroupByPayload<T extends UsuariosOrganizacaoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UsuariosOrganizacaoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UsuariosOrganizacaoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UsuariosOrganizacaoGroupByOutputType[P]>
+            : GetScalarType<T[P], UsuariosOrganizacaoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UsuariosOrganizacaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organizacaoId?: boolean
+    usuariosId?: boolean
+    id_usuario?: boolean | UsuariosDefaultArgs<ExtArgs>
+    id_organizacao?: boolean | OrganizacaoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["usuariosOrganizacao"]>
+
+
+
+  export type UsuariosOrganizacaoSelectScalar = {
+    id?: boolean
+    organizacaoId?: boolean
+    usuariosId?: boolean
+  }
+
+  export type UsuariosOrganizacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organizacaoId" | "usuariosId", ExtArgs["result"]["usuariosOrganizacao"]>
+  export type UsuariosOrganizacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    id_usuario?: boolean | UsuariosDefaultArgs<ExtArgs>
+    id_organizacao?: boolean | OrganizacaoDefaultArgs<ExtArgs>
+  }
+
+  export type $UsuariosOrganizacaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UsuariosOrganizacao"
+    objects: {
+      id_usuario: Prisma.$UsuariosPayload<ExtArgs>
+      id_organizacao: Prisma.$OrganizacaoPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      organizacaoId: number
+      usuariosId: number
+    }, ExtArgs["result"]["usuariosOrganizacao"]>
+    composites: {}
+  }
+
+  type UsuariosOrganizacaoGetPayload<S extends boolean | null | undefined | UsuariosOrganizacaoDefaultArgs> = $Result.GetResult<Prisma.$UsuariosOrganizacaoPayload, S>
+
+  type UsuariosOrganizacaoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UsuariosOrganizacaoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UsuariosOrganizacaoCountAggregateInputType | true
+    }
+
+  export interface UsuariosOrganizacaoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UsuariosOrganizacao'], meta: { name: 'UsuariosOrganizacao' } }
+    /**
+     * Find zero or one UsuariosOrganizacao that matches the filter.
+     * @param {UsuariosOrganizacaoFindUniqueArgs} args - Arguments to find a UsuariosOrganizacao
+     * @example
+     * // Get one UsuariosOrganizacao
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UsuariosOrganizacaoFindUniqueArgs>(args: SelectSubset<T, UsuariosOrganizacaoFindUniqueArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one UsuariosOrganizacao that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UsuariosOrganizacaoFindUniqueOrThrowArgs} args - Arguments to find a UsuariosOrganizacao
+     * @example
+     * // Get one UsuariosOrganizacao
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UsuariosOrganizacaoFindUniqueOrThrowArgs>(args: SelectSubset<T, UsuariosOrganizacaoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first UsuariosOrganizacao that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoFindFirstArgs} args - Arguments to find a UsuariosOrganizacao
+     * @example
+     * // Get one UsuariosOrganizacao
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UsuariosOrganizacaoFindFirstArgs>(args?: SelectSubset<T, UsuariosOrganizacaoFindFirstArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first UsuariosOrganizacao that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoFindFirstOrThrowArgs} args - Arguments to find a UsuariosOrganizacao
+     * @example
+     * // Get one UsuariosOrganizacao
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UsuariosOrganizacaoFindFirstOrThrowArgs>(args?: SelectSubset<T, UsuariosOrganizacaoFindFirstOrThrowArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more UsuariosOrganizacaos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UsuariosOrganizacaos
+     * const usuariosOrganizacaos = await prisma.usuariosOrganizacao.findMany()
+     * 
+     * // Get first 10 UsuariosOrganizacaos
+     * const usuariosOrganizacaos = await prisma.usuariosOrganizacao.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const usuariosOrganizacaoWithIdOnly = await prisma.usuariosOrganizacao.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UsuariosOrganizacaoFindManyArgs>(args?: SelectSubset<T, UsuariosOrganizacaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a UsuariosOrganizacao.
+     * @param {UsuariosOrganizacaoCreateArgs} args - Arguments to create a UsuariosOrganizacao.
+     * @example
+     * // Create one UsuariosOrganizacao
+     * const UsuariosOrganizacao = await prisma.usuariosOrganizacao.create({
+     *   data: {
+     *     // ... data to create a UsuariosOrganizacao
+     *   }
+     * })
+     * 
+     */
+    create<T extends UsuariosOrganizacaoCreateArgs>(args: SelectSubset<T, UsuariosOrganizacaoCreateArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many UsuariosOrganizacaos.
+     * @param {UsuariosOrganizacaoCreateManyArgs} args - Arguments to create many UsuariosOrganizacaos.
+     * @example
+     * // Create many UsuariosOrganizacaos
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UsuariosOrganizacaoCreateManyArgs>(args?: SelectSubset<T, UsuariosOrganizacaoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UsuariosOrganizacao.
+     * @param {UsuariosOrganizacaoDeleteArgs} args - Arguments to delete one UsuariosOrganizacao.
+     * @example
+     * // Delete one UsuariosOrganizacao
+     * const UsuariosOrganizacao = await prisma.usuariosOrganizacao.delete({
+     *   where: {
+     *     // ... filter to delete one UsuariosOrganizacao
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UsuariosOrganizacaoDeleteArgs>(args: SelectSubset<T, UsuariosOrganizacaoDeleteArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one UsuariosOrganizacao.
+     * @param {UsuariosOrganizacaoUpdateArgs} args - Arguments to update one UsuariosOrganizacao.
+     * @example
+     * // Update one UsuariosOrganizacao
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UsuariosOrganizacaoUpdateArgs>(args: SelectSubset<T, UsuariosOrganizacaoUpdateArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more UsuariosOrganizacaos.
+     * @param {UsuariosOrganizacaoDeleteManyArgs} args - Arguments to filter UsuariosOrganizacaos to delete.
+     * @example
+     * // Delete a few UsuariosOrganizacaos
+     * const { count } = await prisma.usuariosOrganizacao.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UsuariosOrganizacaoDeleteManyArgs>(args?: SelectSubset<T, UsuariosOrganizacaoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UsuariosOrganizacaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UsuariosOrganizacaos
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UsuariosOrganizacaoUpdateManyArgs>(args: SelectSubset<T, UsuariosOrganizacaoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UsuariosOrganizacao.
+     * @param {UsuariosOrganizacaoUpsertArgs} args - Arguments to update or create a UsuariosOrganizacao.
+     * @example
+     * // Update or create a UsuariosOrganizacao
+     * const usuariosOrganizacao = await prisma.usuariosOrganizacao.upsert({
+     *   create: {
+     *     // ... data to create a UsuariosOrganizacao
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UsuariosOrganizacao we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UsuariosOrganizacaoUpsertArgs>(args: SelectSubset<T, UsuariosOrganizacaoUpsertArgs<ExtArgs>>): Prisma__UsuariosOrganizacaoClient<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of UsuariosOrganizacaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoCountArgs} args - Arguments to filter UsuariosOrganizacaos to count.
+     * @example
+     * // Count the number of UsuariosOrganizacaos
+     * const count = await prisma.usuariosOrganizacao.count({
+     *   where: {
+     *     // ... the filter for the UsuariosOrganizacaos we want to count
+     *   }
+     * })
+    **/
+    count<T extends UsuariosOrganizacaoCountArgs>(
+      args?: Subset<T, UsuariosOrganizacaoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UsuariosOrganizacaoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UsuariosOrganizacao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UsuariosOrganizacaoAggregateArgs>(args: Subset<T, UsuariosOrganizacaoAggregateArgs>): Prisma.PrismaPromise<GetUsuariosOrganizacaoAggregateType<T>>
+
+    /**
+     * Group by UsuariosOrganizacao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsuariosOrganizacaoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UsuariosOrganizacaoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UsuariosOrganizacaoGroupByArgs['orderBy'] }
+        : { orderBy?: UsuariosOrganizacaoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UsuariosOrganizacaoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUsuariosOrganizacaoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UsuariosOrganizacao model
+   */
+  readonly fields: UsuariosOrganizacaoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UsuariosOrganizacao.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UsuariosOrganizacaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    id_usuario<T extends UsuariosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuariosDefaultArgs<ExtArgs>>): Prisma__UsuariosClient<$Result.GetResult<Prisma.$UsuariosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    id_organizacao<T extends OrganizacaoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganizacaoDefaultArgs<ExtArgs>>): Prisma__OrganizacaoClient<$Result.GetResult<Prisma.$OrganizacaoPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UsuariosOrganizacao model
+   */ 
+  interface UsuariosOrganizacaoFieldRefs {
+    readonly id: FieldRef<"UsuariosOrganizacao", 'Int'>
+    readonly organizacaoId: FieldRef<"UsuariosOrganizacao", 'Int'>
+    readonly usuariosId: FieldRef<"UsuariosOrganizacao", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UsuariosOrganizacao findUnique
+   */
+  export type UsuariosOrganizacaoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which UsuariosOrganizacao to fetch.
+     */
+    where: UsuariosOrganizacaoWhereUniqueInput
+  }
+
+  /**
+   * UsuariosOrganizacao findUniqueOrThrow
+   */
+  export type UsuariosOrganizacaoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which UsuariosOrganizacao to fetch.
+     */
+    where: UsuariosOrganizacaoWhereUniqueInput
+  }
+
+  /**
+   * UsuariosOrganizacao findFirst
+   */
+  export type UsuariosOrganizacaoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which UsuariosOrganizacao to fetch.
+     */
+    where?: UsuariosOrganizacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsuariosOrganizacaos to fetch.
+     */
+    orderBy?: UsuariosOrganizacaoOrderByWithRelationInput | UsuariosOrganizacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UsuariosOrganizacaos.
+     */
+    cursor?: UsuariosOrganizacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsuariosOrganizacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsuariosOrganizacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UsuariosOrganizacaos.
+     */
+    distinct?: UsuariosOrganizacaoScalarFieldEnum | UsuariosOrganizacaoScalarFieldEnum[]
+  }
+
+  /**
+   * UsuariosOrganizacao findFirstOrThrow
+   */
+  export type UsuariosOrganizacaoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which UsuariosOrganizacao to fetch.
+     */
+    where?: UsuariosOrganizacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsuariosOrganizacaos to fetch.
+     */
+    orderBy?: UsuariosOrganizacaoOrderByWithRelationInput | UsuariosOrganizacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UsuariosOrganizacaos.
+     */
+    cursor?: UsuariosOrganizacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsuariosOrganizacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsuariosOrganizacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UsuariosOrganizacaos.
+     */
+    distinct?: UsuariosOrganizacaoScalarFieldEnum | UsuariosOrganizacaoScalarFieldEnum[]
+  }
+
+  /**
+   * UsuariosOrganizacao findMany
+   */
+  export type UsuariosOrganizacaoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which UsuariosOrganizacaos to fetch.
+     */
+    where?: UsuariosOrganizacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsuariosOrganizacaos to fetch.
+     */
+    orderBy?: UsuariosOrganizacaoOrderByWithRelationInput | UsuariosOrganizacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UsuariosOrganizacaos.
+     */
+    cursor?: UsuariosOrganizacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsuariosOrganizacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsuariosOrganizacaos.
+     */
+    skip?: number
+    distinct?: UsuariosOrganizacaoScalarFieldEnum | UsuariosOrganizacaoScalarFieldEnum[]
+  }
+
+  /**
+   * UsuariosOrganizacao create
+   */
+  export type UsuariosOrganizacaoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UsuariosOrganizacao.
+     */
+    data: XOR<UsuariosOrganizacaoCreateInput, UsuariosOrganizacaoUncheckedCreateInput>
+  }
+
+  /**
+   * UsuariosOrganizacao createMany
+   */
+  export type UsuariosOrganizacaoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UsuariosOrganizacaos.
+     */
+    data: UsuariosOrganizacaoCreateManyInput | UsuariosOrganizacaoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UsuariosOrganizacao update
+   */
+  export type UsuariosOrganizacaoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UsuariosOrganizacao.
+     */
+    data: XOR<UsuariosOrganizacaoUpdateInput, UsuariosOrganizacaoUncheckedUpdateInput>
+    /**
+     * Choose, which UsuariosOrganizacao to update.
+     */
+    where: UsuariosOrganizacaoWhereUniqueInput
+  }
+
+  /**
+   * UsuariosOrganizacao updateMany
+   */
+  export type UsuariosOrganizacaoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UsuariosOrganizacaos.
+     */
+    data: XOR<UsuariosOrganizacaoUpdateManyMutationInput, UsuariosOrganizacaoUncheckedUpdateManyInput>
+    /**
+     * Filter which UsuariosOrganizacaos to update
+     */
+    where?: UsuariosOrganizacaoWhereInput
+    /**
+     * Limit how many UsuariosOrganizacaos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UsuariosOrganizacao upsert
+   */
+  export type UsuariosOrganizacaoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UsuariosOrganizacao to update in case it exists.
+     */
+    where: UsuariosOrganizacaoWhereUniqueInput
+    /**
+     * In case the UsuariosOrganizacao found by the `where` argument doesn't exist, create a new UsuariosOrganizacao with this data.
+     */
+    create: XOR<UsuariosOrganizacaoCreateInput, UsuariosOrganizacaoUncheckedCreateInput>
+    /**
+     * In case the UsuariosOrganizacao was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UsuariosOrganizacaoUpdateInput, UsuariosOrganizacaoUncheckedUpdateInput>
+  }
+
+  /**
+   * UsuariosOrganizacao delete
+   */
+  export type UsuariosOrganizacaoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    /**
+     * Filter which UsuariosOrganizacao to delete.
+     */
+    where: UsuariosOrganizacaoWhereUniqueInput
+  }
+
+  /**
+   * UsuariosOrganizacao deleteMany
+   */
+  export type UsuariosOrganizacaoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UsuariosOrganizacaos to delete
+     */
+    where?: UsuariosOrganizacaoWhereInput
+    /**
+     * Limit how many UsuariosOrganizacaos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UsuariosOrganizacao without action
+   */
+  export type UsuariosOrganizacaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
   }
 
 
@@ -4678,7 +5713,7 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date
     tipo_acesso: string
-    is_ativo: boolean | null
+    is_ativo: boolean
     _count: UsuariosCountAggregateOutputType | null
     _avg: UsuariosAvgAggregateOutputType | null
     _sum: UsuariosSumAggregateOutputType | null
@@ -4711,10 +5746,10 @@ export namespace Prisma {
     updated_at?: boolean
     tipo_acesso?: boolean
     is_ativo?: boolean
-    Organizacao?: boolean | Usuarios$OrganizacaoArgs<ExtArgs>
     ChavesApi?: boolean | Usuarios$ChavesApiArgs<ExtArgs>
     JwtToken?: boolean | Usuarios$JwtTokenArgs<ExtArgs>
     Templates?: boolean | Usuarios$TemplatesArgs<ExtArgs>
+    UsuariosOrganizacao?: boolean | Usuarios$UsuariosOrganizacaoArgs<ExtArgs>
     _count?: boolean | UsuariosCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios"]>
 
@@ -4735,20 +5770,20 @@ export namespace Prisma {
 
   export type UsuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "email" | "nascimento" | "senha" | "token" | "created_at" | "updated_at" | "tipo_acesso" | "is_ativo", ExtArgs["result"]["usuarios"]>
   export type UsuariosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Organizacao?: boolean | Usuarios$OrganizacaoArgs<ExtArgs>
     ChavesApi?: boolean | Usuarios$ChavesApiArgs<ExtArgs>
     JwtToken?: boolean | Usuarios$JwtTokenArgs<ExtArgs>
     Templates?: boolean | Usuarios$TemplatesArgs<ExtArgs>
+    UsuariosOrganizacao?: boolean | Usuarios$UsuariosOrganizacaoArgs<ExtArgs>
     _count?: boolean | UsuariosCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $UsuariosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Usuarios"
     objects: {
-      Organizacao: Prisma.$OrganizacaoPayload<ExtArgs>[]
       ChavesApi: Prisma.$ChavesApiPayload<ExtArgs>[]
       JwtToken: Prisma.$JwtTokenPayload<ExtArgs>[]
       Templates: Prisma.$TemplatesPayload<ExtArgs>[]
+      UsuariosOrganizacao: Prisma.$UsuariosOrganizacaoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4760,7 +5795,7 @@ export namespace Prisma {
       created_at: Date
       updated_at: Date
       tipo_acesso: string
-      is_ativo: boolean | null
+      is_ativo: boolean
     }, ExtArgs["result"]["usuarios"]>
     composites: {}
   }
@@ -5101,10 +6136,10 @@ export namespace Prisma {
    */
   export interface Prisma__UsuariosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    Organizacao<T extends Usuarios$OrganizacaoArgs<ExtArgs> = {}>(args?: Subset<T, Usuarios$OrganizacaoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganizacaoPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     ChavesApi<T extends Usuarios$ChavesApiArgs<ExtArgs> = {}>(args?: Subset<T, Usuarios$ChavesApiArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChavesApiPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     JwtToken<T extends Usuarios$JwtTokenArgs<ExtArgs> = {}>(args?: Subset<T, Usuarios$JwtTokenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JwtTokenPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     Templates<T extends Usuarios$TemplatesArgs<ExtArgs> = {}>(args?: Subset<T, Usuarios$TemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplatesPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    UsuariosOrganizacao<T extends Usuarios$UsuariosOrganizacaoArgs<ExtArgs> = {}>(args?: Subset<T, Usuarios$UsuariosOrganizacaoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuariosOrganizacaoPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5487,30 +6522,6 @@ export namespace Prisma {
   }
 
   /**
-   * Usuarios.Organizacao
-   */
-  export type Usuarios$OrganizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Organizacao
-     */
-    select?: OrganizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Organizacao
-     */
-    omit?: OrganizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OrganizacaoInclude<ExtArgs> | null
-    where?: OrganizacaoWhereInput
-    orderBy?: OrganizacaoOrderByWithRelationInput | OrganizacaoOrderByWithRelationInput[]
-    cursor?: OrganizacaoWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: OrganizacaoScalarFieldEnum | OrganizacaoScalarFieldEnum[]
-  }
-
-  /**
    * Usuarios.ChavesApi
    */
   export type Usuarios$ChavesApiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5580,6 +6591,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TemplatesScalarFieldEnum | TemplatesScalarFieldEnum[]
+  }
+
+  /**
+   * Usuarios.UsuariosOrganizacao
+   */
+  export type Usuarios$UsuariosOrganizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuariosOrganizacao
+     */
+    select?: UsuariosOrganizacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsuariosOrganizacao
+     */
+    omit?: UsuariosOrganizacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuariosOrganizacaoInclude<ExtArgs> | null
+    where?: UsuariosOrganizacaoWhereInput
+    orderBy?: UsuariosOrganizacaoOrderByWithRelationInput | UsuariosOrganizacaoOrderByWithRelationInput[]
+    cursor?: UsuariosOrganizacaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UsuariosOrganizacaoScalarFieldEnum | UsuariosOrganizacaoScalarFieldEnum[]
   }
 
   /**
@@ -9414,11 +10449,19 @@ export namespace Prisma {
     id: 'id',
     nome_organizacao: 'nome_organizacao',
     usuario_criacao: 'usuario_criacao',
-    is_ativo: 'is_ativo',
-    usuariosId: 'usuariosId'
+    is_ativo: 'is_ativo'
   };
 
   export type OrganizacaoScalarFieldEnum = (typeof OrganizacaoScalarFieldEnum)[keyof typeof OrganizacaoScalarFieldEnum]
+
+
+  export const UsuariosOrganizacaoScalarFieldEnum: {
+    id: 'id',
+    organizacaoId: 'organizacaoId',
+    usuariosId: 'usuariosId'
+  };
+
+  export type UsuariosOrganizacaoScalarFieldEnum = (typeof UsuariosOrganizacaoScalarFieldEnum)[keyof typeof UsuariosOrganizacaoScalarFieldEnum]
 
 
   export const ChavesApiScalarFieldEnum: {
@@ -9653,9 +10696,8 @@ export namespace Prisma {
     nome_organizacao?: StringFilter<"Organizacao"> | string
     usuario_criacao?: StringFilter<"Organizacao"> | string
     is_ativo?: BoolFilter<"Organizacao"> | boolean
-    usuariosId?: IntFilter<"Organizacao"> | number
-    id_usuario?: XOR<UsuariosNullableScalarRelationFilter, UsuariosWhereInput> | null
     ChavesApi?: ChavesApiListRelationFilter
+    UsuariosOrganizacao?: UsuariosOrganizacaoListRelationFilter
   }
 
   export type OrganizacaoOrderByWithRelationInput = {
@@ -9663,9 +10705,8 @@ export namespace Prisma {
     nome_organizacao?: SortOrder
     usuario_criacao?: SortOrder
     is_ativo?: SortOrder
-    usuariosId?: SortOrder
-    id_usuario?: UsuariosOrderByWithRelationInput
     ChavesApi?: ChavesApiOrderByRelationAggregateInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoOrderByRelationAggregateInput
     _relevance?: OrganizacaoOrderByRelevanceInput
   }
 
@@ -9677,9 +10718,8 @@ export namespace Prisma {
     nome_organizacao?: StringFilter<"Organizacao"> | string
     usuario_criacao?: StringFilter<"Organizacao"> | string
     is_ativo?: BoolFilter<"Organizacao"> | boolean
-    usuariosId?: IntFilter<"Organizacao"> | number
-    id_usuario?: XOR<UsuariosNullableScalarRelationFilter, UsuariosWhereInput> | null
     ChavesApi?: ChavesApiListRelationFilter
+    UsuariosOrganizacao?: UsuariosOrganizacaoListRelationFilter
   }, "id">
 
   export type OrganizacaoOrderByWithAggregationInput = {
@@ -9687,7 +10727,6 @@ export namespace Prisma {
     nome_organizacao?: SortOrder
     usuario_criacao?: SortOrder
     is_ativo?: SortOrder
-    usuariosId?: SortOrder
     _count?: OrganizacaoCountOrderByAggregateInput
     _avg?: OrganizacaoAvgOrderByAggregateInput
     _max?: OrganizacaoMaxOrderByAggregateInput
@@ -9703,7 +10742,56 @@ export namespace Prisma {
     nome_organizacao?: StringWithAggregatesFilter<"Organizacao"> | string
     usuario_criacao?: StringWithAggregatesFilter<"Organizacao"> | string
     is_ativo?: BoolWithAggregatesFilter<"Organizacao"> | boolean
-    usuariosId?: IntWithAggregatesFilter<"Organizacao"> | number
+  }
+
+  export type UsuariosOrganizacaoWhereInput = {
+    AND?: UsuariosOrganizacaoWhereInput | UsuariosOrganizacaoWhereInput[]
+    OR?: UsuariosOrganizacaoWhereInput[]
+    NOT?: UsuariosOrganizacaoWhereInput | UsuariosOrganizacaoWhereInput[]
+    id?: IntFilter<"UsuariosOrganizacao"> | number
+    organizacaoId?: IntFilter<"UsuariosOrganizacao"> | number
+    usuariosId?: IntFilter<"UsuariosOrganizacao"> | number
+    id_usuario?: XOR<UsuariosScalarRelationFilter, UsuariosWhereInput>
+    id_organizacao?: XOR<OrganizacaoScalarRelationFilter, OrganizacaoWhereInput>
+  }
+
+  export type UsuariosOrganizacaoOrderByWithRelationInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
+    usuariosId?: SortOrder
+    id_usuario?: UsuariosOrderByWithRelationInput
+    id_organizacao?: OrganizacaoOrderByWithRelationInput
+  }
+
+  export type UsuariosOrganizacaoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: UsuariosOrganizacaoWhereInput | UsuariosOrganizacaoWhereInput[]
+    OR?: UsuariosOrganizacaoWhereInput[]
+    NOT?: UsuariosOrganizacaoWhereInput | UsuariosOrganizacaoWhereInput[]
+    organizacaoId?: IntFilter<"UsuariosOrganizacao"> | number
+    usuariosId?: IntFilter<"UsuariosOrganizacao"> | number
+    id_usuario?: XOR<UsuariosScalarRelationFilter, UsuariosWhereInput>
+    id_organizacao?: XOR<OrganizacaoScalarRelationFilter, OrganizacaoWhereInput>
+  }, "id">
+
+  export type UsuariosOrganizacaoOrderByWithAggregationInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
+    usuariosId?: SortOrder
+    _count?: UsuariosOrganizacaoCountOrderByAggregateInput
+    _avg?: UsuariosOrganizacaoAvgOrderByAggregateInput
+    _max?: UsuariosOrganizacaoMaxOrderByAggregateInput
+    _min?: UsuariosOrganizacaoMinOrderByAggregateInput
+    _sum?: UsuariosOrganizacaoSumOrderByAggregateInput
+  }
+
+  export type UsuariosOrganizacaoScalarWhereWithAggregatesInput = {
+    AND?: UsuariosOrganizacaoScalarWhereWithAggregatesInput | UsuariosOrganizacaoScalarWhereWithAggregatesInput[]
+    OR?: UsuariosOrganizacaoScalarWhereWithAggregatesInput[]
+    NOT?: UsuariosOrganizacaoScalarWhereWithAggregatesInput | UsuariosOrganizacaoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"UsuariosOrganizacao"> | number
+    organizacaoId?: IntWithAggregatesFilter<"UsuariosOrganizacao"> | number
+    usuariosId?: IntWithAggregatesFilter<"UsuariosOrganizacao"> | number
   }
 
   export type ChavesApiWhereInput = {
@@ -9780,11 +10868,11 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"Usuarios"> | Date | string
     updated_at?: DateTimeFilter<"Usuarios"> | Date | string
     tipo_acesso?: StringFilter<"Usuarios"> | string
-    is_ativo?: BoolNullableFilter<"Usuarios"> | boolean | null
-    Organizacao?: OrganizacaoListRelationFilter
+    is_ativo?: BoolFilter<"Usuarios"> | boolean
     ChavesApi?: ChavesApiListRelationFilter
     JwtToken?: JwtTokenListRelationFilter
     Templates?: TemplatesListRelationFilter
+    UsuariosOrganizacao?: UsuariosOrganizacaoListRelationFilter
   }
 
   export type UsuariosOrderByWithRelationInput = {
@@ -9797,11 +10885,11 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     tipo_acesso?: SortOrder
-    is_ativo?: SortOrderInput | SortOrder
-    Organizacao?: OrganizacaoOrderByRelationAggregateInput
+    is_ativo?: SortOrder
     ChavesApi?: ChavesApiOrderByRelationAggregateInput
     JwtToken?: JwtTokenOrderByRelationAggregateInput
     Templates?: TemplatesOrderByRelationAggregateInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoOrderByRelationAggregateInput
     _relevance?: UsuariosOrderByRelevanceInput
   }
 
@@ -9818,11 +10906,11 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"Usuarios"> | Date | string
     updated_at?: DateTimeFilter<"Usuarios"> | Date | string
     tipo_acesso?: StringFilter<"Usuarios"> | string
-    is_ativo?: BoolNullableFilter<"Usuarios"> | boolean | null
-    Organizacao?: OrganizacaoListRelationFilter
+    is_ativo?: BoolFilter<"Usuarios"> | boolean
     ChavesApi?: ChavesApiListRelationFilter
     JwtToken?: JwtTokenListRelationFilter
     Templates?: TemplatesListRelationFilter
+    UsuariosOrganizacao?: UsuariosOrganizacaoListRelationFilter
   }, "id" | "email" | "token">
 
   export type UsuariosOrderByWithAggregationInput = {
@@ -9835,7 +10923,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     tipo_acesso?: SortOrder
-    is_ativo?: SortOrderInput | SortOrder
+    is_ativo?: SortOrder
     _count?: UsuariosCountOrderByAggregateInput
     _avg?: UsuariosAvgOrderByAggregateInput
     _max?: UsuariosMaxOrderByAggregateInput
@@ -9856,7 +10944,7 @@ export namespace Prisma {
     created_at?: DateTimeWithAggregatesFilter<"Usuarios"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"Usuarios"> | Date | string
     tipo_acesso?: StringWithAggregatesFilter<"Usuarios"> | string
-    is_ativo?: BoolNullableWithAggregatesFilter<"Usuarios"> | boolean | null
+    is_ativo?: BoolWithAggregatesFilter<"Usuarios"> | boolean
   }
 
   export type JwtTokenWhereInput = {
@@ -10109,8 +11197,8 @@ export namespace Prisma {
     nome_organizacao: string
     usuario_criacao: string
     is_ativo?: boolean
-    id_usuario?: UsuariosCreateNestedOneWithoutOrganizacaoInput
     ChavesApi?: ChavesApiCreateNestedManyWithoutId_organizacaoInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoCreateNestedManyWithoutId_organizacaoInput
   }
 
   export type OrganizacaoUncheckedCreateInput = {
@@ -10118,16 +11206,16 @@ export namespace Prisma {
     nome_organizacao: string
     usuario_criacao: string
     is_ativo?: boolean
-    usuariosId: number
     ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutId_organizacaoInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_organizacaoInput
   }
 
   export type OrganizacaoUpdateInput = {
     nome_organizacao?: StringFieldUpdateOperationsInput | string
     usuario_criacao?: StringFieldUpdateOperationsInput | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
-    id_usuario?: UsuariosUpdateOneWithoutOrganizacaoNestedInput
     ChavesApi?: ChavesApiUpdateManyWithoutId_organizacaoNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUpdateManyWithoutId_organizacaoNestedInput
   }
 
   export type OrganizacaoUncheckedUpdateInput = {
@@ -10135,8 +11223,8 @@ export namespace Prisma {
     nome_organizacao?: StringFieldUpdateOperationsInput | string
     usuario_criacao?: StringFieldUpdateOperationsInput | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
-    usuariosId?: IntFieldUpdateOperationsInput | number
     ChavesApi?: ChavesApiUncheckedUpdateManyWithoutId_organizacaoNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedUpdateManyWithoutId_organizacaoNestedInput
   }
 
   export type OrganizacaoCreateManyInput = {
@@ -10144,7 +11232,6 @@ export namespace Prisma {
     nome_organizacao: string
     usuario_criacao: string
     is_ativo?: boolean
-    usuariosId: number
   }
 
   export type OrganizacaoUpdateManyMutationInput = {
@@ -10158,6 +11245,43 @@ export namespace Prisma {
     nome_organizacao?: StringFieldUpdateOperationsInput | string
     usuario_criacao?: StringFieldUpdateOperationsInput | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type UsuariosOrganizacaoCreateInput = {
+    id_usuario: UsuariosCreateNestedOneWithoutUsuariosOrganizacaoInput
+    id_organizacao: OrganizacaoCreateNestedOneWithoutUsuariosOrganizacaoInput
+  }
+
+  export type UsuariosOrganizacaoUncheckedCreateInput = {
+    id?: number
+    organizacaoId: number
+    usuariosId: number
+  }
+
+  export type UsuariosOrganizacaoUpdateInput = {
+    id_usuario?: UsuariosUpdateOneRequiredWithoutUsuariosOrganizacaoNestedInput
+    id_organizacao?: OrganizacaoUpdateOneRequiredWithoutUsuariosOrganizacaoNestedInput
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    organizacaoId?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UsuariosOrganizacaoCreateManyInput = {
+    id?: number
+    organizacaoId: number
+    usuariosId: number
+  }
+
+  export type UsuariosOrganizacaoUpdateManyMutationInput = {
+
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    organizacaoId?: IntFieldUpdateOperationsInput | number
     usuariosId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -10221,11 +11345,11 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     ChavesApi?: ChavesApiCreateNestedManyWithoutUsuariosInput
     JwtToken?: JwtTokenCreateNestedManyWithoutId_usuarioInput
     Templates?: TemplatesCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosUncheckedCreateInput = {
@@ -10238,11 +11362,11 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutUsuariosInput
     JwtToken?: JwtTokenUncheckedCreateNestedManyWithoutId_usuarioInput
     Templates?: TemplatesUncheckedCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosUpdateInput = {
@@ -10254,11 +11378,11 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     ChavesApi?: ChavesApiUpdateManyWithoutUsuariosNestedInput
     JwtToken?: JwtTokenUpdateManyWithoutId_usuarioNestedInput
     Templates?: TemplatesUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type UsuariosUncheckedUpdateInput = {
@@ -10271,11 +11395,11 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     ChavesApi?: ChavesApiUncheckedUpdateManyWithoutUsuariosNestedInput
     JwtToken?: JwtTokenUncheckedUpdateManyWithoutId_usuarioNestedInput
     Templates?: TemplatesUncheckedUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type UsuariosCreateManyInput = {
@@ -10288,7 +11412,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
+    is_ativo?: boolean
   }
 
   export type UsuariosUpdateManyMutationInput = {
@@ -10300,7 +11424,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UsuariosUncheckedUpdateManyInput = {
@@ -10313,7 +11437,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type JwtTokenCreateInput = {
@@ -10596,18 +11720,23 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type UsuariosNullableScalarRelationFilter = {
-    is?: UsuariosWhereInput | null
-    isNot?: UsuariosWhereInput | null
-  }
-
   export type ChavesApiListRelationFilter = {
     every?: ChavesApiWhereInput
     some?: ChavesApiWhereInput
     none?: ChavesApiWhereInput
   }
 
+  export type UsuariosOrganizacaoListRelationFilter = {
+    every?: UsuariosOrganizacaoWhereInput
+    some?: UsuariosOrganizacaoWhereInput
+    none?: UsuariosOrganizacaoWhereInput
+  }
+
   export type ChavesApiOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UsuariosOrganizacaoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -10622,12 +11751,10 @@ export namespace Prisma {
     nome_organizacao?: SortOrder
     usuario_criacao?: SortOrder
     is_ativo?: SortOrder
-    usuariosId?: SortOrder
   }
 
   export type OrganizacaoAvgOrderByAggregateInput = {
     id?: SortOrder
-    usuariosId?: SortOrder
   }
 
   export type OrganizacaoMaxOrderByAggregateInput = {
@@ -10635,7 +11762,6 @@ export namespace Prisma {
     nome_organizacao?: SortOrder
     usuario_criacao?: SortOrder
     is_ativo?: SortOrder
-    usuariosId?: SortOrder
   }
 
   export type OrganizacaoMinOrderByAggregateInput = {
@@ -10643,11 +11769,49 @@ export namespace Prisma {
     nome_organizacao?: SortOrder
     usuario_criacao?: SortOrder
     is_ativo?: SortOrder
-    usuariosId?: SortOrder
   }
 
   export type OrganizacaoSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type UsuariosScalarRelationFilter = {
+    is?: UsuariosWhereInput
+    isNot?: UsuariosWhereInput
+  }
+
+  export type OrganizacaoScalarRelationFilter = {
+    is?: OrganizacaoWhereInput
+    isNot?: OrganizacaoWhereInput
+  }
+
+  export type UsuariosOrganizacaoCountOrderByAggregateInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
+    usuariosId?: SortOrder
+  }
+
+  export type UsuariosOrganizacaoAvgOrderByAggregateInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
+    usuariosId?: SortOrder
+  }
+
+  export type UsuariosOrganizacaoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
+    usuariosId?: SortOrder
+  }
+
+  export type UsuariosOrganizacaoMinOrderByAggregateInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
+    usuariosId?: SortOrder
+  }
+
+  export type UsuariosOrganizacaoSumOrderByAggregateInput = {
+    id?: SortOrder
+    organizacaoId?: SortOrder
     usuariosId?: SortOrder
   }
 
@@ -10662,9 +11826,9 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type OrganizacaoScalarRelationFilter = {
-    is?: OrganizacaoWhereInput
-    isNot?: OrganizacaoWhereInput
+  export type UsuariosNullableScalarRelationFilter = {
+    is?: UsuariosWhereInput | null
+    isNot?: UsuariosWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -10741,17 +11905,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type BoolNullableFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
-  }
-
-  export type OrganizacaoListRelationFilter = {
-    every?: OrganizacaoWhereInput
-    some?: OrganizacaoWhereInput
-    none?: OrganizacaoWhereInput
-  }
-
   export type JwtTokenListRelationFilter = {
     every?: JwtTokenWhereInput
     some?: JwtTokenWhereInput
@@ -10762,10 +11915,6 @@ export namespace Prisma {
     every?: TemplatesWhereInput
     some?: TemplatesWhereInput
     none?: TemplatesWhereInput
-  }
-
-  export type OrganizacaoOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type JwtTokenOrderByRelationAggregateInput = {
@@ -10841,19 +11990,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBoolNullableFilter<$PrismaModel>
-    _max?: NestedBoolNullableFilter<$PrismaModel>
-  }
-
-  export type UsuariosScalarRelationFilter = {
-    is?: UsuariosWhereInput
-    isNot?: UsuariosWhereInput
   }
 
   export type JwtTokenOrderByRelevanceInput = {
@@ -11017,17 +12153,18 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type UsuariosCreateNestedOneWithoutOrganizacaoInput = {
-    create?: XOR<UsuariosCreateWithoutOrganizacaoInput, UsuariosUncheckedCreateWithoutOrganizacaoInput>
-    connectOrCreate?: UsuariosCreateOrConnectWithoutOrganizacaoInput
-    connect?: UsuariosWhereUniqueInput
-  }
-
   export type ChavesApiCreateNestedManyWithoutId_organizacaoInput = {
     create?: XOR<ChavesApiCreateWithoutId_organizacaoInput, ChavesApiUncheckedCreateWithoutId_organizacaoInput> | ChavesApiCreateWithoutId_organizacaoInput[] | ChavesApiUncheckedCreateWithoutId_organizacaoInput[]
     connectOrCreate?: ChavesApiCreateOrConnectWithoutId_organizacaoInput | ChavesApiCreateOrConnectWithoutId_organizacaoInput[]
     createMany?: ChavesApiCreateManyId_organizacaoInputEnvelope
     connect?: ChavesApiWhereUniqueInput | ChavesApiWhereUniqueInput[]
+  }
+
+  export type UsuariosOrganizacaoCreateNestedManyWithoutId_organizacaoInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput> | UsuariosOrganizacaoCreateWithoutId_organizacaoInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput | UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_organizacaoInputEnvelope
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
   }
 
   export type ChavesApiUncheckedCreateNestedManyWithoutId_organizacaoInput = {
@@ -11037,14 +12174,11 @@ export namespace Prisma {
     connect?: ChavesApiWhereUniqueInput | ChavesApiWhereUniqueInput[]
   }
 
-  export type UsuariosUpdateOneWithoutOrganizacaoNestedInput = {
-    create?: XOR<UsuariosCreateWithoutOrganizacaoInput, UsuariosUncheckedCreateWithoutOrganizacaoInput>
-    connectOrCreate?: UsuariosCreateOrConnectWithoutOrganizacaoInput
-    upsert?: UsuariosUpsertWithoutOrganizacaoInput
-    disconnect?: UsuariosWhereInput | boolean
-    delete?: UsuariosWhereInput | boolean
-    connect?: UsuariosWhereUniqueInput
-    update?: XOR<XOR<UsuariosUpdateToOneWithWhereWithoutOrganizacaoInput, UsuariosUpdateWithoutOrganizacaoInput>, UsuariosUncheckedUpdateWithoutOrganizacaoInput>
+  export type UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_organizacaoInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput> | UsuariosOrganizacaoCreateWithoutId_organizacaoInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput | UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_organizacaoInputEnvelope
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
   }
 
   export type ChavesApiUpdateManyWithoutId_organizacaoNestedInput = {
@@ -11061,6 +12195,20 @@ export namespace Prisma {
     deleteMany?: ChavesApiScalarWhereInput | ChavesApiScalarWhereInput[]
   }
 
+  export type UsuariosOrganizacaoUpdateManyWithoutId_organizacaoNestedInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput> | UsuariosOrganizacaoCreateWithoutId_organizacaoInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput | UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput[]
+    upsert?: UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_organizacaoInput | UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_organizacaoInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_organizacaoInputEnvelope
+    set?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    disconnect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    delete?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    update?: UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_organizacaoInput | UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_organizacaoInput[]
+    updateMany?: UsuariosOrganizacaoUpdateManyWithWhereWithoutId_organizacaoInput | UsuariosOrganizacaoUpdateManyWithWhereWithoutId_organizacaoInput[]
+    deleteMany?: UsuariosOrganizacaoScalarWhereInput | UsuariosOrganizacaoScalarWhereInput[]
+  }
+
   export type ChavesApiUncheckedUpdateManyWithoutId_organizacaoNestedInput = {
     create?: XOR<ChavesApiCreateWithoutId_organizacaoInput, ChavesApiUncheckedCreateWithoutId_organizacaoInput> | ChavesApiCreateWithoutId_organizacaoInput[] | ChavesApiUncheckedCreateWithoutId_organizacaoInput[]
     connectOrCreate?: ChavesApiCreateOrConnectWithoutId_organizacaoInput | ChavesApiCreateOrConnectWithoutId_organizacaoInput[]
@@ -11073,6 +12221,48 @@ export namespace Prisma {
     update?: ChavesApiUpdateWithWhereUniqueWithoutId_organizacaoInput | ChavesApiUpdateWithWhereUniqueWithoutId_organizacaoInput[]
     updateMany?: ChavesApiUpdateManyWithWhereWithoutId_organizacaoInput | ChavesApiUpdateManyWithWhereWithoutId_organizacaoInput[]
     deleteMany?: ChavesApiScalarWhereInput | ChavesApiScalarWhereInput[]
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateManyWithoutId_organizacaoNestedInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput> | UsuariosOrganizacaoCreateWithoutId_organizacaoInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput | UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput[]
+    upsert?: UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_organizacaoInput | UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_organizacaoInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_organizacaoInputEnvelope
+    set?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    disconnect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    delete?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    update?: UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_organizacaoInput | UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_organizacaoInput[]
+    updateMany?: UsuariosOrganizacaoUpdateManyWithWhereWithoutId_organizacaoInput | UsuariosOrganizacaoUpdateManyWithWhereWithoutId_organizacaoInput[]
+    deleteMany?: UsuariosOrganizacaoScalarWhereInput | UsuariosOrganizacaoScalarWhereInput[]
+  }
+
+  export type UsuariosCreateNestedOneWithoutUsuariosOrganizacaoInput = {
+    create?: XOR<UsuariosCreateWithoutUsuariosOrganizacaoInput, UsuariosUncheckedCreateWithoutUsuariosOrganizacaoInput>
+    connectOrCreate?: UsuariosCreateOrConnectWithoutUsuariosOrganizacaoInput
+    connect?: UsuariosWhereUniqueInput
+  }
+
+  export type OrganizacaoCreateNestedOneWithoutUsuariosOrganizacaoInput = {
+    create?: XOR<OrganizacaoCreateWithoutUsuariosOrganizacaoInput, OrganizacaoUncheckedCreateWithoutUsuariosOrganizacaoInput>
+    connectOrCreate?: OrganizacaoCreateOrConnectWithoutUsuariosOrganizacaoInput
+    connect?: OrganizacaoWhereUniqueInput
+  }
+
+  export type UsuariosUpdateOneRequiredWithoutUsuariosOrganizacaoNestedInput = {
+    create?: XOR<UsuariosCreateWithoutUsuariosOrganizacaoInput, UsuariosUncheckedCreateWithoutUsuariosOrganizacaoInput>
+    connectOrCreate?: UsuariosCreateOrConnectWithoutUsuariosOrganizacaoInput
+    upsert?: UsuariosUpsertWithoutUsuariosOrganizacaoInput
+    connect?: UsuariosWhereUniqueInput
+    update?: XOR<XOR<UsuariosUpdateToOneWithWhereWithoutUsuariosOrganizacaoInput, UsuariosUpdateWithoutUsuariosOrganizacaoInput>, UsuariosUncheckedUpdateWithoutUsuariosOrganizacaoInput>
+  }
+
+  export type OrganizacaoUpdateOneRequiredWithoutUsuariosOrganizacaoNestedInput = {
+    create?: XOR<OrganizacaoCreateWithoutUsuariosOrganizacaoInput, OrganizacaoUncheckedCreateWithoutUsuariosOrganizacaoInput>
+    connectOrCreate?: OrganizacaoCreateOrConnectWithoutUsuariosOrganizacaoInput
+    upsert?: OrganizacaoUpsertWithoutUsuariosOrganizacaoInput
+    connect?: OrganizacaoWhereUniqueInput
+    update?: XOR<XOR<OrganizacaoUpdateToOneWithWhereWithoutUsuariosOrganizacaoInput, OrganizacaoUpdateWithoutUsuariosOrganizacaoInput>, OrganizacaoUncheckedUpdateWithoutUsuariosOrganizacaoInput>
   }
 
   export type OrganizacaoCreateNestedOneWithoutChavesApiInput = {
@@ -11113,13 +12303,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type OrganizacaoCreateNestedManyWithoutId_usuarioInput = {
-    create?: XOR<OrganizacaoCreateWithoutId_usuarioInput, OrganizacaoUncheckedCreateWithoutId_usuarioInput> | OrganizacaoCreateWithoutId_usuarioInput[] | OrganizacaoUncheckedCreateWithoutId_usuarioInput[]
-    connectOrCreate?: OrganizacaoCreateOrConnectWithoutId_usuarioInput | OrganizacaoCreateOrConnectWithoutId_usuarioInput[]
-    createMany?: OrganizacaoCreateManyId_usuarioInputEnvelope
-    connect?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-  }
-
   export type ChavesApiCreateNestedManyWithoutUsuariosInput = {
     create?: XOR<ChavesApiCreateWithoutUsuariosInput, ChavesApiUncheckedCreateWithoutUsuariosInput> | ChavesApiCreateWithoutUsuariosInput[] | ChavesApiUncheckedCreateWithoutUsuariosInput[]
     connectOrCreate?: ChavesApiCreateOrConnectWithoutUsuariosInput | ChavesApiCreateOrConnectWithoutUsuariosInput[]
@@ -11141,11 +12324,11 @@ export namespace Prisma {
     connect?: TemplatesWhereUniqueInput | TemplatesWhereUniqueInput[]
   }
 
-  export type OrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput = {
-    create?: XOR<OrganizacaoCreateWithoutId_usuarioInput, OrganizacaoUncheckedCreateWithoutId_usuarioInput> | OrganizacaoCreateWithoutId_usuarioInput[] | OrganizacaoUncheckedCreateWithoutId_usuarioInput[]
-    connectOrCreate?: OrganizacaoCreateOrConnectWithoutId_usuarioInput | OrganizacaoCreateOrConnectWithoutId_usuarioInput[]
-    createMany?: OrganizacaoCreateManyId_usuarioInputEnvelope
-    connect?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
+  export type UsuariosOrganizacaoCreateNestedManyWithoutId_usuarioInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput> | UsuariosOrganizacaoCreateWithoutId_usuarioInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput | UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_usuarioInputEnvelope
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
   }
 
   export type ChavesApiUncheckedCreateNestedManyWithoutUsuariosInput = {
@@ -11169,26 +12352,15 @@ export namespace Prisma {
     connect?: TemplatesWhereUniqueInput | TemplatesWhereUniqueInput[]
   }
 
+  export type UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput> | UsuariosOrganizacaoCreateWithoutId_usuarioInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput | UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_usuarioInputEnvelope
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type NullableBoolFieldUpdateOperationsInput = {
-    set?: boolean | null
-  }
-
-  export type OrganizacaoUpdateManyWithoutId_usuarioNestedInput = {
-    create?: XOR<OrganizacaoCreateWithoutId_usuarioInput, OrganizacaoUncheckedCreateWithoutId_usuarioInput> | OrganizacaoCreateWithoutId_usuarioInput[] | OrganizacaoUncheckedCreateWithoutId_usuarioInput[]
-    connectOrCreate?: OrganizacaoCreateOrConnectWithoutId_usuarioInput | OrganizacaoCreateOrConnectWithoutId_usuarioInput[]
-    upsert?: OrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput | OrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput[]
-    createMany?: OrganizacaoCreateManyId_usuarioInputEnvelope
-    set?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    disconnect?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    delete?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    connect?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    update?: OrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput | OrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput[]
-    updateMany?: OrganizacaoUpdateManyWithWhereWithoutId_usuarioInput | OrganizacaoUpdateManyWithWhereWithoutId_usuarioInput[]
-    deleteMany?: OrganizacaoScalarWhereInput | OrganizacaoScalarWhereInput[]
   }
 
   export type ChavesApiUpdateManyWithoutUsuariosNestedInput = {
@@ -11233,18 +12405,18 @@ export namespace Prisma {
     deleteMany?: TemplatesScalarWhereInput | TemplatesScalarWhereInput[]
   }
 
-  export type OrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput = {
-    create?: XOR<OrganizacaoCreateWithoutId_usuarioInput, OrganizacaoUncheckedCreateWithoutId_usuarioInput> | OrganizacaoCreateWithoutId_usuarioInput[] | OrganizacaoUncheckedCreateWithoutId_usuarioInput[]
-    connectOrCreate?: OrganizacaoCreateOrConnectWithoutId_usuarioInput | OrganizacaoCreateOrConnectWithoutId_usuarioInput[]
-    upsert?: OrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput | OrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput[]
-    createMany?: OrganizacaoCreateManyId_usuarioInputEnvelope
-    set?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    disconnect?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    delete?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    connect?: OrganizacaoWhereUniqueInput | OrganizacaoWhereUniqueInput[]
-    update?: OrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput | OrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput[]
-    updateMany?: OrganizacaoUpdateManyWithWhereWithoutId_usuarioInput | OrganizacaoUpdateManyWithWhereWithoutId_usuarioInput[]
-    deleteMany?: OrganizacaoScalarWhereInput | OrganizacaoScalarWhereInput[]
+  export type UsuariosOrganizacaoUpdateManyWithoutId_usuarioNestedInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput> | UsuariosOrganizacaoCreateWithoutId_usuarioInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput | UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput[]
+    upsert?: UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput | UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_usuarioInputEnvelope
+    set?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    disconnect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    delete?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    update?: UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput | UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput[]
+    updateMany?: UsuariosOrganizacaoUpdateManyWithWhereWithoutId_usuarioInput | UsuariosOrganizacaoUpdateManyWithWhereWithoutId_usuarioInput[]
+    deleteMany?: UsuariosOrganizacaoScalarWhereInput | UsuariosOrganizacaoScalarWhereInput[]
   }
 
   export type ChavesApiUncheckedUpdateManyWithoutUsuariosNestedInput = {
@@ -11287,6 +12459,20 @@ export namespace Prisma {
     update?: TemplatesUpdateWithWhereUniqueWithoutId_usuarioInput | TemplatesUpdateWithWhereUniqueWithoutId_usuarioInput[]
     updateMany?: TemplatesUpdateManyWithWhereWithoutId_usuarioInput | TemplatesUpdateManyWithWhereWithoutId_usuarioInput[]
     deleteMany?: TemplatesScalarWhereInput | TemplatesScalarWhereInput[]
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput = {
+    create?: XOR<UsuariosOrganizacaoCreateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput> | UsuariosOrganizacaoCreateWithoutId_usuarioInput[] | UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput[]
+    connectOrCreate?: UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput | UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput[]
+    upsert?: UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput | UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput[]
+    createMany?: UsuariosOrganizacaoCreateManyId_usuarioInputEnvelope
+    set?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    disconnect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    delete?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    connect?: UsuariosOrganizacaoWhereUniqueInput | UsuariosOrganizacaoWhereUniqueInput[]
+    update?: UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput | UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput[]
+    updateMany?: UsuariosOrganizacaoUpdateManyWithWhereWithoutId_usuarioInput | UsuariosOrganizacaoUpdateManyWithWhereWithoutId_usuarioInput[]
+    deleteMany?: UsuariosOrganizacaoScalarWhereInput | UsuariosOrganizacaoScalarWhereInput[]
   }
 
   export type UsuariosCreateNestedOneWithoutJwtTokenInput = {
@@ -11506,11 +12692,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedBoolNullableFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -11523,50 +12704,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBoolNullableFilter<$PrismaModel>
-    _max?: NestedBoolNullableFilter<$PrismaModel>
-  }
-
-  export type UsuariosCreateWithoutOrganizacaoInput = {
-    nome: string
-    email: string
-    nascimento: Date | string
-    senha: string
-    token: string
-    created_at?: Date | string
-    updated_at?: Date | string
-    tipo_acesso: string
-    is_ativo?: boolean | null
-    ChavesApi?: ChavesApiCreateNestedManyWithoutUsuariosInput
-    JwtToken?: JwtTokenCreateNestedManyWithoutId_usuarioInput
-    Templates?: TemplatesCreateNestedManyWithoutId_usuarioInput
-  }
-
-  export type UsuariosUncheckedCreateWithoutOrganizacaoInput = {
-    id?: number
-    nome: string
-    email: string
-    nascimento: Date | string
-    senha: string
-    token: string
-    created_at?: Date | string
-    updated_at?: Date | string
-    tipo_acesso: string
-    is_ativo?: boolean | null
-    ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutUsuariosInput
-    JwtToken?: JwtTokenUncheckedCreateNestedManyWithoutId_usuarioInput
-    Templates?: TemplatesUncheckedCreateNestedManyWithoutId_usuarioInput
-  }
-
-  export type UsuariosCreateOrConnectWithoutOrganizacaoInput = {
-    where: UsuariosWhereUniqueInput
-    create: XOR<UsuariosCreateWithoutOrganizacaoInput, UsuariosUncheckedCreateWithoutOrganizacaoInput>
   }
 
   export type ChavesApiCreateWithoutId_organizacaoInput = {
@@ -11592,46 +12729,23 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UsuariosUpsertWithoutOrganizacaoInput = {
-    update: XOR<UsuariosUpdateWithoutOrganizacaoInput, UsuariosUncheckedUpdateWithoutOrganizacaoInput>
-    create: XOR<UsuariosCreateWithoutOrganizacaoInput, UsuariosUncheckedCreateWithoutOrganizacaoInput>
-    where?: UsuariosWhereInput
+  export type UsuariosOrganizacaoCreateWithoutId_organizacaoInput = {
+    id_usuario: UsuariosCreateNestedOneWithoutUsuariosOrganizacaoInput
   }
 
-  export type UsuariosUpdateToOneWithWhereWithoutOrganizacaoInput = {
-    where?: UsuariosWhereInput
-    data: XOR<UsuariosUpdateWithoutOrganizacaoInput, UsuariosUncheckedUpdateWithoutOrganizacaoInput>
+  export type UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput = {
+    id?: number
+    usuariosId: number
   }
 
-  export type UsuariosUpdateWithoutOrganizacaoInput = {
-    nome?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nascimento?: DateTimeFieldUpdateOperationsInput | Date | string
-    senha?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    ChavesApi?: ChavesApiUpdateManyWithoutUsuariosNestedInput
-    JwtToken?: JwtTokenUpdateManyWithoutId_usuarioNestedInput
-    Templates?: TemplatesUpdateManyWithoutId_usuarioNestedInput
+  export type UsuariosOrganizacaoCreateOrConnectWithoutId_organizacaoInput = {
+    where: UsuariosOrganizacaoWhereUniqueInput
+    create: XOR<UsuariosOrganizacaoCreateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput>
   }
 
-  export type UsuariosUncheckedUpdateWithoutOrganizacaoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nome?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nascimento?: DateTimeFieldUpdateOperationsInput | Date | string
-    senha?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    ChavesApi?: ChavesApiUncheckedUpdateManyWithoutUsuariosNestedInput
-    JwtToken?: JwtTokenUncheckedUpdateManyWithoutId_usuarioNestedInput
-    Templates?: TemplatesUncheckedUpdateManyWithoutId_usuarioNestedInput
+  export type UsuariosOrganizacaoCreateManyId_organizacaoInputEnvelope = {
+    data: UsuariosOrganizacaoCreateManyId_organizacaoInput | UsuariosOrganizacaoCreateManyId_organizacaoInput[]
+    skipDuplicates?: boolean
   }
 
   export type ChavesApiUpsertWithWhereUniqueWithoutId_organizacaoInput = {
@@ -11661,11 +12775,160 @@ export namespace Prisma {
     usuariosId?: IntNullableFilter<"ChavesApi"> | number | null
   }
 
+  export type UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_organizacaoInput = {
+    where: UsuariosOrganizacaoWhereUniqueInput
+    update: XOR<UsuariosOrganizacaoUpdateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedUpdateWithoutId_organizacaoInput>
+    create: XOR<UsuariosOrganizacaoCreateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedCreateWithoutId_organizacaoInput>
+  }
+
+  export type UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_organizacaoInput = {
+    where: UsuariosOrganizacaoWhereUniqueInput
+    data: XOR<UsuariosOrganizacaoUpdateWithoutId_organizacaoInput, UsuariosOrganizacaoUncheckedUpdateWithoutId_organizacaoInput>
+  }
+
+  export type UsuariosOrganizacaoUpdateManyWithWhereWithoutId_organizacaoInput = {
+    where: UsuariosOrganizacaoScalarWhereInput
+    data: XOR<UsuariosOrganizacaoUpdateManyMutationInput, UsuariosOrganizacaoUncheckedUpdateManyWithoutId_organizacaoInput>
+  }
+
+  export type UsuariosOrganizacaoScalarWhereInput = {
+    AND?: UsuariosOrganizacaoScalarWhereInput | UsuariosOrganizacaoScalarWhereInput[]
+    OR?: UsuariosOrganizacaoScalarWhereInput[]
+    NOT?: UsuariosOrganizacaoScalarWhereInput | UsuariosOrganizacaoScalarWhereInput[]
+    id?: IntFilter<"UsuariosOrganizacao"> | number
+    organizacaoId?: IntFilter<"UsuariosOrganizacao"> | number
+    usuariosId?: IntFilter<"UsuariosOrganizacao"> | number
+  }
+
+  export type UsuariosCreateWithoutUsuariosOrganizacaoInput = {
+    nome: string
+    email: string
+    nascimento: Date | string
+    senha: string
+    token: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    tipo_acesso: string
+    is_ativo?: boolean
+    ChavesApi?: ChavesApiCreateNestedManyWithoutUsuariosInput
+    JwtToken?: JwtTokenCreateNestedManyWithoutId_usuarioInput
+    Templates?: TemplatesCreateNestedManyWithoutId_usuarioInput
+  }
+
+  export type UsuariosUncheckedCreateWithoutUsuariosOrganizacaoInput = {
+    id?: number
+    nome: string
+    email: string
+    nascimento: Date | string
+    senha: string
+    token: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    tipo_acesso: string
+    is_ativo?: boolean
+    ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutUsuariosInput
+    JwtToken?: JwtTokenUncheckedCreateNestedManyWithoutId_usuarioInput
+    Templates?: TemplatesUncheckedCreateNestedManyWithoutId_usuarioInput
+  }
+
+  export type UsuariosCreateOrConnectWithoutUsuariosOrganizacaoInput = {
+    where: UsuariosWhereUniqueInput
+    create: XOR<UsuariosCreateWithoutUsuariosOrganizacaoInput, UsuariosUncheckedCreateWithoutUsuariosOrganizacaoInput>
+  }
+
+  export type OrganizacaoCreateWithoutUsuariosOrganizacaoInput = {
+    nome_organizacao: string
+    usuario_criacao: string
+    is_ativo?: boolean
+    ChavesApi?: ChavesApiCreateNestedManyWithoutId_organizacaoInput
+  }
+
+  export type OrganizacaoUncheckedCreateWithoutUsuariosOrganizacaoInput = {
+    id?: number
+    nome_organizacao: string
+    usuario_criacao: string
+    is_ativo?: boolean
+    ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutId_organizacaoInput
+  }
+
+  export type OrganizacaoCreateOrConnectWithoutUsuariosOrganizacaoInput = {
+    where: OrganizacaoWhereUniqueInput
+    create: XOR<OrganizacaoCreateWithoutUsuariosOrganizacaoInput, OrganizacaoUncheckedCreateWithoutUsuariosOrganizacaoInput>
+  }
+
+  export type UsuariosUpsertWithoutUsuariosOrganizacaoInput = {
+    update: XOR<UsuariosUpdateWithoutUsuariosOrganizacaoInput, UsuariosUncheckedUpdateWithoutUsuariosOrganizacaoInput>
+    create: XOR<UsuariosCreateWithoutUsuariosOrganizacaoInput, UsuariosUncheckedCreateWithoutUsuariosOrganizacaoInput>
+    where?: UsuariosWhereInput
+  }
+
+  export type UsuariosUpdateToOneWithWhereWithoutUsuariosOrganizacaoInput = {
+    where?: UsuariosWhereInput
+    data: XOR<UsuariosUpdateWithoutUsuariosOrganizacaoInput, UsuariosUncheckedUpdateWithoutUsuariosOrganizacaoInput>
+  }
+
+  export type UsuariosUpdateWithoutUsuariosOrganizacaoInput = {
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nascimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    senha?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_acesso?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    ChavesApi?: ChavesApiUpdateManyWithoutUsuariosNestedInput
+    JwtToken?: JwtTokenUpdateManyWithoutId_usuarioNestedInput
+    Templates?: TemplatesUpdateManyWithoutId_usuarioNestedInput
+  }
+
+  export type UsuariosUncheckedUpdateWithoutUsuariosOrganizacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nascimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    senha?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_acesso?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    ChavesApi?: ChavesApiUncheckedUpdateManyWithoutUsuariosNestedInput
+    JwtToken?: JwtTokenUncheckedUpdateManyWithoutId_usuarioNestedInput
+    Templates?: TemplatesUncheckedUpdateManyWithoutId_usuarioNestedInput
+  }
+
+  export type OrganizacaoUpsertWithoutUsuariosOrganizacaoInput = {
+    update: XOR<OrganizacaoUpdateWithoutUsuariosOrganizacaoInput, OrganizacaoUncheckedUpdateWithoutUsuariosOrganizacaoInput>
+    create: XOR<OrganizacaoCreateWithoutUsuariosOrganizacaoInput, OrganizacaoUncheckedCreateWithoutUsuariosOrganizacaoInput>
+    where?: OrganizacaoWhereInput
+  }
+
+  export type OrganizacaoUpdateToOneWithWhereWithoutUsuariosOrganizacaoInput = {
+    where?: OrganizacaoWhereInput
+    data: XOR<OrganizacaoUpdateWithoutUsuariosOrganizacaoInput, OrganizacaoUncheckedUpdateWithoutUsuariosOrganizacaoInput>
+  }
+
+  export type OrganizacaoUpdateWithoutUsuariosOrganizacaoInput = {
+    nome_organizacao?: StringFieldUpdateOperationsInput | string
+    usuario_criacao?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    ChavesApi?: ChavesApiUpdateManyWithoutId_organizacaoNestedInput
+  }
+
+  export type OrganizacaoUncheckedUpdateWithoutUsuariosOrganizacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome_organizacao?: StringFieldUpdateOperationsInput | string
+    usuario_criacao?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    ChavesApi?: ChavesApiUncheckedUpdateManyWithoutId_organizacaoNestedInput
+  }
+
   export type OrganizacaoCreateWithoutChavesApiInput = {
     nome_organizacao: string
     usuario_criacao: string
     is_ativo?: boolean
-    id_usuario?: UsuariosCreateNestedOneWithoutOrganizacaoInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoCreateNestedManyWithoutId_organizacaoInput
   }
 
   export type OrganizacaoUncheckedCreateWithoutChavesApiInput = {
@@ -11673,7 +12936,7 @@ export namespace Prisma {
     nome_organizacao: string
     usuario_criacao: string
     is_ativo?: boolean
-    usuariosId: number
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_organizacaoInput
   }
 
   export type OrganizacaoCreateOrConnectWithoutChavesApiInput = {
@@ -11690,10 +12953,10 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     JwtToken?: JwtTokenCreateNestedManyWithoutId_usuarioInput
     Templates?: TemplatesCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosUncheckedCreateWithoutChavesApiInput = {
@@ -11706,10 +12969,10 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     JwtToken?: JwtTokenUncheckedCreateNestedManyWithoutId_usuarioInput
     Templates?: TemplatesUncheckedCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosCreateOrConnectWithoutChavesApiInput = {
@@ -11732,7 +12995,7 @@ export namespace Prisma {
     nome_organizacao?: StringFieldUpdateOperationsInput | string
     usuario_criacao?: StringFieldUpdateOperationsInput | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
-    id_usuario?: UsuariosUpdateOneWithoutOrganizacaoNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUpdateManyWithoutId_organizacaoNestedInput
   }
 
   export type OrganizacaoUncheckedUpdateWithoutChavesApiInput = {
@@ -11740,7 +13003,7 @@ export namespace Prisma {
     nome_organizacao?: StringFieldUpdateOperationsInput | string
     usuario_criacao?: StringFieldUpdateOperationsInput | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
-    usuariosId?: IntFieldUpdateOperationsInput | number
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedUpdateManyWithoutId_organizacaoNestedInput
   }
 
   export type UsuariosUpsertWithoutChavesApiInput = {
@@ -11763,10 +13026,10 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     JwtToken?: JwtTokenUpdateManyWithoutId_usuarioNestedInput
     Templates?: TemplatesUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type UsuariosUncheckedUpdateWithoutChavesApiInput = {
@@ -11779,35 +13042,10 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     JwtToken?: JwtTokenUncheckedUpdateManyWithoutId_usuarioNestedInput
     Templates?: TemplatesUncheckedUpdateManyWithoutId_usuarioNestedInput
-  }
-
-  export type OrganizacaoCreateWithoutId_usuarioInput = {
-    nome_organizacao: string
-    usuario_criacao: string
-    is_ativo?: boolean
-    ChavesApi?: ChavesApiCreateNestedManyWithoutId_organizacaoInput
-  }
-
-  export type OrganizacaoUncheckedCreateWithoutId_usuarioInput = {
-    id?: number
-    nome_organizacao: string
-    usuario_criacao: string
-    is_ativo?: boolean
-    ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutId_organizacaoInput
-  }
-
-  export type OrganizacaoCreateOrConnectWithoutId_usuarioInput = {
-    where: OrganizacaoWhereUniqueInput
-    create: XOR<OrganizacaoCreateWithoutId_usuarioInput, OrganizacaoUncheckedCreateWithoutId_usuarioInput>
-  }
-
-  export type OrganizacaoCreateManyId_usuarioInputEnvelope = {
-    data: OrganizacaoCreateManyId_usuarioInput | OrganizacaoCreateManyId_usuarioInput[]
-    skipDuplicates?: boolean
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type ChavesApiCreateWithoutUsuariosInput = {
@@ -11881,31 +13119,23 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type OrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput = {
-    where: OrganizacaoWhereUniqueInput
-    update: XOR<OrganizacaoUpdateWithoutId_usuarioInput, OrganizacaoUncheckedUpdateWithoutId_usuarioInput>
-    create: XOR<OrganizacaoCreateWithoutId_usuarioInput, OrganizacaoUncheckedCreateWithoutId_usuarioInput>
+  export type UsuariosOrganizacaoCreateWithoutId_usuarioInput = {
+    id_organizacao: OrganizacaoCreateNestedOneWithoutUsuariosOrganizacaoInput
   }
 
-  export type OrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput = {
-    where: OrganizacaoWhereUniqueInput
-    data: XOR<OrganizacaoUpdateWithoutId_usuarioInput, OrganizacaoUncheckedUpdateWithoutId_usuarioInput>
+  export type UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput = {
+    id?: number
+    organizacaoId: number
   }
 
-  export type OrganizacaoUpdateManyWithWhereWithoutId_usuarioInput = {
-    where: OrganizacaoScalarWhereInput
-    data: XOR<OrganizacaoUpdateManyMutationInput, OrganizacaoUncheckedUpdateManyWithoutId_usuarioInput>
+  export type UsuariosOrganizacaoCreateOrConnectWithoutId_usuarioInput = {
+    where: UsuariosOrganizacaoWhereUniqueInput
+    create: XOR<UsuariosOrganizacaoCreateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput>
   }
 
-  export type OrganizacaoScalarWhereInput = {
-    AND?: OrganizacaoScalarWhereInput | OrganizacaoScalarWhereInput[]
-    OR?: OrganizacaoScalarWhereInput[]
-    NOT?: OrganizacaoScalarWhereInput | OrganizacaoScalarWhereInput[]
-    id?: IntFilter<"Organizacao"> | number
-    nome_organizacao?: StringFilter<"Organizacao"> | string
-    usuario_criacao?: StringFilter<"Organizacao"> | string
-    is_ativo?: BoolFilter<"Organizacao"> | boolean
-    usuariosId?: IntFilter<"Organizacao"> | number
+  export type UsuariosOrganizacaoCreateManyId_usuarioInputEnvelope = {
+    data: UsuariosOrganizacaoCreateManyId_usuarioInput | UsuariosOrganizacaoCreateManyId_usuarioInput[]
+    skipDuplicates?: boolean
   }
 
   export type ChavesApiUpsertWithWhereUniqueWithoutUsuariosInput = {
@@ -11978,6 +13208,22 @@ export namespace Prisma {
     usuariosId?: IntFilter<"Templates"> | number
   }
 
+  export type UsuariosOrganizacaoUpsertWithWhereUniqueWithoutId_usuarioInput = {
+    where: UsuariosOrganizacaoWhereUniqueInput
+    update: XOR<UsuariosOrganizacaoUpdateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedUpdateWithoutId_usuarioInput>
+    create: XOR<UsuariosOrganizacaoCreateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedCreateWithoutId_usuarioInput>
+  }
+
+  export type UsuariosOrganizacaoUpdateWithWhereUniqueWithoutId_usuarioInput = {
+    where: UsuariosOrganizacaoWhereUniqueInput
+    data: XOR<UsuariosOrganizacaoUpdateWithoutId_usuarioInput, UsuariosOrganizacaoUncheckedUpdateWithoutId_usuarioInput>
+  }
+
+  export type UsuariosOrganizacaoUpdateManyWithWhereWithoutId_usuarioInput = {
+    where: UsuariosOrganizacaoScalarWhereInput
+    data: XOR<UsuariosOrganizacaoUpdateManyMutationInput, UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioInput>
+  }
+
   export type UsuariosCreateWithoutJwtTokenInput = {
     nome: string
     email: string
@@ -11987,10 +13233,10 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     ChavesApi?: ChavesApiCreateNestedManyWithoutUsuariosInput
     Templates?: TemplatesCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosUncheckedCreateWithoutJwtTokenInput = {
@@ -12003,10 +13249,10 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutUsuariosInput
     Templates?: TemplatesUncheckedCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosCreateOrConnectWithoutJwtTokenInput = {
@@ -12034,10 +13280,10 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     ChavesApi?: ChavesApiUpdateManyWithoutUsuariosNestedInput
     Templates?: TemplatesUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type UsuariosUncheckedUpdateWithoutJwtTokenInput = {
@@ -12050,10 +13296,10 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     ChavesApi?: ChavesApiUncheckedUpdateManyWithoutUsuariosNestedInput
     Templates?: TemplatesUncheckedUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type UsuariosCreateWithoutTemplatesInput = {
@@ -12065,10 +13311,10 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     ChavesApi?: ChavesApiCreateNestedManyWithoutUsuariosInput
     JwtToken?: JwtTokenCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosUncheckedCreateWithoutTemplatesInput = {
@@ -12081,10 +13327,10 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     tipo_acesso: string
-    is_ativo?: boolean | null
-    Organizacao?: OrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    is_ativo?: boolean
     ChavesApi?: ChavesApiUncheckedCreateNestedManyWithoutUsuariosInput
     JwtToken?: JwtTokenUncheckedCreateNestedManyWithoutId_usuarioInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
   }
 
   export type UsuariosCreateOrConnectWithoutTemplatesInput = {
@@ -12130,10 +13376,10 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     ChavesApi?: ChavesApiUpdateManyWithoutUsuariosNestedInput
     JwtToken?: JwtTokenUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type UsuariosUncheckedUpdateWithoutTemplatesInput = {
@@ -12146,10 +13392,10 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     tipo_acesso?: StringFieldUpdateOperationsInput | string
-    is_ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    Organizacao?: OrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
     ChavesApi?: ChavesApiUncheckedUpdateManyWithoutUsuariosNestedInput
     JwtToken?: JwtTokenUncheckedUpdateManyWithoutId_usuarioNestedInput
+    UsuariosOrganizacao?: UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
   }
 
   export type VariaveisTemplateUpsertWithWhereUniqueWithoutId_templateInput = {
@@ -12237,6 +13483,11 @@ export namespace Prisma {
     usuariosId?: number | null
   }
 
+  export type UsuariosOrganizacaoCreateManyId_organizacaoInput = {
+    id?: number
+    usuariosId: number
+  }
+
   export type ChavesApiUpdateWithoutId_organizacaoInput = {
     chave_api?: StringFieldUpdateOperationsInput | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
@@ -12257,11 +13508,18 @@ export namespace Prisma {
     usuariosId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type OrganizacaoCreateManyId_usuarioInput = {
-    id?: number
-    nome_organizacao: string
-    usuario_criacao: string
-    is_ativo?: boolean
+  export type UsuariosOrganizacaoUpdateWithoutId_organizacaoInput = {
+    id_usuario?: UsuariosUpdateOneRequiredWithoutUsuariosOrganizacaoNestedInput
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateWithoutId_organizacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateManyWithoutId_organizacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ChavesApiCreateManyUsuariosInput = {
@@ -12285,26 +13543,9 @@ export namespace Prisma {
     is_ativo?: boolean
   }
 
-  export type OrganizacaoUpdateWithoutId_usuarioInput = {
-    nome_organizacao?: StringFieldUpdateOperationsInput | string
-    usuario_criacao?: StringFieldUpdateOperationsInput | string
-    is_ativo?: BoolFieldUpdateOperationsInput | boolean
-    ChavesApi?: ChavesApiUpdateManyWithoutId_organizacaoNestedInput
-  }
-
-  export type OrganizacaoUncheckedUpdateWithoutId_usuarioInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nome_organizacao?: StringFieldUpdateOperationsInput | string
-    usuario_criacao?: StringFieldUpdateOperationsInput | string
-    is_ativo?: BoolFieldUpdateOperationsInput | boolean
-    ChavesApi?: ChavesApiUncheckedUpdateManyWithoutId_organizacaoNestedInput
-  }
-
-  export type OrganizacaoUncheckedUpdateManyWithoutId_usuarioInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nome_organizacao?: StringFieldUpdateOperationsInput | string
-    usuario_criacao?: StringFieldUpdateOperationsInput | string
-    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  export type UsuariosOrganizacaoCreateManyId_usuarioInput = {
+    id?: number
+    organizacaoId: number
   }
 
   export type ChavesApiUpdateWithoutUsuariosInput = {
@@ -12367,6 +13608,20 @@ export namespace Prisma {
     token_template?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type UsuariosOrganizacaoUpdateWithoutId_usuarioInput = {
+    id_organizacao?: OrganizacaoUpdateOneRequiredWithoutUsuariosOrganizacaoNestedInput
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateWithoutId_usuarioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    organizacaoId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UsuariosOrganizacaoUncheckedUpdateManyWithoutId_usuarioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    organizacaoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type VariaveisTemplateCreateManyId_templateInput = {

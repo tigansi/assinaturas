@@ -7,9 +7,9 @@ export declare class AdminsController {
         message: string;
         data: {
             id: number;
+            is_ativo: boolean;
             nome_admin: string;
             usuario_admin: string;
-            is_ativo: boolean;
         };
     }>;
     delete(idAdm: number): Promise<{

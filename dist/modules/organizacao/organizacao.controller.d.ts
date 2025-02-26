@@ -10,7 +10,6 @@ export declare class OrganizacaoController {
             nome_organizacao: string;
             usuario_criacao: string;
             is_ativo: boolean;
-            usuariosId: number;
         };
     }>;
     createTokenOrg(idOrg: number): Promise<{
@@ -18,13 +17,21 @@ export declare class OrganizacaoController {
         dados: {
             id: number;
             is_ativo: boolean;
-            usuariosId: number | null;
             chave_api: string;
             organizacaoId: number;
+            usuariosId: number | null;
         };
     }>;
     deleteOrg(idOrg: number): Promise<{
         message: string;
         data: import("prisma/generated/assinaturas").Prisma.BatchPayload;
+    }>;
+    vinculaUsuario(idUser: number, idOrg: number): Promise<{
+        message: string;
+        data: {
+            id: number;
+            organizacaoId: number;
+            usuariosId: number;
+        };
     }>;
 }

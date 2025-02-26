@@ -57,6 +57,18 @@ let OrganizacaoController = class OrganizacaoController {
             throw err;
         }
     }
+    async vinculaUsuario(idUser, idOrg) {
+        try {
+            const ret = await this.organizacaoService.vinculaUsuarios(idOrg, idUser);
+            return {
+                message: "Vinculação realizada",
+                data: ret,
+            };
+        }
+        catch (err) {
+            throw err;
+        }
+    }
 };
 exports.OrganizacaoController = OrganizacaoController;
 __decorate([
@@ -80,6 +92,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], OrganizacaoController.prototype, "deleteOrg", null);
+__decorate([
+    (0, common_1.Put)("/vincula_usuario/:idUser/:idOrg"),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Promise)
+], OrganizacaoController.prototype, "vinculaUsuario", null);
 exports.OrganizacaoController = OrganizacaoController = __decorate([
     (0, common_1.Controller)("organizacao"),
     __metadata("design:paramtypes", [organizacao_service_1.OrganizacaoService])

@@ -11,13 +11,14 @@ const common_1 = require("@nestjs/common");
 const organizacao_service_1 = require("./organizacao.service");
 const organizacao_controller_1 = require("./organizacao.controller");
 const prisma_service_1 = require("../../prisma/prisma.service");
+const token_service_1 = require("../../core/services/token.service");
 let OrganizacaoModule = class OrganizacaoModule {
 };
 exports.OrganizacaoModule = OrganizacaoModule;
 exports.OrganizacaoModule = OrganizacaoModule = __decorate([
     (0, common_1.Module)({
         controllers: [organizacao_controller_1.OrganizacaoController],
-        providers: [organizacao_service_1.OrganizacaoService, prisma_service_1.PrismaAssinaturas],
+        providers: [organizacao_service_1.OrganizacaoService, prisma_service_1.PrismaAssinaturas, token_service_1.TokenService],
     })
 ], OrganizacaoModule);
 //# sourceMappingURL=organizacao.module.js.map

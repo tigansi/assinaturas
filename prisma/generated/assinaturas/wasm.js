@@ -128,7 +128,12 @@ exports.Prisma.OrganizacaoScalarFieldEnum = {
   id: 'id',
   nome_organizacao: 'nome_organizacao',
   usuario_criacao: 'usuario_criacao',
-  is_ativo: 'is_ativo',
+  is_ativo: 'is_ativo'
+};
+
+exports.Prisma.UsuariosOrganizacaoScalarFieldEnum = {
+  id: 'id',
+  organizacaoId: 'organizacaoId',
   usuariosId: 'usuariosId'
 };
 
@@ -225,6 +230,7 @@ exports.Prisma.TemplatesOrderByRelevanceFieldEnum = {
 exports.Prisma.ModelName = {
   Admins: 'Admins',
   Organizacao: 'Organizacao',
+  UsuariosOrganizacao: 'UsuariosOrganizacao',
   ChavesApi: 'ChavesApi',
   Usuarios: 'Usuarios',
   JwtToken: 'JwtToken',

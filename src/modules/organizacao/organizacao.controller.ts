@@ -44,4 +44,17 @@ export class OrganizacaoController {
       throw err;
     }
   }
+
+  @Put("/vincula_usuario/:idUser/:idOrg")
+  async vinculaUsuario(@Param() idUser: number, idOrg: number) {
+    try {
+      const ret = await this.organizacaoService.vinculaUsuarios(idOrg, idUser);
+      return {
+        message: "Vinculação realizada",
+        data: ret,
+      };
+    } catch (err) {
+      throw err;
+    }
+  }
 }

@@ -12,11 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrganizacaoService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../prisma/prisma.service");
-const crypto_1 = require("crypto");
+const token_service_1 = require("../../core/services/token.service");
 let OrganizacaoService = class OrganizacaoService {
     prismaAssinaturas;
-    constructor(prismaAssinaturas) {
+    tokenService;
+    constructor(prismaAssinaturas, tokenService) {
         this.prismaAssinaturas = prismaAssinaturas;
+        this.tokenService = tokenService;
     }
     async createOrganizacao(createOrganizacaoDto) {
         const org = await this.prismaAssinaturas.organizacao.findFirst({
@@ -51,7 +53,7 @@ let OrganizacaoService = class OrganizacaoService {
         }
         const tokenOrg = await this.prismaAssinaturas.chavesApi.create({
             data: {
-                chave_api: await this._generateToken(),
+                chave_api: await this.tokenService.generateToken("chavesApi", "chave_api"),
                 organizacaoId: id,
             },
         });
@@ -84,22 +86,42 @@ let OrganizacaoService = class OrganizacaoService {
         });
         return delOrg;
     }
-    async _generateToken() {
-        let token;
-        let exists;
-        do {
-            token = `${(0, crypto_1.randomUUID)()}${(0, crypto_1.randomUUID)().slice(0, 2)}`;
-            exists =
-                (await this.prismaAssinaturas.chavesApi.findUnique({
-                    where: { chave_api: token },
-                })) !== null;
-        } while (exists);
-        return "token";
+    async vinculaUsuarios(idOrg, idUser) {
+        const org = await this.prismaAssinaturas.organizacao.findUnique({
+            where: {
+                id: idOrg,
+            },
+        });
+        if (!org) {
+            throw new common_1.HttpException("Organização não encontrada", common_1.HttpStatus.NOT_FOUND);
+        }
+        const user = await this.prismaAssinaturas.usuarios.findUnique({
+            where: {
+                id: idUser,
+                UsuariosOrganizacao: {
+                    every: {
+                        id: idOrg,
+                        usuariosId: idUser,
+                    },
+                },
+            },
+        });
+        if (user) {
+            throw new common_1.HttpException("Usuário já cadastrado para essa organização", common_1.HttpStatus.CONFLICT);
+        }
+        const vinculo = await this.prismaAssinaturas.usuariosOrganizacao.create({
+            data: {
+                organizacaoId: idOrg,
+                usuariosId: idOrg,
+            },
+        });
+        return vinculo;
     }
 };
 exports.OrganizacaoService = OrganizacaoService;
 exports.OrganizacaoService = OrganizacaoService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaAssinaturas])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaAssinaturas,
+        token_service_1.TokenService])
 ], OrganizacaoService);
 //# sourceMappingURL=organizacao.service.js.map
