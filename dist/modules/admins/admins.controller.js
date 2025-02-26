@@ -25,7 +25,19 @@ let AdminsController = class AdminsController {
         try {
             const ret = await this.adminsService.createAdmin(body);
             return {
-                message: 'Admin cadastrado com sucesso',
+                message: "Admin cadastrado com sucesso",
+                data: ret,
+            };
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+    async delete(idAdm) {
+        try {
+            const ret = await this.adminsService.deleteAdmin(idAdm);
+            return {
+                message: "Admin desativado com sucesso",
                 data: ret,
             };
         }
@@ -37,14 +49,21 @@ let AdminsController = class AdminsController {
 exports.AdminsController = AdminsController;
 __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
-    (0, common_1.Post)('/create'),
+    (0, common_1.Post)("/create"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_admin_dto_1.CreateAdminDto]),
     __metadata("design:returntype", Promise)
 ], AdminsController.prototype, "create", null);
+__decorate([
+    (0, common_1.Put)("/delete/:id"),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], AdminsController.prototype, "delete", null);
 exports.AdminsController = AdminsController = __decorate([
-    (0, common_1.Controller)('admins'),
+    (0, common_1.Controller)("admins"),
     __metadata("design:paramtypes", [admins_service_1.AdminsService])
 ], AdminsController);
 //# sourceMappingURL=admins.controller.js.map

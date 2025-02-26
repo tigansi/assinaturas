@@ -1,5 +1,5 @@
-import { OrganizacaoService } from './organizacao.service';
-import { CreateOrganizacaoDto } from './dto/create-organizacao-dto';
+import { OrganizacaoService } from "./organizacao.service";
+import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
 export declare class OrganizacaoController {
     private readonly organizacaoService;
     constructor(organizacaoService: OrganizacaoService);
@@ -22,5 +22,9 @@ export declare class OrganizacaoController {
             chave_api: string;
             organizacaoId: number;
         };
+    }>;
+    deleteOrg(idOrg: number): Promise<{
+        message: string;
+        data: import("prisma/generated/assinaturas").Prisma.BatchPayload;
     }>;
 }

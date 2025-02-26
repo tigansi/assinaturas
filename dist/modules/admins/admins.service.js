@@ -24,7 +24,7 @@ let AdminsService = class AdminsService {
             },
         });
         if (admin) {
-            throw new common_1.HttpException('Admin já cadastrado', common_1.HttpStatus.CONFLICT);
+            throw new common_1.HttpException("Admin já cadastrado", common_1.HttpStatus.CONFLICT);
         }
         const cad = await this.prismaAssinaturas.admins.create({
             data: {
@@ -33,6 +33,28 @@ let AdminsService = class AdminsService {
             },
         });
         return cad;
+    }
+    async deleteAdmin(id) {
+        const adm = await this.prismaAssinaturas.admins.findUnique({
+            where: {
+                id: id,
+            },
+        });
+        if (!adm) {
+            throw new common_1.HttpException("Admin não encontrado", common_1.HttpStatus.NOT_FOUND);
+        }
+        if (!adm.is_ativo) {
+            throw new common_1.HttpException("Admin já desativado", common_1.HttpStatus.CONFLICT);
+        }
+        const delAdmin = await this.prismaAssinaturas.admins.updateMany({
+            where: {
+                id: id,
+            },
+            data: {
+                is_ativo: false,
+            },
+        });
+        return delAdmin;
     }
 };
 exports.AdminsService = AdminsService;

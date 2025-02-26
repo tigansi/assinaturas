@@ -1,5 +1,5 @@
-import { PrismaAssinaturas } from 'src/prisma/prisma.service';
-import { CreateOrganizacaoDto } from './dto/create-organizacao-dto';
+import { PrismaAssinaturas } from "src/prisma/prisma.service";
+import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
 export declare class OrganizacaoService {
     private prismaAssinaturas;
     constructor(prismaAssinaturas: PrismaAssinaturas);
@@ -17,5 +17,6 @@ export declare class OrganizacaoService {
         chave_api: string;
         organizacaoId: number;
     }>;
+    deletaOrg(id: number): Promise<import("prisma/generated/assinaturas").Prisma.BatchPayload>;
     _generateToken(): Promise<string>;
 }

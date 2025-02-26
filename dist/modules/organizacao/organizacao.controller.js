@@ -25,7 +25,7 @@ let OrganizacaoController = class OrganizacaoController {
         try {
             const ret = await this.organizacaoService.createOrganizacao(body);
             return {
-                message: 'Organizacao criada com sucesso',
+                message: "Organizacao criada com sucesso",
                 dados: ret,
             };
         }
@@ -37,8 +37,20 @@ let OrganizacaoController = class OrganizacaoController {
         try {
             const ret = await this.organizacaoService.createTokenOrg(idOrg);
             return {
-                message: 'Chave de api criada',
+                message: "Chave de api criada",
                 dados: ret,
+            };
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+    async deleteOrg(idOrg) {
+        try {
+            const ret = await this.organizacaoService.deletaOrg(idOrg);
+            return {
+                message: "Organização desativada",
+                data: ret,
             };
         }
         catch (err) {
@@ -48,21 +60,28 @@ let OrganizacaoController = class OrganizacaoController {
 };
 exports.OrganizacaoController = OrganizacaoController;
 __decorate([
-    (0, common_1.Post)('/create'),
+    (0, common_1.Post)("/create"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_organizacao_dto_1.CreateOrganizacaoDto]),
     __metadata("design:returntype", Promise)
 ], OrganizacaoController.prototype, "create", null);
 __decorate([
-    (0, common_1.Put)('/create_token_org/:idOrg'),
+    (0, common_1.Put)("/create_token_org/:idOrg"),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], OrganizacaoController.prototype, "createTokenOrg", null);
+__decorate([
+    (0, common_1.Put)("/delete/:id"),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], OrganizacaoController.prototype, "deleteOrg", null);
 exports.OrganizacaoController = OrganizacaoController = __decorate([
-    (0, common_1.Controller)('organizacao'),
+    (0, common_1.Controller)("organizacao"),
     __metadata("design:paramtypes", [organizacao_service_1.OrganizacaoService])
 ], OrganizacaoController);
 //# sourceMappingURL=organizacao.controller.js.map

@@ -1,5 +1,5 @@
-import { AdminsService } from './admins.service';
-import { CreateAdminDto } from './dto/create-admin-dto';
+import { AdminsService } from "./admins.service";
+import { CreateAdminDto } from "./dto/create-admin-dto";
 export declare class AdminsController {
     private readonly adminsService;
     constructor(adminsService: AdminsService);
@@ -7,9 +7,13 @@ export declare class AdminsController {
         message: string;
         data: {
             id: number;
-            is_ativo: boolean;
             nome_admin: string;
             usuario_admin: string;
+            is_ativo: boolean;
         };
+    }>;
+    delete(idAdm: number): Promise<{
+        message: string;
+        data: import("prisma/generated/assinaturas").Prisma.BatchPayload;
     }>;
 }

@@ -1,7 +1,7 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { PrismaAssinaturas } from 'src/prisma/prisma.service';
-import { CreateOrganizacaoDto } from './dto/create-organizacao-dto';
-import { randomUUID } from 'crypto';
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { PrismaAssinaturas } from "src/prisma/prisma.service";
+import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
+import { randomUUID } from "crypto";
 
 @Injectable()
 export class OrganizacaoService {
@@ -17,7 +17,7 @@ export class OrganizacaoService {
     });
 
     if (org) {
-      throw new HttpException('Organização já cadastrada', HttpStatus.CONFLICT);
+      throw new HttpException("Organização já cadastrada", HttpStatus.CONFLICT);
     }
 
     const cad = await this.prismaAssinaturas.organizacao.create({
@@ -39,15 +39,15 @@ export class OrganizacaoService {
 
     if (!org) {
       throw new HttpException(
-        'Organização não encontrada',
-        HttpStatus.NOT_FOUND,
+        "Organização não encontrada",
+        HttpStatus.NOT_FOUND
       );
     }
 
     if (!org.is_ativo) {
       throw new HttpException(
-        'A organização está desativada',
-        HttpStatus.LOCKED,
+        "A organização está desativada",
+        HttpStatus.LOCKED
       );
     }
 
@@ -59,6 +59,41 @@ export class OrganizacaoService {
     });
 
     return tokenOrg;
+  }
+
+  async deletaOrg(id: number) {
+    const org = await this.prismaAssinaturas.organizacao.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!org) {
+      throw new HttpException(
+        "Organização não encontrada",
+        HttpStatus.NOT_FOUND
+      );
+    }
+
+    if (!org.is_ativo) {
+      throw new HttpException("Organização já desativada", HttpStatus.CONFLICT);
+    }
+
+    const delOrg = await this.prismaAssinaturas.organizacao.updateMany({
+      data: {
+        is_ativo: false,
+      },
+      where: {
+        id: id,
+        ChavesApi: {
+          every: {
+            organizacaoId: id,
+          },
+        },
+      },
+    });
+
+    return delOrg;
   }
 
   async _generateToken() {
@@ -73,6 +108,6 @@ export class OrganizacaoService {
         })) !== null;
     } while (exists);
 
-    return 'token';
+    return "token";
   }
 }
