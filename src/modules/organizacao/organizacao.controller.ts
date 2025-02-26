@@ -1,11 +1,13 @@
-import { Body, Controller, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { OrganizacaoService } from "./organizacao.service";
 import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
+import { JwtAuthGuard } from "../auth/auth.guard";
 
 @Controller("organizacao")
 export class OrganizacaoController {
   constructor(private readonly organizacaoService: OrganizacaoService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post("/create")
   async create(@Body() body: CreateOrganizacaoDto) {
     try {
@@ -19,6 +21,7 @@ export class OrganizacaoController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put("/create_token_org/:idOrg")
   async createTokenOrg(@Param() idOrg: number) {
     try {
@@ -32,6 +35,7 @@ export class OrganizacaoController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put("/delete/:id")
   async deleteOrg(@Param() idOrg: number) {
     try {
@@ -45,6 +49,7 @@ export class OrganizacaoController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put("/vincula_usuario/:idUser/:idOrg")
   async vinculaUsuario(@Param() idUser: number, idOrg: number) {
     try {
