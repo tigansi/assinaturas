@@ -26,4 +26,14 @@ export class TokenService {
   async criptografarSenha(senha: string): Promise<string> {
     return await bcrypt.hash(senha, 10);
   }
+
+  async verificaSenha(senhaDto: string, senhaBanco: string): Promise<boolean> {
+    const senhaCorreta = await bcrypt.compare(senhaDto, senhaBanco);
+
+    if (!senhaCorreta) {
+      return false;
+    }
+
+    return true;
+  }
 }

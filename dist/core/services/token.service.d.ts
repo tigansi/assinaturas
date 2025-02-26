@@ -4,4 +4,5 @@ export declare class TokenService {
     constructor(prismaAssinaturas: PrismaAssinaturas);
     generateToken(table: string, column: string): Promise<string>;
     criptografarSenha(senha: string): Promise<string>;
+    verificaSenha(senhaDto: string, senhaBanco: string): Promise<boolean>;
 }

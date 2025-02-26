@@ -34,6 +34,13 @@ let TokenService = class TokenService {
     async criptografarSenha(senha) {
         return await bcrypt.hash(senha, 10);
     }
+    async verificaSenha(senhaDto, senhaBanco) {
+        const senhaCorreta = await bcrypt.compare(senhaDto, senhaBanco);
+        if (!senhaCorreta) {
+            return false;
+        }
+        return true;
+    }
 };
 exports.TokenService = TokenService;
 exports.TokenService = TokenService = __decorate([
