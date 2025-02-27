@@ -9,18 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TemplatesController = void 0;
-const common_1 = require("@nestjs/common");
-const templates_service_1 = require("./templates.service");
-let TemplatesController = class TemplatesController {
-    templatesService;
-    constructor(templatesService) {
-        this.templatesService = templatesService;
-    }
-};
-exports.TemplatesController = TemplatesController;
-exports.TemplatesController = TemplatesController = __decorate([
-    (0, common_1.Controller)('templates'),
-    __metadata("design:paramtypes", [templates_service_1.TemplatesService])
-], TemplatesController);
-//# sourceMappingURL=templates.controller.js.map
+exports.LoginUserDto = void 0;
+const class_validator_1 = require("class-validator");
+class LoginUserDto {
+    email;
+    senha;
+}
+exports.LoginUserDto = LoginUserDto;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], LoginUserDto.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsStrongPassword)({
+        minLength: 8,
+        minLowercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+        minUppercase: 1,
+    }),
+    __metadata("design:type", String)
+], LoginUserDto.prototype, "senha", void 0);
+//# sourceMappingURL=login-user-dto.js.map
