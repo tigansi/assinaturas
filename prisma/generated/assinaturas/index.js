@@ -222,7 +222,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\tiago\\OneDrive\\Documentos\\Projetos\\Nodejs\\Base\\assinaturas\\prisma\\generated\\assinaturas",
+      "value": "C:\\Users\\Tiago Igansi\\Documents\\Projetos\\Base\\assinaturas\\prisma\\generated\\assinaturas",
       "fromEnvVar": null
     },
     "config": {
@@ -236,7 +236,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\tiago\\OneDrive\\Documentos\\Projetos\\Nodejs\\Base\\assinaturas\\prisma\\schema.assinaturas.prisma",
+    "sourceFilePath": "C:\\Users\\Tiago Igansi\\Documents\\Projetos\\Base\\assinaturas\\prisma\\schema.assinaturas.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

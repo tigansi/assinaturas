@@ -7,7 +7,7 @@ import { JwtAuthGuard } from "../auth/auth.guard";
 export class OrganizacaoController {
   constructor(private readonly organizacaoService: OrganizacaoService) {}
 
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Post("/create")
   async create(@Body() body: CreateOrganizacaoDto) {
     try {
