@@ -14,12 +14,21 @@ const usuarios_module_1 = require("./modules/usuarios/usuarios.module");
 const organizacao_module_1 = require("./modules/organizacao/organizacao.module");
 const admins_module_1 = require("./modules/admins/admins.module");
 const core_module_1 = require("./core/core.module");
+const templates_module_1 = require("./modules/templates/templates.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, auth_module_1.AuthModule, usuarios_module_1.UsuariosModule, organizacao_module_1.OrganizacaoModule, admins_module_1.AdminsModule, core_module_1.CoreModule],
+        imports: [
+            prisma_module_1.PrismaModule,
+            auth_module_1.AuthModule,
+            usuarios_module_1.UsuariosModule,
+            organizacao_module_1.OrganizacaoModule,
+            admins_module_1.AdminsModule,
+            core_module_1.CoreModule,
+            templates_module_1.TemplatesModule,
+        ],
         controllers: [],
         providers: [],
     })
