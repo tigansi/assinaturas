@@ -51,10 +51,18 @@ let OrganizacaoService = class OrganizacaoService {
         if (!org.is_ativo) {
             throw new common_1.HttpException("A organização está desativada", common_1.HttpStatus.LOCKED);
         }
-        const tokenOrg = await this.prismaAssinaturas.chavesApi.create({
+        const tk = await this.prismaAssinaturas.chaves_api.findFirst({
+            where: {
+                organizacao_id: id,
+            },
+        });
+        if (tk) {
+            throw new common_1.HttpException("A organização já possui um token", common_1.HttpStatus.CONFLICT);
+        }
+        const tokenOrg = await this.prismaAssinaturas.chaves_api.create({
             data: {
-                chave_api: await this.tokenService.generateToken("chavesApi", "chave_api"),
-                organizacaoId: id,
+                chave_api: await this.tokenService.generateToken("chaves_api", "chave_api"),
+                organizacao_id: id,
             },
         });
         return tokenOrg;
@@ -77,9 +85,9 @@ let OrganizacaoService = class OrganizacaoService {
             },
             where: {
                 id: id,
-                ChavesApi: {
+                chaves_api: {
                     every: {
-                        organizacaoId: id,
+                        organizacao_id: id,
                     },
                 },
             },
@@ -87,6 +95,12 @@ let OrganizacaoService = class OrganizacaoService {
         return delOrg;
     }
     async vinculaUsuarios(idOrg, idUser) {
+        const usuarioExiste = await this.prismaAssinaturas.usuarios.findUnique({
+            where: { id: idUser },
+        });
+        if (!usuarioExiste) {
+            throw new common_1.HttpException("Usuário não encontrado", common_1.HttpStatus.NOT_FOUND);
+        }
         const org = await this.prismaAssinaturas.organizacao.findUnique({
             where: {
                 id: idOrg,
@@ -95,24 +109,19 @@ let OrganizacaoService = class OrganizacaoService {
         if (!org) {
             throw new common_1.HttpException("Organização não encontrada", common_1.HttpStatus.NOT_FOUND);
         }
-        const user = await this.prismaAssinaturas.usuarios.findUnique({
+        const user = await this.prismaAssinaturas.usuarios_organizacao.findFirst({
             where: {
-                id: idUser,
-                UsuariosOrganizacao: {
-                    every: {
-                        id: idOrg,
-                        usuariosId: idUser,
-                    },
-                },
+                organizacao_id: idOrg,
+                usuarios_id: idUser,
             },
         });
         if (user) {
             throw new common_1.HttpException("Usuário já cadastrado para essa organização", common_1.HttpStatus.CONFLICT);
         }
-        const vinculo = await this.prismaAssinaturas.usuariosOrganizacao.create({
+        const vinculo = await this.prismaAssinaturas.usuarios_organizacao.create({
             data: {
-                organizacaoId: idOrg,
-                usuariosId: idOrg,
+                organizacao_id: idOrg,
+                usuarios_id: idUser,
             },
         });
         return vinculo;

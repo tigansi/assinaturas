@@ -36,9 +36,9 @@ let UsuariosService = class UsuariosService {
         const cad = await this.prismaAssinaturas.usuarios.create({
             data: {
                 nome: createUserDto.nome,
-                email: createUserDto.nascimento,
+                email: createUserDto.email,
                 nascimento: new Date(createUserDto.nascimento),
-                token: await this.tokenService.generateToken("token", "usuarios"),
+                token: await this.tokenService.generateToken("usuarios", "token"),
                 senha: senhaCript,
                 tipo_acesso: "ADM",
             },

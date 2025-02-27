@@ -54,13 +54,26 @@ export class OrganizacaoService {
       );
     }
 
-    const tokenOrg = await this.prismaAssinaturas.chavesApi.create({
+    const tk = await this.prismaAssinaturas.chaves_api.findFirst({
+      where: {
+        organizacao_id: id,
+      },
+    });
+
+    if (tk) {
+      throw new HttpException(
+        "A organização já possui um token",
+        HttpStatus.CONFLICT
+      );
+    }
+
+    const tokenOrg = await this.prismaAssinaturas.chaves_api.create({
       data: {
         chave_api: await this.tokenService.generateToken(
-          "chavesApi",
+          "chaves_api",
           "chave_api"
         ),
-        organizacaoId: id,
+        organizacao_id: id,
       },
     });
 
@@ -91,9 +104,9 @@ export class OrganizacaoService {
       },
       where: {
         id: id,
-        ChavesApi: {
+        chaves_api: {
           every: {
-            organizacaoId: id,
+            organizacao_id: id,
           },
         },
       },
@@ -103,6 +116,14 @@ export class OrganizacaoService {
   }
 
   async vinculaUsuarios(idOrg: number, idUser: number) {
+    const usuarioExiste = await this.prismaAssinaturas.usuarios.findUnique({
+      where: { id: idUser },
+    });
+
+    if (!usuarioExiste) {
+      throw new HttpException("Usuário não encontrado", HttpStatus.NOT_FOUND);
+    }
+
     const org = await this.prismaAssinaturas.organizacao.findUnique({
       where: {
         id: idOrg,
@@ -116,15 +137,10 @@ export class OrganizacaoService {
       );
     }
 
-    const user = await this.prismaAssinaturas.usuarios.findUnique({
+    const user = await this.prismaAssinaturas.usuarios_organizacao.findFirst({
       where: {
-        id: idUser,
-        UsuariosOrganizacao: {
-          every: {
-            id: idOrg,
-            usuariosId: idUser,
-          },
-        },
+        organizacao_id: idOrg,
+        usuarios_id: idUser,
       },
     });
 
@@ -135,10 +151,10 @@ export class OrganizacaoService {
       );
     }
 
-    const vinculo = await this.prismaAssinaturas.usuariosOrganizacao.create({
+    const vinculo = await this.prismaAssinaturas.usuarios_organizacao.create({
       data: {
-        organizacaoId: idOrg,
-        usuariosId: idOrg,
+        organizacao_id: idOrg,
+        usuarios_id: idUser,
       },
     });
 

@@ -81,9 +81,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrganizacaoController.prototype, "create", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.JwtAuthGuard),
     (0, common_1.Put)("/create_token_org/:idOrg"),
-    __param(0, (0, common_1.Param)()),
+    __param(0, (0, common_1.Param)("idOrg", common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
@@ -97,9 +96,9 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrganizacaoController.prototype, "deleteOrg", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.JwtAuthGuard),
     (0, common_1.Put)("/vincula_usuario/:idUser/:idOrg"),
-    __param(0, (0, common_1.Param)()),
+    __param(0, (0, common_1.Param)("idUser", common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Param)("idOrg", common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", Promise)

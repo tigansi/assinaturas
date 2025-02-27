@@ -8,7 +8,7 @@ export declare class AuthService {
     private readonly tokenService;
     constructor(jwtService: JwtService, prismaAssinaturas: PrismaAssinaturas, tokenService: TokenService);
     validateUser(): Promise<void>;
-    login(loginUserDto: LoginUserDto): Promise<{
+    loginUser(loginUserDto: LoginUserDto): Promise<{
         message: string;
         usuario: {
             id: number;
@@ -17,4 +17,5 @@ export declare class AuthService {
         };
         token: string;
     }>;
+    loginAdmin(): Promise<void>;
 }

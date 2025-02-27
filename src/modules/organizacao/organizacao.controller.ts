@@ -1,4 +1,12 @@
-import { Body, Controller, Param, Post, Put, UseGuards } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Param,
+  ParseIntPipe,
+  Post,
+  Put,
+  UseGuards,
+} from "@nestjs/common";
 import { OrganizacaoService } from "./organizacao.service";
 import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
 import { JwtAuthGuard } from "../auth/auth.guard";
@@ -21,9 +29,9 @@ export class OrganizacaoController {
     }
   }
 
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Put("/create_token_org/:idOrg")
-  async createTokenOrg(@Param() idOrg: number) {
+  async createTokenOrg(@Param("idOrg", ParseIntPipe) idOrg: number) {
     try {
       const ret = await this.organizacaoService.createTokenOrg(idOrg);
       return {
@@ -49,9 +57,12 @@ export class OrganizacaoController {
     }
   }
 
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Put("/vincula_usuario/:idUser/:idOrg")
-  async vinculaUsuario(@Param() idUser: number, idOrg: number) {
+  async vinculaUsuario(
+    @Param("idUser", ParseIntPipe) idUser: number,
+    @Param("idOrg", ParseIntPipe) idOrg: number
+  ) {
     try {
       const ret = await this.organizacaoService.vinculaUsuarios(idOrg, idUser);
       return {

@@ -7,9 +7,9 @@ export declare class OrganizacaoController {
         message: string;
         dados: {
             id: number;
-            is_ativo: boolean;
             nome_organizacao: string;
             usuario_criacao: string;
+            is_ativo: boolean;
         };
     }>;
     createTokenOrg(idOrg: number): Promise<{
@@ -18,8 +18,7 @@ export declare class OrganizacaoController {
             id: number;
             is_ativo: boolean;
             chave_api: string;
-            organizacaoId: number;
-            usuariosId: number | null;
+            organizacao_id: number;
         };
     }>;
     deleteOrg(idOrg: number): Promise<{
@@ -30,8 +29,8 @@ export declare class OrganizacaoController {
         message: string;
         data: {
             id: number;
-            organizacaoId: number;
-            usuariosId: number;
+            organizacao_id: number;
+            usuarios_id: number;
         };
     }>;
 }

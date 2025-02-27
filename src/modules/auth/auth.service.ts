@@ -14,7 +14,7 @@ export class AuthService {
 
   async validateUser() {}
 
-  async login(loginUserDto: LoginUserDto) {
+  async loginUser(loginUserDto: LoginUserDto) {
     const user = await this.prismaAssinaturas.usuarios.findUnique({
       where: {
         email: loginUserDto.email,
@@ -50,4 +50,6 @@ export class AuthService {
       );
     }
   }
+
+  async loginAdmin() {}
 }

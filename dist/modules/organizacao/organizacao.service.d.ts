@@ -7,21 +7,20 @@ export declare class OrganizacaoService {
     constructor(prismaAssinaturas: PrismaAssinaturas, tokenService: TokenService);
     createOrganizacao(createOrganizacaoDto: CreateOrganizacaoDto): Promise<{
         id: number;
-        is_ativo: boolean;
         nome_organizacao: string;
         usuario_criacao: string;
+        is_ativo: boolean;
     }>;
     createTokenOrg(id: number): Promise<{
         id: number;
         is_ativo: boolean;
         chave_api: string;
-        organizacaoId: number;
-        usuariosId: number | null;
+        organizacao_id: number;
     }>;
     deletaOrg(id: number): Promise<import("prisma/generated/assinaturas").Prisma.BatchPayload>;
     vinculaUsuarios(idOrg: number, idUser: number): Promise<{
         id: number;
-        organizacaoId: number;
-        usuariosId: number;
+        organizacao_id: number;
+        usuarios_id: number;
     }>;
 }

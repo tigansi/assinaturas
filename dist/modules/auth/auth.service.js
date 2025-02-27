@@ -24,7 +24,7 @@ let AuthService = class AuthService {
         this.tokenService = tokenService;
     }
     async validateUser() { }
-    async login(loginUserDto) {
+    async loginUser(loginUserDto) {
         const user = await this.prismaAssinaturas.usuarios.findUnique({
             where: {
                 email: loginUserDto.email,
@@ -46,6 +46,7 @@ let AuthService = class AuthService {
             throw new common_1.HttpException("E-mail ou senha incorretos", common_1.HttpStatus.UNAUTHORIZED);
         }
     }
+    async loginAdmin() { }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([

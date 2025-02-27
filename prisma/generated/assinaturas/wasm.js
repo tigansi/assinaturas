@@ -131,18 +131,17 @@ exports.Prisma.OrganizacaoScalarFieldEnum = {
   is_ativo: 'is_ativo'
 };
 
-exports.Prisma.UsuariosOrganizacaoScalarFieldEnum = {
+exports.Prisma.Usuarios_organizacaoScalarFieldEnum = {
   id: 'id',
-  organizacaoId: 'organizacaoId',
-  usuariosId: 'usuariosId'
+  organizacao_id: 'organizacao_id',
+  usuarios_id: 'usuarios_id'
 };
 
-exports.Prisma.ChavesApiScalarFieldEnum = {
+exports.Prisma.Chaves_apiScalarFieldEnum = {
   id: 'id',
   chave_api: 'chave_api',
   is_ativo: 'is_ativo',
-  organizacaoId: 'organizacaoId',
-  usuariosId: 'usuariosId'
+  organizacao_id: 'organizacao_id'
 };
 
 exports.Prisma.UsuariosScalarFieldEnum = {
@@ -158,10 +157,10 @@ exports.Prisma.UsuariosScalarFieldEnum = {
   is_ativo: 'is_ativo'
 };
 
-exports.Prisma.JwtTokenScalarFieldEnum = {
+exports.Prisma.Jwt_tokenScalarFieldEnum = {
   id: 'id',
   jwt_token: 'jwt_token',
-  usuariosId: 'usuariosId'
+  usuarios_id: 'usuarios_id'
 };
 
 exports.Prisma.TemplatesScalarFieldEnum = {
@@ -171,15 +170,15 @@ exports.Prisma.TemplatesScalarFieldEnum = {
   token_template: 'token_template',
   created_at: 'created_at',
   is_ativo: 'is_ativo',
-  usuariosId: 'usuariosId'
+  usuarios_id: 'usuarios_id'
 };
 
-exports.Prisma.VariaveisTemplateScalarFieldEnum = {
+exports.Prisma.Variaveis_templateScalarFieldEnum = {
   id: 'id',
-  templatesId: 'templatesId'
+  templates_id: 'templates_id'
 };
 
-exports.Prisma.StatusDocumentosScalarFieldEnum = {
+exports.Prisma.Status_documentosScalarFieldEnum = {
   id: 'id',
   status_documento: 'status_documento'
 };
@@ -189,26 +188,21 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.AdminsOrderByRelevanceFieldEnum = {
+exports.Prisma.adminsOrderByRelevanceFieldEnum = {
   nome_admin: 'nome_admin',
   usuario_admin: 'usuario_admin'
 };
 
-exports.Prisma.OrganizacaoOrderByRelevanceFieldEnum = {
+exports.Prisma.organizacaoOrderByRelevanceFieldEnum = {
   nome_organizacao: 'nome_organizacao',
   usuario_criacao: 'usuario_criacao'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
-exports.Prisma.ChavesApiOrderByRelevanceFieldEnum = {
+exports.Prisma.chaves_apiOrderByRelevanceFieldEnum = {
   chave_api: 'chave_api'
 };
 
-exports.Prisma.UsuariosOrderByRelevanceFieldEnum = {
+exports.Prisma.usuariosOrderByRelevanceFieldEnum = {
   nome: 'nome',
   email: 'email',
   senha: 'senha',
@@ -216,11 +210,11 @@ exports.Prisma.UsuariosOrderByRelevanceFieldEnum = {
   tipo_acesso: 'tipo_acesso'
 };
 
-exports.Prisma.JwtTokenOrderByRelevanceFieldEnum = {
+exports.Prisma.jwt_tokenOrderByRelevanceFieldEnum = {
   jwt_token: 'jwt_token'
 };
 
-exports.Prisma.TemplatesOrderByRelevanceFieldEnum = {
+exports.Prisma.templatesOrderByRelevanceFieldEnum = {
   nome_template: 'nome_template',
   diretorio_arquivo: 'diretorio_arquivo',
   token_template: 'token_template'
@@ -228,15 +222,15 @@ exports.Prisma.TemplatesOrderByRelevanceFieldEnum = {
 
 
 exports.Prisma.ModelName = {
-  Admins: 'Admins',
-  Organizacao: 'Organizacao',
-  UsuariosOrganizacao: 'UsuariosOrganizacao',
-  ChavesApi: 'ChavesApi',
-  Usuarios: 'Usuarios',
-  JwtToken: 'JwtToken',
-  Templates: 'Templates',
-  VariaveisTemplate: 'VariaveisTemplate',
-  StatusDocumentos: 'StatusDocumentos'
+  admins: 'admins',
+  organizacao: 'organizacao',
+  usuarios_organizacao: 'usuarios_organizacao',
+  chaves_api: 'chaves_api',
+  usuarios: 'usuarios',
+  jwt_token: 'jwt_token',
+  templates: 'templates',
+  variaveis_template: 'variaveis_template',
+  status_documentos: 'status_documentos'
 };
 
 /**
