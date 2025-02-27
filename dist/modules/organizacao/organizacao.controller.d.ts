@@ -1,0 +1,36 @@
+import { OrganizacaoService } from "./organizacao.service";
+import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
+export declare class OrganizacaoController {
+    private readonly organizacaoService;
+    constructor(organizacaoService: OrganizacaoService);
+    create(body: CreateOrganizacaoDto): Promise<{
+        message: string;
+        dados: {
+            id: number;
+            nome_organizacao: string;
+            usuario_criacao: string;
+            is_ativo: boolean;
+        };
+    }>;
+    createTokenOrg(idOrg: number): Promise<{
+        message: string;
+        dados: {
+            id: number;
+            is_ativo: boolean;
+            chave_api: string;
+            organizacao_id: number;
+        };
+    }>;
+    deleteOrg(idOrg: number): Promise<{
+        message: string;
+        data: import("prisma/generated/assinaturas").Prisma.BatchPayload;
+    }>;
+    vinculaUsuario(idUser: number, idOrg: number): Promise<{
+        message: string;
+        data: {
+            id: number;
+            organizacao_id: number;
+            usuarios_id: number;
+        };
+    }>;
+}
