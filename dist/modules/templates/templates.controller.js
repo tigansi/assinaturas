@@ -17,10 +17,11 @@ let TemplatesController = class TemplatesController {
     constructor(templatesService) {
         this.templatesService = templatesService;
     }
+    async uploadDocx() { }
 };
 exports.TemplatesController = TemplatesController;
 exports.TemplatesController = TemplatesController = __decorate([
-    (0, common_1.Controller)('templates'),
+    (0, common_1.Controller)("templates"),
     __metadata("design:paramtypes", [templates_service_1.TemplatesService])
 ], TemplatesController);
 //# sourceMappingURL=templates.controller.js.map
