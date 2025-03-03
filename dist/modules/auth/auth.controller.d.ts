@@ -1,7 +1,5 @@
-import { AuthService } from "./auth.service";
-import { LoginUserDto } from "./dto/login-user-dto";
+import { AuthService } from './auth.service';
 export declare class AuthController {
     private readonly authService;
     constructor(authService: AuthService);
-    loginUser(body: LoginUserDto): Promise<void>;
 }
