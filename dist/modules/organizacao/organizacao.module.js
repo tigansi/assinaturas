@@ -10,15 +10,16 @@ exports.OrganizacaoModule = void 0;
 const common_1 = require("@nestjs/common");
 const organizacao_service_1 = require("./organizacao.service");
 const organizacao_controller_1 = require("./organizacao.controller");
-const prisma_service_1 = require("../../prisma/prisma.service");
-const token_service_1 = require("../../core/services/token.service");
+const core_module_1 = require("../../core/core.module");
+const prisma_module_1 = require("../../prisma/prisma.module");
 let OrganizacaoModule = class OrganizacaoModule {
 };
 exports.OrganizacaoModule = OrganizacaoModule;
 exports.OrganizacaoModule = OrganizacaoModule = __decorate([
     (0, common_1.Module)({
+        imports: [core_module_1.CoreModule, prisma_module_1.PrismaModule],
         controllers: [organizacao_controller_1.OrganizacaoController],
-        providers: [organizacao_service_1.OrganizacaoService, prisma_service_1.PrismaAssinaturas, token_service_1.TokenService],
+        providers: [organizacao_service_1.OrganizacaoService],
     })
 ], OrganizacaoModule);
 //# sourceMappingURL=organizacao.module.js.map

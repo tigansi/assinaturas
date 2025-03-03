@@ -12,47 +12,52 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
-const prisma_service_1 = require("../../prisma/prisma.service");
 const token_service_1 = require("../../core/services/token.service");
+const prisma_service_1 = require("../../prisma/prisma.service");
 let AuthService = class AuthService {
-    jwtService;
     prismaAssinaturas;
+    jwtService;
     tokenService;
-    constructor(jwtService, prismaAssinaturas, tokenService) {
-        this.jwtService = jwtService;
+    constructor(prismaAssinaturas, jwtService, tokenService) {
         this.prismaAssinaturas = prismaAssinaturas;
+        this.jwtService = jwtService;
         this.tokenService = tokenService;
     }
-    async validateUser() { }
-    async loginUser(loginUserDto) {
+    async loginUser(loginDto) {
         const user = await this.prismaAssinaturas.usuarios.findUnique({
             where: {
-                email: loginUserDto.email,
+                email: loginDto.email,
             },
         });
         if (!user) {
-            throw new common_1.HttpException("Usuário não possui cadastro", common_1.HttpStatus.CONFLICT);
+            throw new common_1.HttpException("Usuário não encontrado", common_1.HttpStatus.UNAUTHORIZED);
         }
-        if (await this.tokenService.verificaSenha(loginUserDto.senha, user?.senha)) {
-            const payload = { sub: user?.id, email: user?.email, nome: user?.nome };
-            const token = this.jwtService.sign(payload);
-            return {
-                message: "Login realizado com sucesso!",
-                usuario: { id: user?.id, nome: user?.nome, email: user?.email },
-                token,
-            };
+        const senha = await this.tokenService.verificaSenha(loginDto.senha, user.senha);
+        if (!senha) {
+            throw new common_1.HttpException("Usuário ou senha incorretos", common_1.HttpStatus.UNAUTHORIZED);
         }
-        else {
-            throw new common_1.HttpException("E-mail ou senha incorretos", common_1.HttpStatus.UNAUTHORIZED);
-        }
+        return {
+            nome: user.nome,
+            email: user.email,
+            token: this.generateToken(user),
+        };
     }
-    async loginAdmin() { }
+    generateToken(usuarios) {
+        return this.jwtService.sign({
+            sub: usuarios.id,
+            nome: usuarios.nome,
+            email: usuarios.email,
+        }, {
+            audience: "usuarios",
+            issuer: "login",
+        });
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [jwt_1.JwtService,
-        prisma_service_1.PrismaAssinaturas,
+    __metadata("design:paramtypes", [prisma_service_1.PrismaAssinaturas,
+        jwt_1.JwtService,
         token_service_1.TokenService])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

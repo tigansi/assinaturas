@@ -1,21 +1,17 @@
 import { JwtService } from "@nestjs/jwt";
-import { LoginUserDto } from "./dto/login-user-dto";
-import { PrismaAssinaturas } from "src/prisma/prisma.service";
 import { TokenService } from "src/core/services/token.service";
+import { PrismaAssinaturas } from "src/prisma/prisma.service";
+import { LoginDto } from "./dto/login-dto";
+import { usuarios } from "prisma/generated/assinaturas";
 export declare class AuthService {
-    private readonly jwtService;
     private readonly prismaAssinaturas;
+    private readonly jwtService;
     private readonly tokenService;
-    constructor(jwtService: JwtService, prismaAssinaturas: PrismaAssinaturas, tokenService: TokenService);
-    validateUser(): Promise<void>;
-    loginUser(loginUserDto: LoginUserDto): Promise<{
-        message: string;
-        usuario: {
-            id: number;
-            nome: string;
-            email: string;
-        };
+    constructor(prismaAssinaturas: PrismaAssinaturas, jwtService: JwtService, tokenService: TokenService);
+    loginUser(loginDto: LoginDto): Promise<{
+        nome: string;
+        email: string;
         token: string;
     }>;
-    loginAdmin(): Promise<void>;
+    generateToken(usuarios: usuarios): string;
 }

@@ -12,11 +12,14 @@ const usuarios_service_1 = require("./usuarios.service");
 const usuarios_controller_1 = require("./usuarios.controller");
 const prisma_service_1 = require("../../prisma/prisma.service");
 const token_service_1 = require("../../core/services/token.service");
+const core_module_1 = require("../../core/core.module");
+const prisma_module_1 = require("../../prisma/prisma.module");
 let UsuariosModule = class UsuariosModule {
 };
 exports.UsuariosModule = UsuariosModule;
 exports.UsuariosModule = UsuariosModule = __decorate([
     (0, common_1.Module)({
+        imports: [core_module_1.CoreModule, prisma_module_1.PrismaModule],
         controllers: [usuarios_controller_1.UsuariosController],
         providers: [usuarios_service_1.UsuariosService, prisma_service_1.PrismaAssinaturas, token_service_1.TokenService],
     })

@@ -16,7 +16,7 @@ exports.OrganizacaoController = void 0;
 const common_1 = require("@nestjs/common");
 const organizacao_service_1 = require("./organizacao.service");
 const create_organizacao_dto_1 = require("./dto/create-organizacao-dto");
-const auth_guard_1 = require("../auth/auth.guard");
+const jwt_auth_guard_1 = require("../auth/jwt-auth.guard");
 let OrganizacaoController = class OrganizacaoController {
     organizacaoService;
     constructor(organizacaoService) {
@@ -73,6 +73,10 @@ let OrganizacaoController = class OrganizacaoController {
 };
 exports.OrganizacaoController = OrganizacaoController;
 __decorate([
+<<<<<<< HEAD
+=======
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+>>>>>>> c750acfeeb085deb6d10c3b475613628dd1f7818
     (0, common_1.Post)("/create"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -87,7 +91,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrganizacaoController.prototype, "createTokenOrg", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.JwtAuthGuard),
     (0, common_1.Put)("/delete/:id"),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),

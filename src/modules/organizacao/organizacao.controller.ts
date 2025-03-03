@@ -9,7 +9,7 @@ import {
 } from "@nestjs/common";
 import { OrganizacaoService } from "./organizacao.service";
 import { CreateOrganizacaoDto } from "./dto/create-organizacao-dto";
-import { JwtAuthGuard } from "../auth/auth.guard";
+import { JwtAuthGuard } from "../auth/jwt-auth.guard";
 
 @Controller("organizacao")
 export class OrganizacaoController {
@@ -43,7 +43,7 @@ export class OrganizacaoController {
     }
   }
 
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Put("/delete/:id")
   async deleteOrg(@Param() idOrg: number) {
     try {
