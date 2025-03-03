@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common";
-import { PrismaAssinaturas } from "src/prisma/prisma.service";
+import { TokenService } from "./services/token.service";
+import { PrismaModule } from "src/prisma/prisma.module";
 
 @Module({
-  providers: [PrismaAssinaturas],
-  exports: [CoreModule],
+  imports: [PrismaModule],
+  providers: [TokenService],
+  exports: [TokenService],
 })
 export class CoreModule {}
