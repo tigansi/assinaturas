@@ -5,7 +5,7 @@ import { OrganizacaoModule } from "./modules/organizacao/organizacao.module";
 import { AdminsModule } from "./modules/admins/admins.module";
 import { CoreModule } from "./core/core.module";
 import { TemplatesModule } from "./modules/templates/templates.module";
-import { AuthModule } from './modules/auth/auth.module';
+import { AuthModule } from "./modules/auth/auth.module";
 
 @Module({
   imports: [

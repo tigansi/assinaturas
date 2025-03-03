@@ -15,6 +15,7 @@ exports.CoreModule = CoreModule;
 exports.CoreModule = CoreModule = __decorate([
     (0, common_1.Module)({
         providers: [prisma_service_1.PrismaAssinaturas],
+        exports: [CoreModule],
     })
 ], CoreModule);
 //# sourceMappingURL=core.module.js.map
