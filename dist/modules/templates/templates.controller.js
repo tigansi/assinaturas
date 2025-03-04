@@ -16,22 +16,17 @@ exports.TemplatesController = void 0;
 const common_1 = require("@nestjs/common");
 const templates_service_1 = require("./templates.service");
 const platform_express_1 = require("@nestjs/platform-express");
-const promises_1 = require("fs/promises");
-const path_1 = require("path");
 let TemplatesController = class TemplatesController {
     templatesService;
     constructor(templatesService) {
         this.templatesService = templatesService;
     }
-    async uploadDocx(file) {
+    async uploadDocx(idUser, file) {
         try {
-            const dirPath = (0, path_1.join)(__dirname, "..", "..", "..", "storage", "templates");
-            const filePath = (0, path_1.join)(dirPath, "arquivo.docx");
-            await (0, promises_1.mkdir)(dirPath, { recursive: true });
-            await (0, promises_1.writeFile)(filePath, file.buffer);
+            const ret = await this.templatesService.tradaDocx(file, idUser);
             return {
                 message: "Template carregado com sucesso",
-                filePath,
+                data: ret,
             };
         }
         catch (err) {
@@ -43,7 +38,8 @@ exports.TemplatesController = TemplatesController;
 __decorate([
     (0, common_1.Post)("/upload_docx"),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("file")),
-    __param(0, (0, common_1.UploadedFile)(new common_1.ParseFilePipe({
+    __param(0, (0, common_1.Body)("idUser", common_1.ParseIntPipe)),
+    __param(1, (0, common_1.UploadedFile)(new common_1.ParseFilePipe({
         validators: [
             new common_1.FileTypeValidator({
                 fileType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -51,7 +47,7 @@ __decorate([
         ],
     }))),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], TemplatesController.prototype, "uploadDocx", null);
 exports.TemplatesController = TemplatesController = __decorate([

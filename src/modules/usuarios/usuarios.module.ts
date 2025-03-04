@@ -10,5 +10,6 @@ import { PrismaModule } from "src/prisma/prisma.module";
   imports: [CoreModule, PrismaModule],
   controllers: [UsuariosController],
   providers: [UsuariosService, PrismaAssinaturas, TokenService],
+  exports: [UsuariosService],
 })
 export class UsuariosModule {}

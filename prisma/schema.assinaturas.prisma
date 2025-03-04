@@ -67,7 +67,7 @@ model templates {
   id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
   nome_template      String               @db.VarChar(255)
   diretorio_arquivo  String               @db.VarChar(150)
-  token_template     String               @db.VarChar(50)
+  token_template     String               @unique @db.VarChar(50)
   created_at         DateTime             @default(now()) @db.Timestamp(0)
   is_ativo           Boolean              @default(true)
   id_usuario         usuarios             @relation(fields: [usuarios_id], references: [id])
@@ -76,9 +76,10 @@ model templates {
 }
 
 model variaveis_template {
-  id           Int       @id @default(autoincrement()) @db.UnsignedInt
-  id_template  templates @relation(fields: [templates_id], references: [id])
-  templates_id Int       @db.UnsignedInt
+  id            Int       @id @default(autoincrement()) @db.UnsignedInt
+  nome_variavel String    @db.VarChar(255)
+  id_template   templates @relation(fields: [templates_id], references: [id])
+  templates_id  Int       @db.UnsignedInt
 }
 
 model status_documentos {

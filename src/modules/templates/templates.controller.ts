@@ -1,15 +1,15 @@
 import {
+  Body,
   Controller,
   FileTypeValidator,
   ParseFilePipe,
+  ParseIntPipe,
   Post,
   UploadedFile,
   UseInterceptors,
 } from "@nestjs/common";
 import { TemplatesService } from "./templates.service";
 import { FileInterceptor } from "@nestjs/platform-express";
-import { mkdir, writeFile } from "fs/promises";
-import { join } from "path";
 
 @Controller("templates")
 export class TemplatesController {
@@ -18,6 +18,7 @@ export class TemplatesController {
   @Post("/upload_docx")
   @UseInterceptors(FileInterceptor("file"))
   async uploadDocx(
+    @Body("idUser", ParseIntPipe) idUser: number,
     @UploadedFile(
       new ParseFilePipe({
         validators: [
@@ -31,19 +32,25 @@ export class TemplatesController {
     file: Express.Multer.File
   ) {
     try {
-      const dirPath = join(__dirname, "..", "..", "..", "storage", "templates");
-      const filePath = join(dirPath, "arquivo.docx");
-
-      // Criar a pasta se não existir
-      await mkdir(dirPath, { recursive: true });
-
-      // Escrever o arquivo
-      await writeFile(filePath, file.buffer);
-
+      const ret = await this.templatesService.tradaDocx(file, idUser);
       return {
         message: "Template carregado com sucesso",
-        filePath,
+        data: ret,
       };
+
+      // const dirPath = join(__dirname, "..", "..", "..", "storage", "templates");
+      // const filePath = join(dirPath, "arquivo.docx");
+
+      // Criar a pasta se não existir
+      // await mkdir(dirPath, { recursive: true });
+
+      // Escrever o arquivo
+      // await writeFile(filePath, file.buffer);
+
+      // return {
+      //   message: "Template carregado com sucesso",
+      //   filePath,
+      // };
     } catch (err) {
       throw err;
     }

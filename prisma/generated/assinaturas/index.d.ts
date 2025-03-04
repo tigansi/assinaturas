@@ -8549,16 +8549,19 @@ export namespace Prisma {
 
   export type Variaveis_templateMinAggregateOutputType = {
     id: number | null
+    nome_variavel: string | null
     templates_id: number | null
   }
 
   export type Variaveis_templateMaxAggregateOutputType = {
     id: number | null
+    nome_variavel: string | null
     templates_id: number | null
   }
 
   export type Variaveis_templateCountAggregateOutputType = {
     id: number
+    nome_variavel: number
     templates_id: number
     _all: number
   }
@@ -8576,16 +8579,19 @@ export namespace Prisma {
 
   export type Variaveis_templateMinAggregateInputType = {
     id?: true
+    nome_variavel?: true
     templates_id?: true
   }
 
   export type Variaveis_templateMaxAggregateInputType = {
     id?: true
+    nome_variavel?: true
     templates_id?: true
   }
 
   export type Variaveis_templateCountAggregateInputType = {
     id?: true
+    nome_variavel?: true
     templates_id?: true
     _all?: true
   }
@@ -8678,6 +8684,7 @@ export namespace Prisma {
 
   export type Variaveis_templateGroupByOutputType = {
     id: number
+    nome_variavel: string
     templates_id: number
     _count: Variaveis_templateCountAggregateOutputType | null
     _avg: Variaveis_templateAvgAggregateOutputType | null
@@ -8702,6 +8709,7 @@ export namespace Prisma {
 
   export type variaveis_templateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    nome_variavel?: boolean
     templates_id?: boolean
     id_template?: boolean | templatesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["variaveis_template"]>
@@ -8710,10 +8718,11 @@ export namespace Prisma {
 
   export type variaveis_templateSelectScalar = {
     id?: boolean
+    nome_variavel?: boolean
     templates_id?: boolean
   }
 
-  export type variaveis_templateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "templates_id", ExtArgs["result"]["variaveis_template"]>
+  export type variaveis_templateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome_variavel" | "templates_id", ExtArgs["result"]["variaveis_template"]>
   export type variaveis_templateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     id_template?: boolean | templatesDefaultArgs<ExtArgs>
   }
@@ -8725,6 +8734,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      nome_variavel: string
       templates_id: number
     }, ExtArgs["result"]["variaveis_template"]>
     composites: {}
@@ -9097,6 +9107,7 @@ export namespace Prisma {
    */ 
   interface variaveis_templateFieldRefs {
     readonly id: FieldRef<"variaveis_template", 'Int'>
+    readonly nome_variavel: FieldRef<"variaveis_template", 'String'>
     readonly templates_id: FieldRef<"variaveis_template", 'Int'>
   }
     
@@ -10439,6 +10450,7 @@ export namespace Prisma {
 
   export const Variaveis_templateScalarFieldEnum: {
     id: 'id',
+    nome_variavel: 'nome_variavel',
     templates_id: 'templates_id'
   };
 
@@ -10509,6 +10521,13 @@ export namespace Prisma {
   };
 
   export type templatesOrderByRelevanceFieldEnum = (typeof templatesOrderByRelevanceFieldEnum)[keyof typeof templatesOrderByRelevanceFieldEnum]
+
+
+  export const variaveis_templateOrderByRelevanceFieldEnum: {
+    nome_variavel: 'nome_variavel'
+  };
+
+  export type variaveis_templateOrderByRelevanceFieldEnum = (typeof variaveis_templateOrderByRelevanceFieldEnum)[keyof typeof variaveis_templateOrderByRelevanceFieldEnum]
 
 
   /**
@@ -10930,18 +10949,18 @@ export namespace Prisma {
 
   export type templatesWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    token_template?: string
     AND?: templatesWhereInput | templatesWhereInput[]
     OR?: templatesWhereInput[]
     NOT?: templatesWhereInput | templatesWhereInput[]
     nome_template?: StringFilter<"templates"> | string
     diretorio_arquivo?: StringFilter<"templates"> | string
-    token_template?: StringFilter<"templates"> | string
     created_at?: DateTimeFilter<"templates"> | Date | string
     is_ativo?: BoolFilter<"templates"> | boolean
     usuarios_id?: IntFilter<"templates"> | number
     id_usuario?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
     variaveis_template?: Variaveis_templateListRelationFilter
-  }, "id">
+  }, "id" | "token_template">
 
   export type templatesOrderByWithAggregationInput = {
     id?: SortOrder
@@ -10976,14 +10995,17 @@ export namespace Prisma {
     OR?: variaveis_templateWhereInput[]
     NOT?: variaveis_templateWhereInput | variaveis_templateWhereInput[]
     id?: IntFilter<"variaveis_template"> | number
+    nome_variavel?: StringFilter<"variaveis_template"> | string
     templates_id?: IntFilter<"variaveis_template"> | number
     id_template?: XOR<TemplatesScalarRelationFilter, templatesWhereInput>
   }
 
   export type variaveis_templateOrderByWithRelationInput = {
     id?: SortOrder
+    nome_variavel?: SortOrder
     templates_id?: SortOrder
     id_template?: templatesOrderByWithRelationInput
+    _relevance?: variaveis_templateOrderByRelevanceInput
   }
 
   export type variaveis_templateWhereUniqueInput = Prisma.AtLeast<{
@@ -10991,12 +11013,14 @@ export namespace Prisma {
     AND?: variaveis_templateWhereInput | variaveis_templateWhereInput[]
     OR?: variaveis_templateWhereInput[]
     NOT?: variaveis_templateWhereInput | variaveis_templateWhereInput[]
+    nome_variavel?: StringFilter<"variaveis_template"> | string
     templates_id?: IntFilter<"variaveis_template"> | number
     id_template?: XOR<TemplatesScalarRelationFilter, templatesWhereInput>
   }, "id">
 
   export type variaveis_templateOrderByWithAggregationInput = {
     id?: SortOrder
+    nome_variavel?: SortOrder
     templates_id?: SortOrder
     _count?: variaveis_templateCountOrderByAggregateInput
     _avg?: variaveis_templateAvgOrderByAggregateInput
@@ -11010,6 +11034,7 @@ export namespace Prisma {
     OR?: variaveis_templateScalarWhereWithAggregatesInput[]
     NOT?: variaveis_templateScalarWhereWithAggregatesInput | variaveis_templateScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"variaveis_template"> | number
+    nome_variavel?: StringWithAggregatesFilter<"variaveis_template"> | string
     templates_id?: IntWithAggregatesFilter<"variaveis_template"> | number
   }
 
@@ -11444,34 +11469,40 @@ export namespace Prisma {
   }
 
   export type variaveis_templateCreateInput = {
+    nome_variavel: string
     id_template: templatesCreateNestedOneWithoutVariaveis_templateInput
   }
 
   export type variaveis_templateUncheckedCreateInput = {
     id?: number
+    nome_variavel: string
     templates_id: number
   }
 
   export type variaveis_templateUpdateInput = {
+    nome_variavel?: StringFieldUpdateOperationsInput | string
     id_template?: templatesUpdateOneRequiredWithoutVariaveis_templateNestedInput
   }
 
   export type variaveis_templateUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    nome_variavel?: StringFieldUpdateOperationsInput | string
     templates_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type variaveis_templateCreateManyInput = {
     id?: number
+    nome_variavel: string
     templates_id: number
   }
 
   export type variaveis_templateUpdateManyMutationInput = {
-
+    nome_variavel?: StringFieldUpdateOperationsInput | string
   }
 
   export type variaveis_templateUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    nome_variavel?: StringFieldUpdateOperationsInput | string
     templates_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -11940,8 +11971,15 @@ export namespace Prisma {
     isNot?: templatesWhereInput
   }
 
+  export type variaveis_templateOrderByRelevanceInput = {
+    fields: variaveis_templateOrderByRelevanceFieldEnum | variaveis_templateOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
   export type variaveis_templateCountOrderByAggregateInput = {
     id?: SortOrder
+    nome_variavel?: SortOrder
     templates_id?: SortOrder
   }
 
@@ -11952,11 +11990,13 @@ export namespace Prisma {
 
   export type variaveis_templateMaxOrderByAggregateInput = {
     id?: SortOrder
+    nome_variavel?: SortOrder
     templates_id?: SortOrder
   }
 
   export type variaveis_templateMinOrderByAggregateInput = {
     id?: SortOrder
+    nome_variavel?: SortOrder
     templates_id?: SortOrder
   }
 
@@ -12958,11 +12998,12 @@ export namespace Prisma {
   }
 
   export type variaveis_templateCreateWithoutId_templateInput = {
-
+    nome_variavel: string
   }
 
   export type variaveis_templateUncheckedCreateWithoutId_templateInput = {
     id?: number
+    nome_variavel: string
   }
 
   export type variaveis_templateCreateOrConnectWithoutId_templateInput = {
@@ -13036,6 +13077,7 @@ export namespace Prisma {
     OR?: variaveis_templateScalarWhereInput[]
     NOT?: variaveis_templateScalarWhereInput | variaveis_templateScalarWhereInput[]
     id?: IntFilter<"variaveis_template"> | number
+    nome_variavel?: StringFilter<"variaveis_template"> | string
     templates_id?: IntFilter<"variaveis_template"> | number
   }
 
@@ -13212,18 +13254,21 @@ export namespace Prisma {
 
   export type variaveis_templateCreateManyId_templateInput = {
     id?: number
+    nome_variavel: string
   }
 
   export type variaveis_templateUpdateWithoutId_templateInput = {
-
+    nome_variavel?: StringFieldUpdateOperationsInput | string
   }
 
   export type variaveis_templateUncheckedUpdateWithoutId_templateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    nome_variavel?: StringFieldUpdateOperationsInput | string
   }
 
   export type variaveis_templateUncheckedUpdateManyWithoutId_templateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    nome_variavel?: StringFieldUpdateOperationsInput | string
   }
 
 

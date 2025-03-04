@@ -7,9 +7,9 @@ export declare class OrganizacaoController {
         message: string;
         dados: {
             id: number;
+            is_ativo: boolean;
             nome_organizacao: string;
             usuario_criacao: string;
-            is_ativo: boolean;
         };
     }>;
     createTokenOrg(idOrg: number): Promise<{

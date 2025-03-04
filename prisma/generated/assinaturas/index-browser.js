@@ -175,6 +175,7 @@ exports.Prisma.TemplatesScalarFieldEnum = {
 
 exports.Prisma.Variaveis_templateScalarFieldEnum = {
   id: 'id',
+  nome_variavel: 'nome_variavel',
   templates_id: 'templates_id'
 };
 
@@ -218,6 +219,10 @@ exports.Prisma.templatesOrderByRelevanceFieldEnum = {
   nome_template: 'nome_template',
   diretorio_arquivo: 'diretorio_arquivo',
   token_template: 'token_template'
+};
+
+exports.Prisma.variaveis_templateOrderByRelevanceFieldEnum = {
+  nome_variavel: 'nome_variavel'
 };
 
 

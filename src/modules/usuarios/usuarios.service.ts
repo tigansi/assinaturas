@@ -77,4 +77,12 @@ export class UsuariosService {
 
     return del;
   }
+
+  async checkUser(id: number) {
+    return await this.prismaAssinaturas.usuarios.findUnique({
+      where: {
+        id: id,
+      },
+    });
+  }
 }

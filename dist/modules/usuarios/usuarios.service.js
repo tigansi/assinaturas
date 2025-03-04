@@ -70,6 +70,13 @@ let UsuariosService = class UsuariosService {
         });
         return del;
     }
+    async checkUser(id) {
+        return await this.prismaAssinaturas.usuarios.findUnique({
+            where: {
+                id: id,
+            },
+        });
+    }
 };
 exports.UsuariosService = UsuariosService;
 exports.UsuariosService = UsuariosService = __decorate([
