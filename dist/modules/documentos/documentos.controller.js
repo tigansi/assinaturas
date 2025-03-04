@@ -12,39 +12,31 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthController = void 0;
+exports.DocumentosController = void 0;
 const common_1 = require("@nestjs/common");
-const auth_service_1 = require("./auth.service");
-const login_dto_1 = require("./dto/login-dto");
-let AuthController = class AuthController {
-    authService;
-    constructor(authService) {
-        this.authService = authService;
+const documentos_service_1 = require("./documentos.service");
+const monta_doc_dto_1 = require("./dto/monta-doc-dto");
+let DocumentosController = class DocumentosController {
+    documentosService;
+    constructor(documentosService) {
+        this.documentosService = documentosService;
     }
-    async login(body) {
-        try {
-            const ret = await this.authService.loginUser(body);
-            return {
-                message: "Login realizado",
-                data: ret,
-            };
-        }
-        catch (err) {
-            throw err;
-        }
+    async montaDoc(body) {
+        return {
+            body
+        };
     }
-    async loginAdmin() { }
 };
-exports.AuthController = AuthController;
+exports.DocumentosController = DocumentosController;
 __decorate([
-    (0, common_1.Post)("/login"),
+    (0, common_1.Post)('/monta_doc'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [login_dto_1.LoginDto]),
+    __metadata("design:paramtypes", [monta_doc_dto_1.MontaDocDto]),
     __metadata("design:returntype", Promise)
-], AuthController.prototype, "login", null);
-exports.AuthController = AuthController = __decorate([
-    (0, common_1.Controller)("auth"),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
-], AuthController);
-//# sourceMappingURL=auth.controller.js.map
+], DocumentosController.prototype, "montaDoc", null);
+exports.DocumentosController = DocumentosController = __decorate([
+    (0, common_1.Controller)('documentos'),
+    __metadata("design:paramtypes", [documentos_service_1.DocumentosService])
+], DocumentosController);
+//# sourceMappingURL=documentos.controller.js.map

@@ -37,20 +37,6 @@ export class TemplatesController {
         message: "Template carregado com sucesso",
         data: ret,
       };
-
-      // const dirPath = join(__dirname, "..", "..", "..", "storage", "templates");
-      // const filePath = join(dirPath, "arquivo.docx");
-
-      // Criar a pasta se não existir
-      // await mkdir(dirPath, { recursive: true });
-
-      // Escrever o arquivo
-      // await writeFile(filePath, file.buffer);
-
-      // return {
-      //   message: "Template carregado com sucesso",
-      //   filePath,
-      // };
     } catch (err) {
       throw err;
     }

@@ -54,6 +54,21 @@ export type templates = $Result.DefaultSelection<Prisma.$templatesPayload>
  */
 export type variaveis_template = $Result.DefaultSelection<Prisma.$variaveis_templatePayload>
 /**
+ * Model documentos
+ * 
+ */
+export type documentos = $Result.DefaultSelection<Prisma.$documentosPayload>
+/**
+ * Model assinantes_documentos
+ * 
+ */
+export type assinantes_documentos = $Result.DefaultSelection<Prisma.$assinantes_documentosPayload>
+/**
+ * Model dados_assinantes
+ * 
+ */
+export type dados_assinantes = $Result.DefaultSelection<Prisma.$dados_assinantesPayload>
+/**
  * Model status_documentos
  * 
  */
@@ -263,6 +278,36 @@ export class PrismaClient<
     * ```
     */
   get variaveis_template(): Prisma.variaveis_templateDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.documentos`: Exposes CRUD operations for the **documentos** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Documentos
+    * const documentos = await prisma.documentos.findMany()
+    * ```
+    */
+  get documentos(): Prisma.documentosDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.assinantes_documentos`: Exposes CRUD operations for the **assinantes_documentos** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Assinantes_documentos
+    * const assinantes_documentos = await prisma.assinantes_documentos.findMany()
+    * ```
+    */
+  get assinantes_documentos(): Prisma.assinantes_documentosDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.dados_assinantes`: Exposes CRUD operations for the **dados_assinantes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Dados_assinantes
+    * const dados_assinantes = await prisma.dados_assinantes.findMany()
+    * ```
+    */
+  get dados_assinantes(): Prisma.dados_assinantesDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.status_documentos`: Exposes CRUD operations for the **status_documentos** model.
@@ -721,6 +766,9 @@ export namespace Prisma {
     jwt_token: 'jwt_token',
     templates: 'templates',
     variaveis_template: 'variaveis_template',
+    documentos: 'documentos',
+    assinantes_documentos: 'assinantes_documentos',
+    dados_assinantes: 'dados_assinantes',
     status_documentos: 'status_documentos'
   };
 
@@ -737,7 +785,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "admins" | "organizacao" | "usuarios_organizacao" | "chaves_api" | "usuarios" | "jwt_token" | "templates" | "variaveis_template" | "status_documentos"
+      modelProps: "admins" | "organizacao" | "usuarios_organizacao" | "chaves_api" | "usuarios" | "jwt_token" | "templates" | "variaveis_template" | "documentos" | "assinantes_documentos" | "dados_assinantes" | "status_documentos"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1269,6 +1317,204 @@ export namespace Prisma {
           }
         }
       }
+      documentos: {
+        payload: Prisma.$documentosPayload<ExtArgs>
+        fields: Prisma.documentosFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.documentosFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.documentosFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>
+          }
+          findFirst: {
+            args: Prisma.documentosFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.documentosFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>
+          }
+          findMany: {
+            args: Prisma.documentosFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>[]
+          }
+          create: {
+            args: Prisma.documentosCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>
+          }
+          createMany: {
+            args: Prisma.documentosCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.documentosDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>
+          }
+          update: {
+            args: Prisma.documentosUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>
+          }
+          deleteMany: {
+            args: Prisma.documentosDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.documentosUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.documentosUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$documentosPayload>
+          }
+          aggregate: {
+            args: Prisma.DocumentosAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocumentos>
+          }
+          groupBy: {
+            args: Prisma.documentosGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentosGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.documentosCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentosCountAggregateOutputType> | number
+          }
+        }
+      }
+      assinantes_documentos: {
+        payload: Prisma.$assinantes_documentosPayload<ExtArgs>
+        fields: Prisma.assinantes_documentosFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.assinantes_documentosFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.assinantes_documentosFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>
+          }
+          findFirst: {
+            args: Prisma.assinantes_documentosFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.assinantes_documentosFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>
+          }
+          findMany: {
+            args: Prisma.assinantes_documentosFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>[]
+          }
+          create: {
+            args: Prisma.assinantes_documentosCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>
+          }
+          createMany: {
+            args: Prisma.assinantes_documentosCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.assinantes_documentosDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>
+          }
+          update: {
+            args: Prisma.assinantes_documentosUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>
+          }
+          deleteMany: {
+            args: Prisma.assinantes_documentosDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.assinantes_documentosUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.assinantes_documentosUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$assinantes_documentosPayload>
+          }
+          aggregate: {
+            args: Prisma.Assinantes_documentosAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAssinantes_documentos>
+          }
+          groupBy: {
+            args: Prisma.assinantes_documentosGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Assinantes_documentosGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.assinantes_documentosCountArgs<ExtArgs>
+            result: $Utils.Optional<Assinantes_documentosCountAggregateOutputType> | number
+          }
+        }
+      }
+      dados_assinantes: {
+        payload: Prisma.$dados_assinantesPayload<ExtArgs>
+        fields: Prisma.dados_assinantesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.dados_assinantesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.dados_assinantesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>
+          }
+          findFirst: {
+            args: Prisma.dados_assinantesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.dados_assinantesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>
+          }
+          findMany: {
+            args: Prisma.dados_assinantesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>[]
+          }
+          create: {
+            args: Prisma.dados_assinantesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>
+          }
+          createMany: {
+            args: Prisma.dados_assinantesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.dados_assinantesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>
+          }
+          update: {
+            args: Prisma.dados_assinantesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>
+          }
+          deleteMany: {
+            args: Prisma.dados_assinantesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.dados_assinantesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.dados_assinantesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dados_assinantesPayload>
+          }
+          aggregate: {
+            args: Prisma.Dados_assinantesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDados_assinantes>
+          }
+          groupBy: {
+            args: Prisma.dados_assinantesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Dados_assinantesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.dados_assinantesCountArgs<ExtArgs>
+            result: $Utils.Optional<Dados_assinantesCountAggregateOutputType> | number
+          }
+        }
+      }
       status_documentos: {
         payload: Prisma.$status_documentosPayload<ExtArgs>
         fields: Prisma.status_documentosFieldRefs
@@ -1427,6 +1673,9 @@ export namespace Prisma {
     jwt_token?: jwt_tokenOmit
     templates?: templatesOmit
     variaveis_template?: variaveis_templateOmit
+    documentos?: documentosOmit
+    assinantes_documentos?: assinantes_documentosOmit
+    dados_assinantes?: dados_assinantesOmit
     status_documentos?: status_documentosOmit
   }
 
@@ -1565,12 +1814,14 @@ export namespace Prisma {
     jwt_token: number
     templates: number
     usuarios_organizacao: number
+    documentos: number
   }
 
   export type UsuariosCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     jwt_token?: boolean | UsuariosCountOutputTypeCountJwt_tokenArgs
     templates?: boolean | UsuariosCountOutputTypeCountTemplatesArgs
     usuarios_organizacao?: boolean | UsuariosCountOutputTypeCountUsuarios_organizacaoArgs
+    documentos?: boolean | UsuariosCountOutputTypeCountDocumentosArgs
   }
 
   // Custom InputTypes
@@ -1605,6 +1856,13 @@ export namespace Prisma {
     where?: usuarios_organizacaoWhereInput
   }
 
+  /**
+   * UsuariosCountOutputType without action
+   */
+  export type UsuariosCountOutputTypeCountDocumentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: documentosWhereInput
+  }
+
 
   /**
    * Count Type TemplatesCountOutputType
@@ -1612,10 +1870,12 @@ export namespace Prisma {
 
   export type TemplatesCountOutputType = {
     variaveis_template: number
+    documentos: number
   }
 
   export type TemplatesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     variaveis_template?: boolean | TemplatesCountOutputTypeCountVariaveis_templateArgs
+    documentos?: boolean | TemplatesCountOutputTypeCountDocumentosArgs
   }
 
   // Custom InputTypes
@@ -1634,6 +1894,62 @@ export namespace Prisma {
    */
   export type TemplatesCountOutputTypeCountVariaveis_templateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: variaveis_templateWhereInput
+  }
+
+  /**
+   * TemplatesCountOutputType without action
+   */
+  export type TemplatesCountOutputTypeCountDocumentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: documentosWhereInput
+  }
+
+
+  /**
+   * Count Type DocumentosCountOutputType
+   */
+
+  export type DocumentosCountOutputType = {
+    assinantes_documentos: number
+    dados_assinantes: number
+    status_documentos: number
+  }
+
+  export type DocumentosCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assinantes_documentos?: boolean | DocumentosCountOutputTypeCountAssinantes_documentosArgs
+    dados_assinantes?: boolean | DocumentosCountOutputTypeCountDados_assinantesArgs
+    status_documentos?: boolean | DocumentosCountOutputTypeCountStatus_documentosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DocumentosCountOutputType without action
+   */
+  export type DocumentosCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentosCountOutputType
+     */
+    select?: DocumentosCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DocumentosCountOutputType without action
+   */
+  export type DocumentosCountOutputTypeCountAssinantes_documentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: assinantes_documentosWhereInput
+  }
+
+  /**
+   * DocumentosCountOutputType without action
+   */
+  export type DocumentosCountOutputTypeCountDados_assinantesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: dados_assinantesWhereInput
+  }
+
+  /**
+   * DocumentosCountOutputType without action
+   */
+  export type DocumentosCountOutputTypeCountStatus_documentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: status_documentosWhereInput
   }
 
 
@@ -5702,6 +6018,7 @@ export namespace Prisma {
     jwt_token?: boolean | usuarios$jwt_tokenArgs<ExtArgs>
     templates?: boolean | usuarios$templatesArgs<ExtArgs>
     usuarios_organizacao?: boolean | usuarios$usuarios_organizacaoArgs<ExtArgs>
+    documentos?: boolean | usuarios$documentosArgs<ExtArgs>
     _count?: boolean | UsuariosCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios"]>
 
@@ -5725,6 +6042,7 @@ export namespace Prisma {
     jwt_token?: boolean | usuarios$jwt_tokenArgs<ExtArgs>
     templates?: boolean | usuarios$templatesArgs<ExtArgs>
     usuarios_organizacao?: boolean | usuarios$usuarios_organizacaoArgs<ExtArgs>
+    documentos?: boolean | usuarios$documentosArgs<ExtArgs>
     _count?: boolean | UsuariosCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -5734,6 +6052,7 @@ export namespace Prisma {
       jwt_token: Prisma.$jwt_tokenPayload<ExtArgs>[]
       templates: Prisma.$templatesPayload<ExtArgs>[]
       usuarios_organizacao: Prisma.$usuarios_organizacaoPayload<ExtArgs>[]
+      documentos: Prisma.$documentosPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6089,6 +6408,7 @@ export namespace Prisma {
     jwt_token<T extends usuarios$jwt_tokenArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$jwt_tokenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$jwt_tokenPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     templates<T extends usuarios$templatesArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$templatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$templatesPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     usuarios_organizacao<T extends usuarios$usuarios_organizacaoArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$usuarios_organizacaoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usuarios_organizacaoPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    documentos<T extends usuarios$documentosArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$documentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6540,6 +6860,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Usuarios_organizacaoScalarFieldEnum | Usuarios_organizacaoScalarFieldEnum[]
+  }
+
+  /**
+   * usuarios.documentos
+   */
+  export type usuarios$documentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    where?: documentosWhereInput
+    orderBy?: documentosOrderByWithRelationInput | documentosOrderByWithRelationInput[]
+    cursor?: documentosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DocumentosScalarFieldEnum | DocumentosScalarFieldEnum[]
   }
 
   /**
@@ -7726,6 +8070,7 @@ export namespace Prisma {
     usuarios_id?: boolean
     id_usuario?: boolean | usuariosDefaultArgs<ExtArgs>
     variaveis_template?: boolean | templates$variaveis_templateArgs<ExtArgs>
+    documentos?: boolean | templates$documentosArgs<ExtArgs>
     _count?: boolean | TemplatesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["templates"]>
 
@@ -7745,6 +8090,7 @@ export namespace Prisma {
   export type templatesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     id_usuario?: boolean | usuariosDefaultArgs<ExtArgs>
     variaveis_template?: boolean | templates$variaveis_templateArgs<ExtArgs>
+    documentos?: boolean | templates$documentosArgs<ExtArgs>
     _count?: boolean | TemplatesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -7753,6 +8099,7 @@ export namespace Prisma {
     objects: {
       id_usuario: Prisma.$usuariosPayload<ExtArgs>
       variaveis_template: Prisma.$variaveis_templatePayload<ExtArgs>[]
+      documentos: Prisma.$documentosPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -8104,6 +8451,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     id_usuario<T extends usuariosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usuariosDefaultArgs<ExtArgs>>): Prisma__usuariosClient<$Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     variaveis_template<T extends templates$variaveis_templateArgs<ExtArgs> = {}>(args?: Subset<T, templates$variaveis_templateArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$variaveis_templatePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    documentos<T extends templates$documentosArgs<ExtArgs> = {}>(args?: Subset<T, templates$documentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8504,6 +8852,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Variaveis_templateScalarFieldEnum | Variaveis_templateScalarFieldEnum[]
+  }
+
+  /**
+   * templates.documentos
+   */
+  export type templates$documentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    where?: documentosWhereInput
+    orderBy?: documentosOrderByWithRelationInput | documentosOrderByWithRelationInput[]
+    cursor?: documentosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DocumentosScalarFieldEnum | DocumentosScalarFieldEnum[]
   }
 
   /**
@@ -9471,6 +9843,2990 @@ export namespace Prisma {
 
 
   /**
+   * Model documentos
+   */
+
+  export type AggregateDocumentos = {
+    _count: DocumentosCountAggregateOutputType | null
+    _avg: DocumentosAvgAggregateOutputType | null
+    _sum: DocumentosSumAggregateOutputType | null
+    _min: DocumentosMinAggregateOutputType | null
+    _max: DocumentosMaxAggregateOutputType | null
+  }
+
+  export type DocumentosAvgAggregateOutputType = {
+    id: number | null
+    usuariosId: number | null
+    templatesId: number | null
+  }
+
+  export type DocumentosSumAggregateOutputType = {
+    id: number | null
+    usuariosId: number | null
+    templatesId: number | null
+  }
+
+  export type DocumentosMinAggregateOutputType = {
+    id: number | null
+    usuariosId: number | null
+    templatesId: number | null
+    created_at: Date | null
+    token_doc: string | null
+    is_ativo: boolean | null
+  }
+
+  export type DocumentosMaxAggregateOutputType = {
+    id: number | null
+    usuariosId: number | null
+    templatesId: number | null
+    created_at: Date | null
+    token_doc: string | null
+    is_ativo: boolean | null
+  }
+
+  export type DocumentosCountAggregateOutputType = {
+    id: number
+    usuariosId: number
+    templatesId: number
+    created_at: number
+    token_doc: number
+    is_ativo: number
+    _all: number
+  }
+
+
+  export type DocumentosAvgAggregateInputType = {
+    id?: true
+    usuariosId?: true
+    templatesId?: true
+  }
+
+  export type DocumentosSumAggregateInputType = {
+    id?: true
+    usuariosId?: true
+    templatesId?: true
+  }
+
+  export type DocumentosMinAggregateInputType = {
+    id?: true
+    usuariosId?: true
+    templatesId?: true
+    created_at?: true
+    token_doc?: true
+    is_ativo?: true
+  }
+
+  export type DocumentosMaxAggregateInputType = {
+    id?: true
+    usuariosId?: true
+    templatesId?: true
+    created_at?: true
+    token_doc?: true
+    is_ativo?: true
+  }
+
+  export type DocumentosCountAggregateInputType = {
+    id?: true
+    usuariosId?: true
+    templatesId?: true
+    created_at?: true
+    token_doc?: true
+    is_ativo?: true
+    _all?: true
+  }
+
+  export type DocumentosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which documentos to aggregate.
+     */
+    where?: documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of documentos to fetch.
+     */
+    orderBy?: documentosOrderByWithRelationInput | documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` documentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned documentos
+    **/
+    _count?: true | DocumentosCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DocumentosAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DocumentosSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DocumentosMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DocumentosMaxAggregateInputType
+  }
+
+  export type GetDocumentosAggregateType<T extends DocumentosAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocumentos]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDocumentos[P]>
+      : GetScalarType<T[P], AggregateDocumentos[P]>
+  }
+
+
+
+
+  export type documentosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: documentosWhereInput
+    orderBy?: documentosOrderByWithAggregationInput | documentosOrderByWithAggregationInput[]
+    by: DocumentosScalarFieldEnum[] | DocumentosScalarFieldEnum
+    having?: documentosScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DocumentosCountAggregateInputType | true
+    _avg?: DocumentosAvgAggregateInputType
+    _sum?: DocumentosSumAggregateInputType
+    _min?: DocumentosMinAggregateInputType
+    _max?: DocumentosMaxAggregateInputType
+  }
+
+  export type DocumentosGroupByOutputType = {
+    id: number
+    usuariosId: number
+    templatesId: number
+    created_at: Date
+    token_doc: string
+    is_ativo: boolean
+    _count: DocumentosCountAggregateOutputType | null
+    _avg: DocumentosAvgAggregateOutputType | null
+    _sum: DocumentosSumAggregateOutputType | null
+    _min: DocumentosMinAggregateOutputType | null
+    _max: DocumentosMaxAggregateOutputType | null
+  }
+
+  type GetDocumentosGroupByPayload<T extends documentosGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DocumentosGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DocumentosGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DocumentosGroupByOutputType[P]>
+            : GetScalarType<T[P], DocumentosGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type documentosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    usuariosId?: boolean
+    templatesId?: boolean
+    created_at?: boolean
+    token_doc?: boolean
+    is_ativo?: boolean
+    usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
+    templates?: boolean | templatesDefaultArgs<ExtArgs>
+    assinantes_documentos?: boolean | documentos$assinantes_documentosArgs<ExtArgs>
+    dados_assinantes?: boolean | documentos$dados_assinantesArgs<ExtArgs>
+    status_documentos?: boolean | documentos$status_documentosArgs<ExtArgs>
+    _count?: boolean | DocumentosCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["documentos"]>
+
+
+
+  export type documentosSelectScalar = {
+    id?: boolean
+    usuariosId?: boolean
+    templatesId?: boolean
+    created_at?: boolean
+    token_doc?: boolean
+    is_ativo?: boolean
+  }
+
+  export type documentosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "usuariosId" | "templatesId" | "created_at" | "token_doc" | "is_ativo", ExtArgs["result"]["documentos"]>
+  export type documentosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
+    templates?: boolean | templatesDefaultArgs<ExtArgs>
+    assinantes_documentos?: boolean | documentos$assinantes_documentosArgs<ExtArgs>
+    dados_assinantes?: boolean | documentos$dados_assinantesArgs<ExtArgs>
+    status_documentos?: boolean | documentos$status_documentosArgs<ExtArgs>
+    _count?: boolean | DocumentosCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $documentosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "documentos"
+    objects: {
+      usuarios: Prisma.$usuariosPayload<ExtArgs>
+      templates: Prisma.$templatesPayload<ExtArgs>
+      assinantes_documentos: Prisma.$assinantes_documentosPayload<ExtArgs>[]
+      dados_assinantes: Prisma.$dados_assinantesPayload<ExtArgs>[]
+      status_documentos: Prisma.$status_documentosPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      usuariosId: number
+      templatesId: number
+      created_at: Date
+      token_doc: string
+      is_ativo: boolean
+    }, ExtArgs["result"]["documentos"]>
+    composites: {}
+  }
+
+  type documentosGetPayload<S extends boolean | null | undefined | documentosDefaultArgs> = $Result.GetResult<Prisma.$documentosPayload, S>
+
+  type documentosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<documentosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DocumentosCountAggregateInputType | true
+    }
+
+  export interface documentosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['documentos'], meta: { name: 'documentos' } }
+    /**
+     * Find zero or one Documentos that matches the filter.
+     * @param {documentosFindUniqueArgs} args - Arguments to find a Documentos
+     * @example
+     * // Get one Documentos
+     * const documentos = await prisma.documentos.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends documentosFindUniqueArgs>(args: SelectSubset<T, documentosFindUniqueArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one Documentos that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {documentosFindUniqueOrThrowArgs} args - Arguments to find a Documentos
+     * @example
+     * // Get one Documentos
+     * const documentos = await prisma.documentos.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends documentosFindUniqueOrThrowArgs>(args: SelectSubset<T, documentosFindUniqueOrThrowArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Documentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {documentosFindFirstArgs} args - Arguments to find a Documentos
+     * @example
+     * // Get one Documentos
+     * const documentos = await prisma.documentos.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends documentosFindFirstArgs>(args?: SelectSubset<T, documentosFindFirstArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Documentos that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {documentosFindFirstOrThrowArgs} args - Arguments to find a Documentos
+     * @example
+     * // Get one Documentos
+     * const documentos = await prisma.documentos.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends documentosFindFirstOrThrowArgs>(args?: SelectSubset<T, documentosFindFirstOrThrowArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more Documentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {documentosFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Documentos
+     * const documentos = await prisma.documentos.findMany()
+     * 
+     * // Get first 10 Documentos
+     * const documentos = await prisma.documentos.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const documentosWithIdOnly = await prisma.documentos.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends documentosFindManyArgs>(args?: SelectSubset<T, documentosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a Documentos.
+     * @param {documentosCreateArgs} args - Arguments to create a Documentos.
+     * @example
+     * // Create one Documentos
+     * const Documentos = await prisma.documentos.create({
+     *   data: {
+     *     // ... data to create a Documentos
+     *   }
+     * })
+     * 
+     */
+    create<T extends documentosCreateArgs>(args: SelectSubset<T, documentosCreateArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many Documentos.
+     * @param {documentosCreateManyArgs} args - Arguments to create many Documentos.
+     * @example
+     * // Create many Documentos
+     * const documentos = await prisma.documentos.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends documentosCreateManyArgs>(args?: SelectSubset<T, documentosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Documentos.
+     * @param {documentosDeleteArgs} args - Arguments to delete one Documentos.
+     * @example
+     * // Delete one Documentos
+     * const Documentos = await prisma.documentos.delete({
+     *   where: {
+     *     // ... filter to delete one Documentos
+     *   }
+     * })
+     * 
+     */
+    delete<T extends documentosDeleteArgs>(args: SelectSubset<T, documentosDeleteArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one Documentos.
+     * @param {documentosUpdateArgs} args - Arguments to update one Documentos.
+     * @example
+     * // Update one Documentos
+     * const documentos = await prisma.documentos.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends documentosUpdateArgs>(args: SelectSubset<T, documentosUpdateArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more Documentos.
+     * @param {documentosDeleteManyArgs} args - Arguments to filter Documentos to delete.
+     * @example
+     * // Delete a few Documentos
+     * const { count } = await prisma.documentos.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends documentosDeleteManyArgs>(args?: SelectSubset<T, documentosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {documentosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Documentos
+     * const documentos = await prisma.documentos.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends documentosUpdateManyArgs>(args: SelectSubset<T, documentosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Documentos.
+     * @param {documentosUpsertArgs} args - Arguments to update or create a Documentos.
+     * @example
+     * // Update or create a Documentos
+     * const documentos = await prisma.documentos.upsert({
+     *   create: {
+     *     // ... data to create a Documentos
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Documentos we want to update
+     *   }
+     * })
+     */
+    upsert<T extends documentosUpsertArgs>(args: SelectSubset<T, documentosUpsertArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of Documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {documentosCountArgs} args - Arguments to filter Documentos to count.
+     * @example
+     * // Count the number of Documentos
+     * const count = await prisma.documentos.count({
+     *   where: {
+     *     // ... the filter for the Documentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends documentosCountArgs>(
+      args?: Subset<T, documentosCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DocumentosCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DocumentosAggregateArgs>(args: Subset<T, DocumentosAggregateArgs>): Prisma.PrismaPromise<GetDocumentosAggregateType<T>>
+
+    /**
+     * Group by Documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {documentosGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends documentosGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: documentosGroupByArgs['orderBy'] }
+        : { orderBy?: documentosGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, documentosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the documentos model
+   */
+  readonly fields: documentosFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for documentos.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__documentosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    usuarios<T extends usuariosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usuariosDefaultArgs<ExtArgs>>): Prisma__usuariosClient<$Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    templates<T extends templatesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, templatesDefaultArgs<ExtArgs>>): Prisma__templatesClient<$Result.GetResult<Prisma.$templatesPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    assinantes_documentos<T extends documentos$assinantes_documentosArgs<ExtArgs> = {}>(args?: Subset<T, documentos$assinantes_documentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    dados_assinantes<T extends documentos$dados_assinantesArgs<ExtArgs> = {}>(args?: Subset<T, documentos$dados_assinantesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    status_documentos<T extends documentos$status_documentosArgs<ExtArgs> = {}>(args?: Subset<T, documentos$status_documentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$status_documentosPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the documentos model
+   */ 
+  interface documentosFieldRefs {
+    readonly id: FieldRef<"documentos", 'Int'>
+    readonly usuariosId: FieldRef<"documentos", 'Int'>
+    readonly templatesId: FieldRef<"documentos", 'Int'>
+    readonly created_at: FieldRef<"documentos", 'DateTime'>
+    readonly token_doc: FieldRef<"documentos", 'String'>
+    readonly is_ativo: FieldRef<"documentos", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * documentos findUnique
+   */
+  export type documentosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which documentos to fetch.
+     */
+    where: documentosWhereUniqueInput
+  }
+
+  /**
+   * documentos findUniqueOrThrow
+   */
+  export type documentosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which documentos to fetch.
+     */
+    where: documentosWhereUniqueInput
+  }
+
+  /**
+   * documentos findFirst
+   */
+  export type documentosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which documentos to fetch.
+     */
+    where?: documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of documentos to fetch.
+     */
+    orderBy?: documentosOrderByWithRelationInput | documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for documentos.
+     */
+    cursor?: documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` documentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of documentos.
+     */
+    distinct?: DocumentosScalarFieldEnum | DocumentosScalarFieldEnum[]
+  }
+
+  /**
+   * documentos findFirstOrThrow
+   */
+  export type documentosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which documentos to fetch.
+     */
+    where?: documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of documentos to fetch.
+     */
+    orderBy?: documentosOrderByWithRelationInput | documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for documentos.
+     */
+    cursor?: documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` documentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of documentos.
+     */
+    distinct?: DocumentosScalarFieldEnum | DocumentosScalarFieldEnum[]
+  }
+
+  /**
+   * documentos findMany
+   */
+  export type documentosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which documentos to fetch.
+     */
+    where?: documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of documentos to fetch.
+     */
+    orderBy?: documentosOrderByWithRelationInput | documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing documentos.
+     */
+    cursor?: documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` documentos.
+     */
+    skip?: number
+    distinct?: DocumentosScalarFieldEnum | DocumentosScalarFieldEnum[]
+  }
+
+  /**
+   * documentos create
+   */
+  export type documentosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * The data needed to create a documentos.
+     */
+    data: XOR<documentosCreateInput, documentosUncheckedCreateInput>
+  }
+
+  /**
+   * documentos createMany
+   */
+  export type documentosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many documentos.
+     */
+    data: documentosCreateManyInput | documentosCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * documentos update
+   */
+  export type documentosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * The data needed to update a documentos.
+     */
+    data: XOR<documentosUpdateInput, documentosUncheckedUpdateInput>
+    /**
+     * Choose, which documentos to update.
+     */
+    where: documentosWhereUniqueInput
+  }
+
+  /**
+   * documentos updateMany
+   */
+  export type documentosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update documentos.
+     */
+    data: XOR<documentosUpdateManyMutationInput, documentosUncheckedUpdateManyInput>
+    /**
+     * Filter which documentos to update
+     */
+    where?: documentosWhereInput
+    /**
+     * Limit how many documentos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * documentos upsert
+   */
+  export type documentosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * The filter to search for the documentos to update in case it exists.
+     */
+    where: documentosWhereUniqueInput
+    /**
+     * In case the documentos found by the `where` argument doesn't exist, create a new documentos with this data.
+     */
+    create: XOR<documentosCreateInput, documentosUncheckedCreateInput>
+    /**
+     * In case the documentos was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<documentosUpdateInput, documentosUncheckedUpdateInput>
+  }
+
+  /**
+   * documentos delete
+   */
+  export type documentosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+    /**
+     * Filter which documentos to delete.
+     */
+    where: documentosWhereUniqueInput
+  }
+
+  /**
+   * documentos deleteMany
+   */
+  export type documentosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which documentos to delete
+     */
+    where?: documentosWhereInput
+    /**
+     * Limit how many documentos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * documentos.assinantes_documentos
+   */
+  export type documentos$assinantes_documentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    where?: assinantes_documentosWhereInput
+    orderBy?: assinantes_documentosOrderByWithRelationInput | assinantes_documentosOrderByWithRelationInput[]
+    cursor?: assinantes_documentosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Assinantes_documentosScalarFieldEnum | Assinantes_documentosScalarFieldEnum[]
+  }
+
+  /**
+   * documentos.dados_assinantes
+   */
+  export type documentos$dados_assinantesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    where?: dados_assinantesWhereInput
+    orderBy?: dados_assinantesOrderByWithRelationInput | dados_assinantesOrderByWithRelationInput[]
+    cursor?: dados_assinantesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Dados_assinantesScalarFieldEnum | Dados_assinantesScalarFieldEnum[]
+  }
+
+  /**
+   * documentos.status_documentos
+   */
+  export type documentos$status_documentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the status_documentos
+     */
+    select?: status_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the status_documentos
+     */
+    omit?: status_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
+    where?: status_documentosWhereInput
+    orderBy?: status_documentosOrderByWithRelationInput | status_documentosOrderByWithRelationInput[]
+    cursor?: status_documentosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Status_documentosScalarFieldEnum | Status_documentosScalarFieldEnum[]
+  }
+
+  /**
+   * documentos without action
+   */
+  export type documentosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the documentos
+     */
+    select?: documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the documentos
+     */
+    omit?: documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: documentosInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model assinantes_documentos
+   */
+
+  export type AggregateAssinantes_documentos = {
+    _count: Assinantes_documentosCountAggregateOutputType | null
+    _avg: Assinantes_documentosAvgAggregateOutputType | null
+    _sum: Assinantes_documentosSumAggregateOutputType | null
+    _min: Assinantes_documentosMinAggregateOutputType | null
+    _max: Assinantes_documentosMaxAggregateOutputType | null
+  }
+
+  export type Assinantes_documentosAvgAggregateOutputType = {
+    id: number | null
+    documentosId: number | null
+  }
+
+  export type Assinantes_documentosSumAggregateOutputType = {
+    id: number | null
+    documentosId: number | null
+  }
+
+  export type Assinantes_documentosMinAggregateOutputType = {
+    id: number | null
+    nome_assinante: string | null
+    email_assinante: string | null
+    documentosId: number | null
+  }
+
+  export type Assinantes_documentosMaxAggregateOutputType = {
+    id: number | null
+    nome_assinante: string | null
+    email_assinante: string | null
+    documentosId: number | null
+  }
+
+  export type Assinantes_documentosCountAggregateOutputType = {
+    id: number
+    nome_assinante: number
+    email_assinante: number
+    documentosId: number
+    _all: number
+  }
+
+
+  export type Assinantes_documentosAvgAggregateInputType = {
+    id?: true
+    documentosId?: true
+  }
+
+  export type Assinantes_documentosSumAggregateInputType = {
+    id?: true
+    documentosId?: true
+  }
+
+  export type Assinantes_documentosMinAggregateInputType = {
+    id?: true
+    nome_assinante?: true
+    email_assinante?: true
+    documentosId?: true
+  }
+
+  export type Assinantes_documentosMaxAggregateInputType = {
+    id?: true
+    nome_assinante?: true
+    email_assinante?: true
+    documentosId?: true
+  }
+
+  export type Assinantes_documentosCountAggregateInputType = {
+    id?: true
+    nome_assinante?: true
+    email_assinante?: true
+    documentosId?: true
+    _all?: true
+  }
+
+  export type Assinantes_documentosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which assinantes_documentos to aggregate.
+     */
+    where?: assinantes_documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of assinantes_documentos to fetch.
+     */
+    orderBy?: assinantes_documentosOrderByWithRelationInput | assinantes_documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: assinantes_documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` assinantes_documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` assinantes_documentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned assinantes_documentos
+    **/
+    _count?: true | Assinantes_documentosCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Assinantes_documentosAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Assinantes_documentosSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Assinantes_documentosMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Assinantes_documentosMaxAggregateInputType
+  }
+
+  export type GetAssinantes_documentosAggregateType<T extends Assinantes_documentosAggregateArgs> = {
+        [P in keyof T & keyof AggregateAssinantes_documentos]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAssinantes_documentos[P]>
+      : GetScalarType<T[P], AggregateAssinantes_documentos[P]>
+  }
+
+
+
+
+  export type assinantes_documentosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: assinantes_documentosWhereInput
+    orderBy?: assinantes_documentosOrderByWithAggregationInput | assinantes_documentosOrderByWithAggregationInput[]
+    by: Assinantes_documentosScalarFieldEnum[] | Assinantes_documentosScalarFieldEnum
+    having?: assinantes_documentosScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Assinantes_documentosCountAggregateInputType | true
+    _avg?: Assinantes_documentosAvgAggregateInputType
+    _sum?: Assinantes_documentosSumAggregateInputType
+    _min?: Assinantes_documentosMinAggregateInputType
+    _max?: Assinantes_documentosMaxAggregateInputType
+  }
+
+  export type Assinantes_documentosGroupByOutputType = {
+    id: number
+    nome_assinante: string
+    email_assinante: string
+    documentosId: number
+    _count: Assinantes_documentosCountAggregateOutputType | null
+    _avg: Assinantes_documentosAvgAggregateOutputType | null
+    _sum: Assinantes_documentosSumAggregateOutputType | null
+    _min: Assinantes_documentosMinAggregateOutputType | null
+    _max: Assinantes_documentosMaxAggregateOutputType | null
+  }
+
+  type GetAssinantes_documentosGroupByPayload<T extends assinantes_documentosGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Assinantes_documentosGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Assinantes_documentosGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Assinantes_documentosGroupByOutputType[P]>
+            : GetScalarType<T[P], Assinantes_documentosGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type assinantes_documentosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome_assinante?: boolean
+    email_assinante?: boolean
+    documentosId?: boolean
+    documentos?: boolean | documentosDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["assinantes_documentos"]>
+
+
+
+  export type assinantes_documentosSelectScalar = {
+    id?: boolean
+    nome_assinante?: boolean
+    email_assinante?: boolean
+    documentosId?: boolean
+  }
+
+  export type assinantes_documentosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome_assinante" | "email_assinante" | "documentosId", ExtArgs["result"]["assinantes_documentos"]>
+  export type assinantes_documentosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    documentos?: boolean | documentosDefaultArgs<ExtArgs>
+  }
+
+  export type $assinantes_documentosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "assinantes_documentos"
+    objects: {
+      documentos: Prisma.$documentosPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nome_assinante: string
+      email_assinante: string
+      documentosId: number
+    }, ExtArgs["result"]["assinantes_documentos"]>
+    composites: {}
+  }
+
+  type assinantes_documentosGetPayload<S extends boolean | null | undefined | assinantes_documentosDefaultArgs> = $Result.GetResult<Prisma.$assinantes_documentosPayload, S>
+
+  type assinantes_documentosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<assinantes_documentosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Assinantes_documentosCountAggregateInputType | true
+    }
+
+  export interface assinantes_documentosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['assinantes_documentos'], meta: { name: 'assinantes_documentos' } }
+    /**
+     * Find zero or one Assinantes_documentos that matches the filter.
+     * @param {assinantes_documentosFindUniqueArgs} args - Arguments to find a Assinantes_documentos
+     * @example
+     * // Get one Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends assinantes_documentosFindUniqueArgs>(args: SelectSubset<T, assinantes_documentosFindUniqueArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one Assinantes_documentos that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {assinantes_documentosFindUniqueOrThrowArgs} args - Arguments to find a Assinantes_documentos
+     * @example
+     * // Get one Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends assinantes_documentosFindUniqueOrThrowArgs>(args: SelectSubset<T, assinantes_documentosFindUniqueOrThrowArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Assinantes_documentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {assinantes_documentosFindFirstArgs} args - Arguments to find a Assinantes_documentos
+     * @example
+     * // Get one Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends assinantes_documentosFindFirstArgs>(args?: SelectSubset<T, assinantes_documentosFindFirstArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Assinantes_documentos that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {assinantes_documentosFindFirstOrThrowArgs} args - Arguments to find a Assinantes_documentos
+     * @example
+     * // Get one Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends assinantes_documentosFindFirstOrThrowArgs>(args?: SelectSubset<T, assinantes_documentosFindFirstOrThrowArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more Assinantes_documentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {assinantes_documentosFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.findMany()
+     * 
+     * // Get first 10 Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const assinantes_documentosWithIdOnly = await prisma.assinantes_documentos.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends assinantes_documentosFindManyArgs>(args?: SelectSubset<T, assinantes_documentosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a Assinantes_documentos.
+     * @param {assinantes_documentosCreateArgs} args - Arguments to create a Assinantes_documentos.
+     * @example
+     * // Create one Assinantes_documentos
+     * const Assinantes_documentos = await prisma.assinantes_documentos.create({
+     *   data: {
+     *     // ... data to create a Assinantes_documentos
+     *   }
+     * })
+     * 
+     */
+    create<T extends assinantes_documentosCreateArgs>(args: SelectSubset<T, assinantes_documentosCreateArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many Assinantes_documentos.
+     * @param {assinantes_documentosCreateManyArgs} args - Arguments to create many Assinantes_documentos.
+     * @example
+     * // Create many Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends assinantes_documentosCreateManyArgs>(args?: SelectSubset<T, assinantes_documentosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Assinantes_documentos.
+     * @param {assinantes_documentosDeleteArgs} args - Arguments to delete one Assinantes_documentos.
+     * @example
+     * // Delete one Assinantes_documentos
+     * const Assinantes_documentos = await prisma.assinantes_documentos.delete({
+     *   where: {
+     *     // ... filter to delete one Assinantes_documentos
+     *   }
+     * })
+     * 
+     */
+    delete<T extends assinantes_documentosDeleteArgs>(args: SelectSubset<T, assinantes_documentosDeleteArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one Assinantes_documentos.
+     * @param {assinantes_documentosUpdateArgs} args - Arguments to update one Assinantes_documentos.
+     * @example
+     * // Update one Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends assinantes_documentosUpdateArgs>(args: SelectSubset<T, assinantes_documentosUpdateArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more Assinantes_documentos.
+     * @param {assinantes_documentosDeleteManyArgs} args - Arguments to filter Assinantes_documentos to delete.
+     * @example
+     * // Delete a few Assinantes_documentos
+     * const { count } = await prisma.assinantes_documentos.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends assinantes_documentosDeleteManyArgs>(args?: SelectSubset<T, assinantes_documentosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Assinantes_documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {assinantes_documentosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends assinantes_documentosUpdateManyArgs>(args: SelectSubset<T, assinantes_documentosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Assinantes_documentos.
+     * @param {assinantes_documentosUpsertArgs} args - Arguments to update or create a Assinantes_documentos.
+     * @example
+     * // Update or create a Assinantes_documentos
+     * const assinantes_documentos = await prisma.assinantes_documentos.upsert({
+     *   create: {
+     *     // ... data to create a Assinantes_documentos
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Assinantes_documentos we want to update
+     *   }
+     * })
+     */
+    upsert<T extends assinantes_documentosUpsertArgs>(args: SelectSubset<T, assinantes_documentosUpsertArgs<ExtArgs>>): Prisma__assinantes_documentosClient<$Result.GetResult<Prisma.$assinantes_documentosPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of Assinantes_documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {assinantes_documentosCountArgs} args - Arguments to filter Assinantes_documentos to count.
+     * @example
+     * // Count the number of Assinantes_documentos
+     * const count = await prisma.assinantes_documentos.count({
+     *   where: {
+     *     // ... the filter for the Assinantes_documentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends assinantes_documentosCountArgs>(
+      args?: Subset<T, assinantes_documentosCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Assinantes_documentosCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Assinantes_documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Assinantes_documentosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Assinantes_documentosAggregateArgs>(args: Subset<T, Assinantes_documentosAggregateArgs>): Prisma.PrismaPromise<GetAssinantes_documentosAggregateType<T>>
+
+    /**
+     * Group by Assinantes_documentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {assinantes_documentosGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends assinantes_documentosGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: assinantes_documentosGroupByArgs['orderBy'] }
+        : { orderBy?: assinantes_documentosGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, assinantes_documentosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAssinantes_documentosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the assinantes_documentos model
+   */
+  readonly fields: assinantes_documentosFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for assinantes_documentos.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__assinantes_documentosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    documentos<T extends documentosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, documentosDefaultArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the assinantes_documentos model
+   */ 
+  interface assinantes_documentosFieldRefs {
+    readonly id: FieldRef<"assinantes_documentos", 'Int'>
+    readonly nome_assinante: FieldRef<"assinantes_documentos", 'String'>
+    readonly email_assinante: FieldRef<"assinantes_documentos", 'String'>
+    readonly documentosId: FieldRef<"assinantes_documentos", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * assinantes_documentos findUnique
+   */
+  export type assinantes_documentosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which assinantes_documentos to fetch.
+     */
+    where: assinantes_documentosWhereUniqueInput
+  }
+
+  /**
+   * assinantes_documentos findUniqueOrThrow
+   */
+  export type assinantes_documentosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which assinantes_documentos to fetch.
+     */
+    where: assinantes_documentosWhereUniqueInput
+  }
+
+  /**
+   * assinantes_documentos findFirst
+   */
+  export type assinantes_documentosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which assinantes_documentos to fetch.
+     */
+    where?: assinantes_documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of assinantes_documentos to fetch.
+     */
+    orderBy?: assinantes_documentosOrderByWithRelationInput | assinantes_documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for assinantes_documentos.
+     */
+    cursor?: assinantes_documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` assinantes_documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` assinantes_documentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of assinantes_documentos.
+     */
+    distinct?: Assinantes_documentosScalarFieldEnum | Assinantes_documentosScalarFieldEnum[]
+  }
+
+  /**
+   * assinantes_documentos findFirstOrThrow
+   */
+  export type assinantes_documentosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which assinantes_documentos to fetch.
+     */
+    where?: assinantes_documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of assinantes_documentos to fetch.
+     */
+    orderBy?: assinantes_documentosOrderByWithRelationInput | assinantes_documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for assinantes_documentos.
+     */
+    cursor?: assinantes_documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` assinantes_documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` assinantes_documentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of assinantes_documentos.
+     */
+    distinct?: Assinantes_documentosScalarFieldEnum | Assinantes_documentosScalarFieldEnum[]
+  }
+
+  /**
+   * assinantes_documentos findMany
+   */
+  export type assinantes_documentosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * Filter, which assinantes_documentos to fetch.
+     */
+    where?: assinantes_documentosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of assinantes_documentos to fetch.
+     */
+    orderBy?: assinantes_documentosOrderByWithRelationInput | assinantes_documentosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing assinantes_documentos.
+     */
+    cursor?: assinantes_documentosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` assinantes_documentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` assinantes_documentos.
+     */
+    skip?: number
+    distinct?: Assinantes_documentosScalarFieldEnum | Assinantes_documentosScalarFieldEnum[]
+  }
+
+  /**
+   * assinantes_documentos create
+   */
+  export type assinantes_documentosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * The data needed to create a assinantes_documentos.
+     */
+    data: XOR<assinantes_documentosCreateInput, assinantes_documentosUncheckedCreateInput>
+  }
+
+  /**
+   * assinantes_documentos createMany
+   */
+  export type assinantes_documentosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many assinantes_documentos.
+     */
+    data: assinantes_documentosCreateManyInput | assinantes_documentosCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * assinantes_documentos update
+   */
+  export type assinantes_documentosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * The data needed to update a assinantes_documentos.
+     */
+    data: XOR<assinantes_documentosUpdateInput, assinantes_documentosUncheckedUpdateInput>
+    /**
+     * Choose, which assinantes_documentos to update.
+     */
+    where: assinantes_documentosWhereUniqueInput
+  }
+
+  /**
+   * assinantes_documentos updateMany
+   */
+  export type assinantes_documentosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update assinantes_documentos.
+     */
+    data: XOR<assinantes_documentosUpdateManyMutationInput, assinantes_documentosUncheckedUpdateManyInput>
+    /**
+     * Filter which assinantes_documentos to update
+     */
+    where?: assinantes_documentosWhereInput
+    /**
+     * Limit how many assinantes_documentos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * assinantes_documentos upsert
+   */
+  export type assinantes_documentosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * The filter to search for the assinantes_documentos to update in case it exists.
+     */
+    where: assinantes_documentosWhereUniqueInput
+    /**
+     * In case the assinantes_documentos found by the `where` argument doesn't exist, create a new assinantes_documentos with this data.
+     */
+    create: XOR<assinantes_documentosCreateInput, assinantes_documentosUncheckedCreateInput>
+    /**
+     * In case the assinantes_documentos was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<assinantes_documentosUpdateInput, assinantes_documentosUncheckedUpdateInput>
+  }
+
+  /**
+   * assinantes_documentos delete
+   */
+  export type assinantes_documentosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+    /**
+     * Filter which assinantes_documentos to delete.
+     */
+    where: assinantes_documentosWhereUniqueInput
+  }
+
+  /**
+   * assinantes_documentos deleteMany
+   */
+  export type assinantes_documentosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which assinantes_documentos to delete
+     */
+    where?: assinantes_documentosWhereInput
+    /**
+     * Limit how many assinantes_documentos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * assinantes_documentos without action
+   */
+  export type assinantes_documentosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the assinantes_documentos
+     */
+    select?: assinantes_documentosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the assinantes_documentos
+     */
+    omit?: assinantes_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: assinantes_documentosInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model dados_assinantes
+   */
+
+  export type AggregateDados_assinantes = {
+    _count: Dados_assinantesCountAggregateOutputType | null
+    _avg: Dados_assinantesAvgAggregateOutputType | null
+    _sum: Dados_assinantesSumAggregateOutputType | null
+    _min: Dados_assinantesMinAggregateOutputType | null
+    _max: Dados_assinantesMaxAggregateOutputType | null
+  }
+
+  export type Dados_assinantesAvgAggregateOutputType = {
+    id: number | null
+    documentosId: number | null
+  }
+
+  export type Dados_assinantesSumAggregateOutputType = {
+    id: number | null
+    documentosId: number | null
+  }
+
+  export type Dados_assinantesMinAggregateOutputType = {
+    id: number | null
+    ip_assinante: string | null
+    localizacao_assinante: string | null
+    documentosId: number | null
+  }
+
+  export type Dados_assinantesMaxAggregateOutputType = {
+    id: number | null
+    ip_assinante: string | null
+    localizacao_assinante: string | null
+    documentosId: number | null
+  }
+
+  export type Dados_assinantesCountAggregateOutputType = {
+    id: number
+    ip_assinante: number
+    localizacao_assinante: number
+    documentosId: number
+    _all: number
+  }
+
+
+  export type Dados_assinantesAvgAggregateInputType = {
+    id?: true
+    documentosId?: true
+  }
+
+  export type Dados_assinantesSumAggregateInputType = {
+    id?: true
+    documentosId?: true
+  }
+
+  export type Dados_assinantesMinAggregateInputType = {
+    id?: true
+    ip_assinante?: true
+    localizacao_assinante?: true
+    documentosId?: true
+  }
+
+  export type Dados_assinantesMaxAggregateInputType = {
+    id?: true
+    ip_assinante?: true
+    localizacao_assinante?: true
+    documentosId?: true
+  }
+
+  export type Dados_assinantesCountAggregateInputType = {
+    id?: true
+    ip_assinante?: true
+    localizacao_assinante?: true
+    documentosId?: true
+    _all?: true
+  }
+
+  export type Dados_assinantesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which dados_assinantes to aggregate.
+     */
+    where?: dados_assinantesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dados_assinantes to fetch.
+     */
+    orderBy?: dados_assinantesOrderByWithRelationInput | dados_assinantesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: dados_assinantesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dados_assinantes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dados_assinantes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned dados_assinantes
+    **/
+    _count?: true | Dados_assinantesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Dados_assinantesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Dados_assinantesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Dados_assinantesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Dados_assinantesMaxAggregateInputType
+  }
+
+  export type GetDados_assinantesAggregateType<T extends Dados_assinantesAggregateArgs> = {
+        [P in keyof T & keyof AggregateDados_assinantes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDados_assinantes[P]>
+      : GetScalarType<T[P], AggregateDados_assinantes[P]>
+  }
+
+
+
+
+  export type dados_assinantesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: dados_assinantesWhereInput
+    orderBy?: dados_assinantesOrderByWithAggregationInput | dados_assinantesOrderByWithAggregationInput[]
+    by: Dados_assinantesScalarFieldEnum[] | Dados_assinantesScalarFieldEnum
+    having?: dados_assinantesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Dados_assinantesCountAggregateInputType | true
+    _avg?: Dados_assinantesAvgAggregateInputType
+    _sum?: Dados_assinantesSumAggregateInputType
+    _min?: Dados_assinantesMinAggregateInputType
+    _max?: Dados_assinantesMaxAggregateInputType
+  }
+
+  export type Dados_assinantesGroupByOutputType = {
+    id: number
+    ip_assinante: string
+    localizacao_assinante: string
+    documentosId: number
+    _count: Dados_assinantesCountAggregateOutputType | null
+    _avg: Dados_assinantesAvgAggregateOutputType | null
+    _sum: Dados_assinantesSumAggregateOutputType | null
+    _min: Dados_assinantesMinAggregateOutputType | null
+    _max: Dados_assinantesMaxAggregateOutputType | null
+  }
+
+  type GetDados_assinantesGroupByPayload<T extends dados_assinantesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Dados_assinantesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Dados_assinantesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Dados_assinantesGroupByOutputType[P]>
+            : GetScalarType<T[P], Dados_assinantesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type dados_assinantesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ip_assinante?: boolean
+    localizacao_assinante?: boolean
+    documentosId?: boolean
+    documento?: boolean | documentosDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dados_assinantes"]>
+
+
+
+  export type dados_assinantesSelectScalar = {
+    id?: boolean
+    ip_assinante?: boolean
+    localizacao_assinante?: boolean
+    documentosId?: boolean
+  }
+
+  export type dados_assinantesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ip_assinante" | "localizacao_assinante" | "documentosId", ExtArgs["result"]["dados_assinantes"]>
+  export type dados_assinantesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    documento?: boolean | documentosDefaultArgs<ExtArgs>
+  }
+
+  export type $dados_assinantesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "dados_assinantes"
+    objects: {
+      documento: Prisma.$documentosPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      ip_assinante: string
+      localizacao_assinante: string
+      documentosId: number
+    }, ExtArgs["result"]["dados_assinantes"]>
+    composites: {}
+  }
+
+  type dados_assinantesGetPayload<S extends boolean | null | undefined | dados_assinantesDefaultArgs> = $Result.GetResult<Prisma.$dados_assinantesPayload, S>
+
+  type dados_assinantesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<dados_assinantesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Dados_assinantesCountAggregateInputType | true
+    }
+
+  export interface dados_assinantesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['dados_assinantes'], meta: { name: 'dados_assinantes' } }
+    /**
+     * Find zero or one Dados_assinantes that matches the filter.
+     * @param {dados_assinantesFindUniqueArgs} args - Arguments to find a Dados_assinantes
+     * @example
+     * // Get one Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends dados_assinantesFindUniqueArgs>(args: SelectSubset<T, dados_assinantesFindUniqueArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one Dados_assinantes that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {dados_assinantesFindUniqueOrThrowArgs} args - Arguments to find a Dados_assinantes
+     * @example
+     * // Get one Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends dados_assinantesFindUniqueOrThrowArgs>(args: SelectSubset<T, dados_assinantesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Dados_assinantes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dados_assinantesFindFirstArgs} args - Arguments to find a Dados_assinantes
+     * @example
+     * // Get one Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends dados_assinantesFindFirstArgs>(args?: SelectSubset<T, dados_assinantesFindFirstArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Dados_assinantes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dados_assinantesFindFirstOrThrowArgs} args - Arguments to find a Dados_assinantes
+     * @example
+     * // Get one Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends dados_assinantesFindFirstOrThrowArgs>(args?: SelectSubset<T, dados_assinantesFindFirstOrThrowArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more Dados_assinantes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dados_assinantesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.findMany()
+     * 
+     * // Get first 10 Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const dados_assinantesWithIdOnly = await prisma.dados_assinantes.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends dados_assinantesFindManyArgs>(args?: SelectSubset<T, dados_assinantesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a Dados_assinantes.
+     * @param {dados_assinantesCreateArgs} args - Arguments to create a Dados_assinantes.
+     * @example
+     * // Create one Dados_assinantes
+     * const Dados_assinantes = await prisma.dados_assinantes.create({
+     *   data: {
+     *     // ... data to create a Dados_assinantes
+     *   }
+     * })
+     * 
+     */
+    create<T extends dados_assinantesCreateArgs>(args: SelectSubset<T, dados_assinantesCreateArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many Dados_assinantes.
+     * @param {dados_assinantesCreateManyArgs} args - Arguments to create many Dados_assinantes.
+     * @example
+     * // Create many Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends dados_assinantesCreateManyArgs>(args?: SelectSubset<T, dados_assinantesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Dados_assinantes.
+     * @param {dados_assinantesDeleteArgs} args - Arguments to delete one Dados_assinantes.
+     * @example
+     * // Delete one Dados_assinantes
+     * const Dados_assinantes = await prisma.dados_assinantes.delete({
+     *   where: {
+     *     // ... filter to delete one Dados_assinantes
+     *   }
+     * })
+     * 
+     */
+    delete<T extends dados_assinantesDeleteArgs>(args: SelectSubset<T, dados_assinantesDeleteArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one Dados_assinantes.
+     * @param {dados_assinantesUpdateArgs} args - Arguments to update one Dados_assinantes.
+     * @example
+     * // Update one Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends dados_assinantesUpdateArgs>(args: SelectSubset<T, dados_assinantesUpdateArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more Dados_assinantes.
+     * @param {dados_assinantesDeleteManyArgs} args - Arguments to filter Dados_assinantes to delete.
+     * @example
+     * // Delete a few Dados_assinantes
+     * const { count } = await prisma.dados_assinantes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends dados_assinantesDeleteManyArgs>(args?: SelectSubset<T, dados_assinantesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Dados_assinantes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dados_assinantesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends dados_assinantesUpdateManyArgs>(args: SelectSubset<T, dados_assinantesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Dados_assinantes.
+     * @param {dados_assinantesUpsertArgs} args - Arguments to update or create a Dados_assinantes.
+     * @example
+     * // Update or create a Dados_assinantes
+     * const dados_assinantes = await prisma.dados_assinantes.upsert({
+     *   create: {
+     *     // ... data to create a Dados_assinantes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Dados_assinantes we want to update
+     *   }
+     * })
+     */
+    upsert<T extends dados_assinantesUpsertArgs>(args: SelectSubset<T, dados_assinantesUpsertArgs<ExtArgs>>): Prisma__dados_assinantesClient<$Result.GetResult<Prisma.$dados_assinantesPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of Dados_assinantes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dados_assinantesCountArgs} args - Arguments to filter Dados_assinantes to count.
+     * @example
+     * // Count the number of Dados_assinantes
+     * const count = await prisma.dados_assinantes.count({
+     *   where: {
+     *     // ... the filter for the Dados_assinantes we want to count
+     *   }
+     * })
+    **/
+    count<T extends dados_assinantesCountArgs>(
+      args?: Subset<T, dados_assinantesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Dados_assinantesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Dados_assinantes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Dados_assinantesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Dados_assinantesAggregateArgs>(args: Subset<T, Dados_assinantesAggregateArgs>): Prisma.PrismaPromise<GetDados_assinantesAggregateType<T>>
+
+    /**
+     * Group by Dados_assinantes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dados_assinantesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends dados_assinantesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: dados_assinantesGroupByArgs['orderBy'] }
+        : { orderBy?: dados_assinantesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, dados_assinantesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDados_assinantesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the dados_assinantes model
+   */
+  readonly fields: dados_assinantesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for dados_assinantes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__dados_assinantesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    documento<T extends documentosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, documentosDefaultArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the dados_assinantes model
+   */ 
+  interface dados_assinantesFieldRefs {
+    readonly id: FieldRef<"dados_assinantes", 'Int'>
+    readonly ip_assinante: FieldRef<"dados_assinantes", 'String'>
+    readonly localizacao_assinante: FieldRef<"dados_assinantes", 'String'>
+    readonly documentosId: FieldRef<"dados_assinantes", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * dados_assinantes findUnique
+   */
+  export type dados_assinantesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * Filter, which dados_assinantes to fetch.
+     */
+    where: dados_assinantesWhereUniqueInput
+  }
+
+  /**
+   * dados_assinantes findUniqueOrThrow
+   */
+  export type dados_assinantesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * Filter, which dados_assinantes to fetch.
+     */
+    where: dados_assinantesWhereUniqueInput
+  }
+
+  /**
+   * dados_assinantes findFirst
+   */
+  export type dados_assinantesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * Filter, which dados_assinantes to fetch.
+     */
+    where?: dados_assinantesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dados_assinantes to fetch.
+     */
+    orderBy?: dados_assinantesOrderByWithRelationInput | dados_assinantesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for dados_assinantes.
+     */
+    cursor?: dados_assinantesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dados_assinantes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dados_assinantes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of dados_assinantes.
+     */
+    distinct?: Dados_assinantesScalarFieldEnum | Dados_assinantesScalarFieldEnum[]
+  }
+
+  /**
+   * dados_assinantes findFirstOrThrow
+   */
+  export type dados_assinantesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * Filter, which dados_assinantes to fetch.
+     */
+    where?: dados_assinantesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dados_assinantes to fetch.
+     */
+    orderBy?: dados_assinantesOrderByWithRelationInput | dados_assinantesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for dados_assinantes.
+     */
+    cursor?: dados_assinantesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dados_assinantes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dados_assinantes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of dados_assinantes.
+     */
+    distinct?: Dados_assinantesScalarFieldEnum | Dados_assinantesScalarFieldEnum[]
+  }
+
+  /**
+   * dados_assinantes findMany
+   */
+  export type dados_assinantesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * Filter, which dados_assinantes to fetch.
+     */
+    where?: dados_assinantesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dados_assinantes to fetch.
+     */
+    orderBy?: dados_assinantesOrderByWithRelationInput | dados_assinantesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing dados_assinantes.
+     */
+    cursor?: dados_assinantesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dados_assinantes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dados_assinantes.
+     */
+    skip?: number
+    distinct?: Dados_assinantesScalarFieldEnum | Dados_assinantesScalarFieldEnum[]
+  }
+
+  /**
+   * dados_assinantes create
+   */
+  export type dados_assinantesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a dados_assinantes.
+     */
+    data: XOR<dados_assinantesCreateInput, dados_assinantesUncheckedCreateInput>
+  }
+
+  /**
+   * dados_assinantes createMany
+   */
+  export type dados_assinantesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many dados_assinantes.
+     */
+    data: dados_assinantesCreateManyInput | dados_assinantesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * dados_assinantes update
+   */
+  export type dados_assinantesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a dados_assinantes.
+     */
+    data: XOR<dados_assinantesUpdateInput, dados_assinantesUncheckedUpdateInput>
+    /**
+     * Choose, which dados_assinantes to update.
+     */
+    where: dados_assinantesWhereUniqueInput
+  }
+
+  /**
+   * dados_assinantes updateMany
+   */
+  export type dados_assinantesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update dados_assinantes.
+     */
+    data: XOR<dados_assinantesUpdateManyMutationInput, dados_assinantesUncheckedUpdateManyInput>
+    /**
+     * Filter which dados_assinantes to update
+     */
+    where?: dados_assinantesWhereInput
+    /**
+     * Limit how many dados_assinantes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * dados_assinantes upsert
+   */
+  export type dados_assinantesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the dados_assinantes to update in case it exists.
+     */
+    where: dados_assinantesWhereUniqueInput
+    /**
+     * In case the dados_assinantes found by the `where` argument doesn't exist, create a new dados_assinantes with this data.
+     */
+    create: XOR<dados_assinantesCreateInput, dados_assinantesUncheckedCreateInput>
+    /**
+     * In case the dados_assinantes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<dados_assinantesUpdateInput, dados_assinantesUncheckedUpdateInput>
+  }
+
+  /**
+   * dados_assinantes delete
+   */
+  export type dados_assinantesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+    /**
+     * Filter which dados_assinantes to delete.
+     */
+    where: dados_assinantesWhereUniqueInput
+  }
+
+  /**
+   * dados_assinantes deleteMany
+   */
+  export type dados_assinantesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which dados_assinantes to delete
+     */
+    where?: dados_assinantesWhereInput
+    /**
+     * Limit how many dados_assinantes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * dados_assinantes without action
+   */
+  export type dados_assinantesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dados_assinantes
+     */
+    select?: dados_assinantesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dados_assinantes
+     */
+    omit?: dados_assinantesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dados_assinantesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model status_documentos
    */
 
@@ -9485,26 +12841,31 @@ export namespace Prisma {
   export type Status_documentosAvgAggregateOutputType = {
     id: number | null
     status_documento: number | null
+    documentosId: number | null
   }
 
   export type Status_documentosSumAggregateOutputType = {
     id: number | null
     status_documento: number | null
+    documentosId: number | null
   }
 
   export type Status_documentosMinAggregateOutputType = {
     id: number | null
     status_documento: number | null
+    documentosId: number | null
   }
 
   export type Status_documentosMaxAggregateOutputType = {
     id: number | null
     status_documento: number | null
+    documentosId: number | null
   }
 
   export type Status_documentosCountAggregateOutputType = {
     id: number
     status_documento: number
+    documentosId: number
     _all: number
   }
 
@@ -9512,26 +12873,31 @@ export namespace Prisma {
   export type Status_documentosAvgAggregateInputType = {
     id?: true
     status_documento?: true
+    documentosId?: true
   }
 
   export type Status_documentosSumAggregateInputType = {
     id?: true
     status_documento?: true
+    documentosId?: true
   }
 
   export type Status_documentosMinAggregateInputType = {
     id?: true
     status_documento?: true
+    documentosId?: true
   }
 
   export type Status_documentosMaxAggregateInputType = {
     id?: true
     status_documento?: true
+    documentosId?: true
   }
 
   export type Status_documentosCountAggregateInputType = {
     id?: true
     status_documento?: true
+    documentosId?: true
     _all?: true
   }
 
@@ -9624,6 +12990,7 @@ export namespace Prisma {
   export type Status_documentosGroupByOutputType = {
     id: number
     status_documento: number
+    documentosId: number
     _count: Status_documentosCountAggregateOutputType | null
     _avg: Status_documentosAvgAggregateOutputType | null
     _sum: Status_documentosSumAggregateOutputType | null
@@ -9648,6 +13015,8 @@ export namespace Prisma {
   export type status_documentosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     status_documento?: boolean
+    documentosId?: boolean
+    documentos?: boolean | documentosDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["status_documentos"]>
 
 
@@ -9655,16 +13024,23 @@ export namespace Prisma {
   export type status_documentosSelectScalar = {
     id?: boolean
     status_documento?: boolean
+    documentosId?: boolean
   }
 
-  export type status_documentosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status_documento", ExtArgs["result"]["status_documentos"]>
+  export type status_documentosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status_documento" | "documentosId", ExtArgs["result"]["status_documentos"]>
+  export type status_documentosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    documentos?: boolean | documentosDefaultArgs<ExtArgs>
+  }
 
   export type $status_documentosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "status_documentos"
-    objects: {}
+    objects: {
+      documentos: Prisma.$documentosPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       status_documento: number
+      documentosId: number
     }, ExtArgs["result"]["status_documentos"]>
     composites: {}
   }
@@ -10005,6 +13381,7 @@ export namespace Prisma {
    */
   export interface Prisma__status_documentosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    documentos<T extends documentosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, documentosDefaultArgs<ExtArgs>>): Prisma__documentosClient<$Result.GetResult<Prisma.$documentosPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10036,6 +13413,7 @@ export namespace Prisma {
   interface status_documentosFieldRefs {
     readonly id: FieldRef<"status_documentos", 'Int'>
     readonly status_documento: FieldRef<"status_documentos", 'Int'>
+    readonly documentosId: FieldRef<"status_documentos", 'Int'>
   }
     
 
@@ -10052,6 +13430,10 @@ export namespace Prisma {
      * Omit specific fields from the status_documentos
      */
     omit?: status_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
     /**
      * Filter, which status_documentos to fetch.
      */
@@ -10071,6 +13453,10 @@ export namespace Prisma {
      */
     omit?: status_documentosOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
+    /**
      * Filter, which status_documentos to fetch.
      */
     where: status_documentosWhereUniqueInput
@@ -10088,6 +13474,10 @@ export namespace Prisma {
      * Omit specific fields from the status_documentos
      */
     omit?: status_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
     /**
      * Filter, which status_documentos to fetch.
      */
@@ -10137,6 +13527,10 @@ export namespace Prisma {
      */
     omit?: status_documentosOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
+    /**
      * Filter, which status_documentos to fetch.
      */
     where?: status_documentosWhereInput
@@ -10185,6 +13579,10 @@ export namespace Prisma {
      */
     omit?: status_documentosOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
+    /**
      * Filter, which status_documentos to fetch.
      */
     where?: status_documentosWhereInput
@@ -10228,6 +13626,10 @@ export namespace Prisma {
      */
     omit?: status_documentosOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
+    /**
      * The data needed to create a status_documentos.
      */
     data: XOR<status_documentosCreateInput, status_documentosUncheckedCreateInput>
@@ -10256,6 +13658,10 @@ export namespace Prisma {
      * Omit specific fields from the status_documentos
      */
     omit?: status_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
     /**
      * The data needed to update a status_documentos.
      */
@@ -10297,6 +13703,10 @@ export namespace Prisma {
      */
     omit?: status_documentosOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
+    /**
      * The filter to search for the status_documentos to update in case it exists.
      */
     where: status_documentosWhereUniqueInput
@@ -10322,6 +13732,10 @@ export namespace Prisma {
      * Omit specific fields from the status_documentos
      */
     omit?: status_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
     /**
      * Filter which status_documentos to delete.
      */
@@ -10354,6 +13768,10 @@ export namespace Prisma {
      * Omit specific fields from the status_documentos
      */
     omit?: status_documentosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: status_documentosInclude<ExtArgs> | null
   }
 
 
@@ -10457,9 +13875,42 @@ export namespace Prisma {
   export type Variaveis_templateScalarFieldEnum = (typeof Variaveis_templateScalarFieldEnum)[keyof typeof Variaveis_templateScalarFieldEnum]
 
 
+  export const DocumentosScalarFieldEnum: {
+    id: 'id',
+    usuariosId: 'usuariosId',
+    templatesId: 'templatesId',
+    created_at: 'created_at',
+    token_doc: 'token_doc',
+    is_ativo: 'is_ativo'
+  };
+
+  export type DocumentosScalarFieldEnum = (typeof DocumentosScalarFieldEnum)[keyof typeof DocumentosScalarFieldEnum]
+
+
+  export const Assinantes_documentosScalarFieldEnum: {
+    id: 'id',
+    nome_assinante: 'nome_assinante',
+    email_assinante: 'email_assinante',
+    documentosId: 'documentosId'
+  };
+
+  export type Assinantes_documentosScalarFieldEnum = (typeof Assinantes_documentosScalarFieldEnum)[keyof typeof Assinantes_documentosScalarFieldEnum]
+
+
+  export const Dados_assinantesScalarFieldEnum: {
+    id: 'id',
+    ip_assinante: 'ip_assinante',
+    localizacao_assinante: 'localizacao_assinante',
+    documentosId: 'documentosId'
+  };
+
+  export type Dados_assinantesScalarFieldEnum = (typeof Dados_assinantesScalarFieldEnum)[keyof typeof Dados_assinantesScalarFieldEnum]
+
+
   export const Status_documentosScalarFieldEnum: {
     id: 'id',
-    status_documento: 'status_documento'
+    status_documento: 'status_documento',
+    documentosId: 'documentosId'
   };
 
   export type Status_documentosScalarFieldEnum = (typeof Status_documentosScalarFieldEnum)[keyof typeof Status_documentosScalarFieldEnum]
@@ -10528,6 +13979,29 @@ export namespace Prisma {
   };
 
   export type variaveis_templateOrderByRelevanceFieldEnum = (typeof variaveis_templateOrderByRelevanceFieldEnum)[keyof typeof variaveis_templateOrderByRelevanceFieldEnum]
+
+
+  export const documentosOrderByRelevanceFieldEnum: {
+    token_doc: 'token_doc'
+  };
+
+  export type documentosOrderByRelevanceFieldEnum = (typeof documentosOrderByRelevanceFieldEnum)[keyof typeof documentosOrderByRelevanceFieldEnum]
+
+
+  export const assinantes_documentosOrderByRelevanceFieldEnum: {
+    nome_assinante: 'nome_assinante',
+    email_assinante: 'email_assinante'
+  };
+
+  export type assinantes_documentosOrderByRelevanceFieldEnum = (typeof assinantes_documentosOrderByRelevanceFieldEnum)[keyof typeof assinantes_documentosOrderByRelevanceFieldEnum]
+
+
+  export const dados_assinantesOrderByRelevanceFieldEnum: {
+    ip_assinante: 'ip_assinante',
+    localizacao_assinante: 'localizacao_assinante'
+  };
+
+  export type dados_assinantesOrderByRelevanceFieldEnum = (typeof dados_assinantesOrderByRelevanceFieldEnum)[keyof typeof dados_assinantesOrderByRelevanceFieldEnum]
 
 
   /**
@@ -10799,6 +14273,7 @@ export namespace Prisma {
     jwt_token?: Jwt_tokenListRelationFilter
     templates?: TemplatesListRelationFilter
     usuarios_organizacao?: Usuarios_organizacaoListRelationFilter
+    documentos?: DocumentosListRelationFilter
   }
 
   export type usuariosOrderByWithRelationInput = {
@@ -10815,6 +14290,7 @@ export namespace Prisma {
     jwt_token?: jwt_tokenOrderByRelationAggregateInput
     templates?: templatesOrderByRelationAggregateInput
     usuarios_organizacao?: usuarios_organizacaoOrderByRelationAggregateInput
+    documentos?: documentosOrderByRelationAggregateInput
     _relevance?: usuariosOrderByRelevanceInput
   }
 
@@ -10835,6 +14311,7 @@ export namespace Prisma {
     jwt_token?: Jwt_tokenListRelationFilter
     templates?: TemplatesListRelationFilter
     usuarios_organizacao?: Usuarios_organizacaoListRelationFilter
+    documentos?: DocumentosListRelationFilter
   }, "id" | "email" | "token">
 
   export type usuariosOrderByWithAggregationInput = {
@@ -10932,6 +14409,7 @@ export namespace Prisma {
     usuarios_id?: IntFilter<"templates"> | number
     id_usuario?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
     variaveis_template?: Variaveis_templateListRelationFilter
+    documentos?: DocumentosListRelationFilter
   }
 
   export type templatesOrderByWithRelationInput = {
@@ -10944,6 +14422,7 @@ export namespace Prisma {
     usuarios_id?: SortOrder
     id_usuario?: usuariosOrderByWithRelationInput
     variaveis_template?: variaveis_templateOrderByRelationAggregateInput
+    documentos?: documentosOrderByRelationAggregateInput
     _relevance?: templatesOrderByRelevanceInput
   }
 
@@ -10960,6 +14439,7 @@ export namespace Prisma {
     usuarios_id?: IntFilter<"templates"> | number
     id_usuario?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
     variaveis_template?: Variaveis_templateListRelationFilter
+    documentos?: DocumentosListRelationFilter
   }, "id" | "token_template">
 
   export type templatesOrderByWithAggregationInput = {
@@ -11038,17 +14518,202 @@ export namespace Prisma {
     templates_id?: IntWithAggregatesFilter<"variaveis_template"> | number
   }
 
+  export type documentosWhereInput = {
+    AND?: documentosWhereInput | documentosWhereInput[]
+    OR?: documentosWhereInput[]
+    NOT?: documentosWhereInput | documentosWhereInput[]
+    id?: IntFilter<"documentos"> | number
+    usuariosId?: IntFilter<"documentos"> | number
+    templatesId?: IntFilter<"documentos"> | number
+    created_at?: DateTimeFilter<"documentos"> | Date | string
+    token_doc?: StringFilter<"documentos"> | string
+    is_ativo?: BoolFilter<"documentos"> | boolean
+    usuarios?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
+    templates?: XOR<TemplatesScalarRelationFilter, templatesWhereInput>
+    assinantes_documentos?: Assinantes_documentosListRelationFilter
+    dados_assinantes?: Dados_assinantesListRelationFilter
+    status_documentos?: Status_documentosListRelationFilter
+  }
+
+  export type documentosOrderByWithRelationInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+    created_at?: SortOrder
+    token_doc?: SortOrder
+    is_ativo?: SortOrder
+    usuarios?: usuariosOrderByWithRelationInput
+    templates?: templatesOrderByWithRelationInput
+    assinantes_documentos?: assinantes_documentosOrderByRelationAggregateInput
+    dados_assinantes?: dados_assinantesOrderByRelationAggregateInput
+    status_documentos?: status_documentosOrderByRelationAggregateInput
+    _relevance?: documentosOrderByRelevanceInput
+  }
+
+  export type documentosWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    token_doc?: string
+    AND?: documentosWhereInput | documentosWhereInput[]
+    OR?: documentosWhereInput[]
+    NOT?: documentosWhereInput | documentosWhereInput[]
+    usuariosId?: IntFilter<"documentos"> | number
+    templatesId?: IntFilter<"documentos"> | number
+    created_at?: DateTimeFilter<"documentos"> | Date | string
+    is_ativo?: BoolFilter<"documentos"> | boolean
+    usuarios?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
+    templates?: XOR<TemplatesScalarRelationFilter, templatesWhereInput>
+    assinantes_documentos?: Assinantes_documentosListRelationFilter
+    dados_assinantes?: Dados_assinantesListRelationFilter
+    status_documentos?: Status_documentosListRelationFilter
+  }, "id" | "token_doc">
+
+  export type documentosOrderByWithAggregationInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+    created_at?: SortOrder
+    token_doc?: SortOrder
+    is_ativo?: SortOrder
+    _count?: documentosCountOrderByAggregateInput
+    _avg?: documentosAvgOrderByAggregateInput
+    _max?: documentosMaxOrderByAggregateInput
+    _min?: documentosMinOrderByAggregateInput
+    _sum?: documentosSumOrderByAggregateInput
+  }
+
+  export type documentosScalarWhereWithAggregatesInput = {
+    AND?: documentosScalarWhereWithAggregatesInput | documentosScalarWhereWithAggregatesInput[]
+    OR?: documentosScalarWhereWithAggregatesInput[]
+    NOT?: documentosScalarWhereWithAggregatesInput | documentosScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"documentos"> | number
+    usuariosId?: IntWithAggregatesFilter<"documentos"> | number
+    templatesId?: IntWithAggregatesFilter<"documentos"> | number
+    created_at?: DateTimeWithAggregatesFilter<"documentos"> | Date | string
+    token_doc?: StringWithAggregatesFilter<"documentos"> | string
+    is_ativo?: BoolWithAggregatesFilter<"documentos"> | boolean
+  }
+
+  export type assinantes_documentosWhereInput = {
+    AND?: assinantes_documentosWhereInput | assinantes_documentosWhereInput[]
+    OR?: assinantes_documentosWhereInput[]
+    NOT?: assinantes_documentosWhereInput | assinantes_documentosWhereInput[]
+    id?: IntFilter<"assinantes_documentos"> | number
+    nome_assinante?: StringFilter<"assinantes_documentos"> | string
+    email_assinante?: StringFilter<"assinantes_documentos"> | string
+    documentosId?: IntFilter<"assinantes_documentos"> | number
+    documentos?: XOR<DocumentosScalarRelationFilter, documentosWhereInput>
+  }
+
+  export type assinantes_documentosOrderByWithRelationInput = {
+    id?: SortOrder
+    nome_assinante?: SortOrder
+    email_assinante?: SortOrder
+    documentosId?: SortOrder
+    documentos?: documentosOrderByWithRelationInput
+    _relevance?: assinantes_documentosOrderByRelevanceInput
+  }
+
+  export type assinantes_documentosWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: assinantes_documentosWhereInput | assinantes_documentosWhereInput[]
+    OR?: assinantes_documentosWhereInput[]
+    NOT?: assinantes_documentosWhereInput | assinantes_documentosWhereInput[]
+    nome_assinante?: StringFilter<"assinantes_documentos"> | string
+    email_assinante?: StringFilter<"assinantes_documentos"> | string
+    documentosId?: IntFilter<"assinantes_documentos"> | number
+    documentos?: XOR<DocumentosScalarRelationFilter, documentosWhereInput>
+  }, "id">
+
+  export type assinantes_documentosOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome_assinante?: SortOrder
+    email_assinante?: SortOrder
+    documentosId?: SortOrder
+    _count?: assinantes_documentosCountOrderByAggregateInput
+    _avg?: assinantes_documentosAvgOrderByAggregateInput
+    _max?: assinantes_documentosMaxOrderByAggregateInput
+    _min?: assinantes_documentosMinOrderByAggregateInput
+    _sum?: assinantes_documentosSumOrderByAggregateInput
+  }
+
+  export type assinantes_documentosScalarWhereWithAggregatesInput = {
+    AND?: assinantes_documentosScalarWhereWithAggregatesInput | assinantes_documentosScalarWhereWithAggregatesInput[]
+    OR?: assinantes_documentosScalarWhereWithAggregatesInput[]
+    NOT?: assinantes_documentosScalarWhereWithAggregatesInput | assinantes_documentosScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"assinantes_documentos"> | number
+    nome_assinante?: StringWithAggregatesFilter<"assinantes_documentos"> | string
+    email_assinante?: StringWithAggregatesFilter<"assinantes_documentos"> | string
+    documentosId?: IntWithAggregatesFilter<"assinantes_documentos"> | number
+  }
+
+  export type dados_assinantesWhereInput = {
+    AND?: dados_assinantesWhereInput | dados_assinantesWhereInput[]
+    OR?: dados_assinantesWhereInput[]
+    NOT?: dados_assinantesWhereInput | dados_assinantesWhereInput[]
+    id?: IntFilter<"dados_assinantes"> | number
+    ip_assinante?: StringFilter<"dados_assinantes"> | string
+    localizacao_assinante?: StringFilter<"dados_assinantes"> | string
+    documentosId?: IntFilter<"dados_assinantes"> | number
+    documento?: XOR<DocumentosScalarRelationFilter, documentosWhereInput>
+  }
+
+  export type dados_assinantesOrderByWithRelationInput = {
+    id?: SortOrder
+    ip_assinante?: SortOrder
+    localizacao_assinante?: SortOrder
+    documentosId?: SortOrder
+    documento?: documentosOrderByWithRelationInput
+    _relevance?: dados_assinantesOrderByRelevanceInput
+  }
+
+  export type dados_assinantesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: dados_assinantesWhereInput | dados_assinantesWhereInput[]
+    OR?: dados_assinantesWhereInput[]
+    NOT?: dados_assinantesWhereInput | dados_assinantesWhereInput[]
+    ip_assinante?: StringFilter<"dados_assinantes"> | string
+    localizacao_assinante?: StringFilter<"dados_assinantes"> | string
+    documentosId?: IntFilter<"dados_assinantes"> | number
+    documento?: XOR<DocumentosScalarRelationFilter, documentosWhereInput>
+  }, "id">
+
+  export type dados_assinantesOrderByWithAggregationInput = {
+    id?: SortOrder
+    ip_assinante?: SortOrder
+    localizacao_assinante?: SortOrder
+    documentosId?: SortOrder
+    _count?: dados_assinantesCountOrderByAggregateInput
+    _avg?: dados_assinantesAvgOrderByAggregateInput
+    _max?: dados_assinantesMaxOrderByAggregateInput
+    _min?: dados_assinantesMinOrderByAggregateInput
+    _sum?: dados_assinantesSumOrderByAggregateInput
+  }
+
+  export type dados_assinantesScalarWhereWithAggregatesInput = {
+    AND?: dados_assinantesScalarWhereWithAggregatesInput | dados_assinantesScalarWhereWithAggregatesInput[]
+    OR?: dados_assinantesScalarWhereWithAggregatesInput[]
+    NOT?: dados_assinantesScalarWhereWithAggregatesInput | dados_assinantesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"dados_assinantes"> | number
+    ip_assinante?: StringWithAggregatesFilter<"dados_assinantes"> | string
+    localizacao_assinante?: StringWithAggregatesFilter<"dados_assinantes"> | string
+    documentosId?: IntWithAggregatesFilter<"dados_assinantes"> | number
+  }
+
   export type status_documentosWhereInput = {
     AND?: status_documentosWhereInput | status_documentosWhereInput[]
     OR?: status_documentosWhereInput[]
     NOT?: status_documentosWhereInput | status_documentosWhereInput[]
     id?: IntFilter<"status_documentos"> | number
     status_documento?: IntFilter<"status_documentos"> | number
+    documentosId?: IntFilter<"status_documentos"> | number
+    documentos?: XOR<DocumentosScalarRelationFilter, documentosWhereInput>
   }
 
   export type status_documentosOrderByWithRelationInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
+    documentos?: documentosOrderByWithRelationInput
   }
 
   export type status_documentosWhereUniqueInput = Prisma.AtLeast<{
@@ -11057,11 +14722,14 @@ export namespace Prisma {
     OR?: status_documentosWhereInput[]
     NOT?: status_documentosWhereInput | status_documentosWhereInput[]
     status_documento?: IntFilter<"status_documentos"> | number
+    documentosId?: IntFilter<"status_documentos"> | number
+    documentos?: XOR<DocumentosScalarRelationFilter, documentosWhereInput>
   }, "id">
 
   export type status_documentosOrderByWithAggregationInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
     _count?: status_documentosCountOrderByAggregateInput
     _avg?: status_documentosAvgOrderByAggregateInput
     _max?: status_documentosMaxOrderByAggregateInput
@@ -11075,6 +14743,7 @@ export namespace Prisma {
     NOT?: status_documentosScalarWhereWithAggregatesInput | status_documentosScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"status_documentos"> | number
     status_documento?: IntWithAggregatesFilter<"status_documentos"> | number
+    documentosId?: IntWithAggregatesFilter<"status_documentos"> | number
   }
 
   export type adminsCreateInput = {
@@ -11273,6 +14942,7 @@ export namespace Prisma {
     jwt_token?: jwt_tokenCreateNestedManyWithoutId_usuarioInput
     templates?: templatesCreateNestedManyWithoutId_usuarioInput
     usuarios_organizacao?: usuarios_organizacaoCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosUncheckedCreateInput = {
@@ -11289,6 +14959,7 @@ export namespace Prisma {
     jwt_token?: jwt_tokenUncheckedCreateNestedManyWithoutId_usuarioInput
     templates?: templatesUncheckedCreateNestedManyWithoutId_usuarioInput
     usuarios_organizacao?: usuarios_organizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosUncheckedCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosUpdateInput = {
@@ -11304,6 +14975,7 @@ export namespace Prisma {
     jwt_token?: jwt_tokenUpdateManyWithoutId_usuarioNestedInput
     templates?: templatesUpdateManyWithoutId_usuarioNestedInput
     usuarios_organizacao?: usuarios_organizacaoUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUpdateManyWithoutUsuariosNestedInput
   }
 
   export type usuariosUncheckedUpdateInput = {
@@ -11320,6 +14992,7 @@ export namespace Prisma {
     jwt_token?: jwt_tokenUncheckedUpdateManyWithoutId_usuarioNestedInput
     templates?: templatesUncheckedUpdateManyWithoutId_usuarioNestedInput
     usuarios_organizacao?: usuarios_organizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUncheckedUpdateManyWithoutUsuariosNestedInput
   }
 
   export type usuariosCreateManyInput = {
@@ -11406,6 +15079,7 @@ export namespace Prisma {
     is_ativo?: boolean
     id_usuario: usuariosCreateNestedOneWithoutTemplatesInput
     variaveis_template?: variaveis_templateCreateNestedManyWithoutId_templateInput
+    documentos?: documentosCreateNestedManyWithoutTemplatesInput
   }
 
   export type templatesUncheckedCreateInput = {
@@ -11417,6 +15091,7 @@ export namespace Prisma {
     is_ativo?: boolean
     usuarios_id: number
     variaveis_template?: variaveis_templateUncheckedCreateNestedManyWithoutId_templateInput
+    documentos?: documentosUncheckedCreateNestedManyWithoutTemplatesInput
   }
 
   export type templatesUpdateInput = {
@@ -11427,6 +15102,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     id_usuario?: usuariosUpdateOneRequiredWithoutTemplatesNestedInput
     variaveis_template?: variaveis_templateUpdateManyWithoutId_templateNestedInput
+    documentos?: documentosUpdateManyWithoutTemplatesNestedInput
   }
 
   export type templatesUncheckedUpdateInput = {
@@ -11438,6 +15114,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     usuarios_id?: IntFieldUpdateOperationsInput | number
     variaveis_template?: variaveis_templateUncheckedUpdateManyWithoutId_templateNestedInput
+    documentos?: documentosUncheckedUpdateManyWithoutTemplatesNestedInput
   }
 
   export type templatesCreateManyInput = {
@@ -11506,27 +15183,192 @@ export namespace Prisma {
     templates_id?: IntFieldUpdateOperationsInput | number
   }
 
+  export type documentosCreateInput = {
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    usuarios: usuariosCreateNestedOneWithoutDocumentosInput
+    templates: templatesCreateNestedOneWithoutDocumentosInput
+    assinantes_documentos?: assinantes_documentosCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosUncheckedCreateInput = {
+    id?: number
+    usuariosId: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    assinantes_documentos?: assinantes_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesUncheckedCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosUpdateInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    usuarios?: usuariosUpdateOneRequiredWithoutDocumentosNestedInput
+    templates?: templatesUpdateOneRequiredWithoutDocumentosNestedInput
+    assinantes_documentos?: assinantes_documentosUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    assinantes_documentos?: assinantes_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUncheckedUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosCreateManyInput = {
+    id?: number
+    usuariosId: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+  }
+
+  export type documentosUpdateManyMutationInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type documentosUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type assinantes_documentosCreateInput = {
+    nome_assinante: string
+    email_assinante: string
+    documentos: documentosCreateNestedOneWithoutAssinantes_documentosInput
+  }
+
+  export type assinantes_documentosUncheckedCreateInput = {
+    id?: number
+    nome_assinante: string
+    email_assinante: string
+    documentosId: number
+  }
+
+  export type assinantes_documentosUpdateInput = {
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+    documentos?: documentosUpdateOneRequiredWithoutAssinantes_documentosNestedInput
+  }
+
+  export type assinantes_documentosUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+    documentosId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type assinantes_documentosCreateManyInput = {
+    id?: number
+    nome_assinante: string
+    email_assinante: string
+    documentosId: number
+  }
+
+  export type assinantes_documentosUpdateManyMutationInput = {
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type assinantes_documentosUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+    documentosId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type dados_assinantesCreateInput = {
+    ip_assinante: string
+    localizacao_assinante: string
+    documento: documentosCreateNestedOneWithoutDados_assinantesInput
+  }
+
+  export type dados_assinantesUncheckedCreateInput = {
+    id?: number
+    ip_assinante: string
+    localizacao_assinante: string
+    documentosId: number
+  }
+
+  export type dados_assinantesUpdateInput = {
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+    documento?: documentosUpdateOneRequiredWithoutDados_assinantesNestedInput
+  }
+
+  export type dados_assinantesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+    documentosId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type dados_assinantesCreateManyInput = {
+    id?: number
+    ip_assinante: string
+    localizacao_assinante: string
+    documentosId: number
+  }
+
+  export type dados_assinantesUpdateManyMutationInput = {
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type dados_assinantesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+    documentosId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type status_documentosCreateInput = {
     status_documento: number
+    documentos: documentosCreateNestedOneWithoutStatus_documentosInput
   }
 
   export type status_documentosUncheckedCreateInput = {
     id?: number
     status_documento: number
+    documentosId: number
   }
 
   export type status_documentosUpdateInput = {
     status_documento?: IntFieldUpdateOperationsInput | number
+    documentos?: documentosUpdateOneRequiredWithoutStatus_documentosNestedInput
   }
 
   export type status_documentosUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     status_documento?: IntFieldUpdateOperationsInput | number
+    documentosId?: IntFieldUpdateOperationsInput | number
   }
 
   export type status_documentosCreateManyInput = {
     id?: number
     status_documento: number
+    documentosId: number
   }
 
   export type status_documentosUpdateManyMutationInput = {
@@ -11536,6 +15378,7 @@ export namespace Prisma {
   export type status_documentosUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     status_documento?: IntFieldUpdateOperationsInput | number
+    documentosId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -11801,11 +15644,21 @@ export namespace Prisma {
     none?: templatesWhereInput
   }
 
+  export type DocumentosListRelationFilter = {
+    every?: documentosWhereInput
+    some?: documentosWhereInput
+    none?: documentosWhereInput
+  }
+
   export type jwt_tokenOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type templatesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type documentosOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12005,29 +15858,188 @@ export namespace Prisma {
     templates_id?: SortOrder
   }
 
+  export type Assinantes_documentosListRelationFilter = {
+    every?: assinantes_documentosWhereInput
+    some?: assinantes_documentosWhereInput
+    none?: assinantes_documentosWhereInput
+  }
+
+  export type Dados_assinantesListRelationFilter = {
+    every?: dados_assinantesWhereInput
+    some?: dados_assinantesWhereInput
+    none?: dados_assinantesWhereInput
+  }
+
+  export type Status_documentosListRelationFilter = {
+    every?: status_documentosWhereInput
+    some?: status_documentosWhereInput
+    none?: status_documentosWhereInput
+  }
+
+  export type assinantes_documentosOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type dados_assinantesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type status_documentosOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type documentosOrderByRelevanceInput = {
+    fields: documentosOrderByRelevanceFieldEnum | documentosOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type documentosCountOrderByAggregateInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+    created_at?: SortOrder
+    token_doc?: SortOrder
+    is_ativo?: SortOrder
+  }
+
+  export type documentosAvgOrderByAggregateInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+  }
+
+  export type documentosMaxOrderByAggregateInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+    created_at?: SortOrder
+    token_doc?: SortOrder
+    is_ativo?: SortOrder
+  }
+
+  export type documentosMinOrderByAggregateInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+    created_at?: SortOrder
+    token_doc?: SortOrder
+    is_ativo?: SortOrder
+  }
+
+  export type documentosSumOrderByAggregateInput = {
+    id?: SortOrder
+    usuariosId?: SortOrder
+    templatesId?: SortOrder
+  }
+
+  export type DocumentosScalarRelationFilter = {
+    is?: documentosWhereInput
+    isNot?: documentosWhereInput
+  }
+
+  export type assinantes_documentosOrderByRelevanceInput = {
+    fields: assinantes_documentosOrderByRelevanceFieldEnum | assinantes_documentosOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type assinantes_documentosCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome_assinante?: SortOrder
+    email_assinante?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type assinantes_documentosAvgOrderByAggregateInput = {
+    id?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type assinantes_documentosMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome_assinante?: SortOrder
+    email_assinante?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type assinantes_documentosMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome_assinante?: SortOrder
+    email_assinante?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type assinantes_documentosSumOrderByAggregateInput = {
+    id?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type dados_assinantesOrderByRelevanceInput = {
+    fields: dados_assinantesOrderByRelevanceFieldEnum | dados_assinantesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type dados_assinantesCountOrderByAggregateInput = {
+    id?: SortOrder
+    ip_assinante?: SortOrder
+    localizacao_assinante?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type dados_assinantesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type dados_assinantesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    ip_assinante?: SortOrder
+    localizacao_assinante?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type dados_assinantesMinOrderByAggregateInput = {
+    id?: SortOrder
+    ip_assinante?: SortOrder
+    localizacao_assinante?: SortOrder
+    documentosId?: SortOrder
+  }
+
+  export type dados_assinantesSumOrderByAggregateInput = {
+    id?: SortOrder
+    documentosId?: SortOrder
+  }
+
   export type status_documentosCountOrderByAggregateInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
   }
 
   export type status_documentosAvgOrderByAggregateInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
   }
 
   export type status_documentosMaxOrderByAggregateInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
   }
 
   export type status_documentosMinOrderByAggregateInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
   }
 
   export type status_documentosSumOrderByAggregateInput = {
     id?: SortOrder
     status_documento?: SortOrder
+    documentosId?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -12193,6 +16205,13 @@ export namespace Prisma {
     connect?: usuarios_organizacaoWhereUniqueInput | usuarios_organizacaoWhereUniqueInput[]
   }
 
+  export type documentosCreateNestedManyWithoutUsuariosInput = {
+    create?: XOR<documentosCreateWithoutUsuariosInput, documentosUncheckedCreateWithoutUsuariosInput> | documentosCreateWithoutUsuariosInput[] | documentosUncheckedCreateWithoutUsuariosInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutUsuariosInput | documentosCreateOrConnectWithoutUsuariosInput[]
+    createMany?: documentosCreateManyUsuariosInputEnvelope
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+  }
+
   export type jwt_tokenUncheckedCreateNestedManyWithoutId_usuarioInput = {
     create?: XOR<jwt_tokenCreateWithoutId_usuarioInput, jwt_tokenUncheckedCreateWithoutId_usuarioInput> | jwt_tokenCreateWithoutId_usuarioInput[] | jwt_tokenUncheckedCreateWithoutId_usuarioInput[]
     connectOrCreate?: jwt_tokenCreateOrConnectWithoutId_usuarioInput | jwt_tokenCreateOrConnectWithoutId_usuarioInput[]
@@ -12212,6 +16231,13 @@ export namespace Prisma {
     connectOrCreate?: usuarios_organizacaoCreateOrConnectWithoutId_usuarioInput | usuarios_organizacaoCreateOrConnectWithoutId_usuarioInput[]
     createMany?: usuarios_organizacaoCreateManyId_usuarioInputEnvelope
     connect?: usuarios_organizacaoWhereUniqueInput | usuarios_organizacaoWhereUniqueInput[]
+  }
+
+  export type documentosUncheckedCreateNestedManyWithoutUsuariosInput = {
+    create?: XOR<documentosCreateWithoutUsuariosInput, documentosUncheckedCreateWithoutUsuariosInput> | documentosCreateWithoutUsuariosInput[] | documentosUncheckedCreateWithoutUsuariosInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutUsuariosInput | documentosCreateOrConnectWithoutUsuariosInput[]
+    createMany?: documentosCreateManyUsuariosInputEnvelope
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -12260,6 +16286,20 @@ export namespace Prisma {
     deleteMany?: usuarios_organizacaoScalarWhereInput | usuarios_organizacaoScalarWhereInput[]
   }
 
+  export type documentosUpdateManyWithoutUsuariosNestedInput = {
+    create?: XOR<documentosCreateWithoutUsuariosInput, documentosUncheckedCreateWithoutUsuariosInput> | documentosCreateWithoutUsuariosInput[] | documentosUncheckedCreateWithoutUsuariosInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutUsuariosInput | documentosCreateOrConnectWithoutUsuariosInput[]
+    upsert?: documentosUpsertWithWhereUniqueWithoutUsuariosInput | documentosUpsertWithWhereUniqueWithoutUsuariosInput[]
+    createMany?: documentosCreateManyUsuariosInputEnvelope
+    set?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    disconnect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    delete?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    update?: documentosUpdateWithWhereUniqueWithoutUsuariosInput | documentosUpdateWithWhereUniqueWithoutUsuariosInput[]
+    updateMany?: documentosUpdateManyWithWhereWithoutUsuariosInput | documentosUpdateManyWithWhereWithoutUsuariosInput[]
+    deleteMany?: documentosScalarWhereInput | documentosScalarWhereInput[]
+  }
+
   export type jwt_tokenUncheckedUpdateManyWithoutId_usuarioNestedInput = {
     create?: XOR<jwt_tokenCreateWithoutId_usuarioInput, jwt_tokenUncheckedCreateWithoutId_usuarioInput> | jwt_tokenCreateWithoutId_usuarioInput[] | jwt_tokenUncheckedCreateWithoutId_usuarioInput[]
     connectOrCreate?: jwt_tokenCreateOrConnectWithoutId_usuarioInput | jwt_tokenCreateOrConnectWithoutId_usuarioInput[]
@@ -12302,6 +16342,20 @@ export namespace Prisma {
     deleteMany?: usuarios_organizacaoScalarWhereInput | usuarios_organizacaoScalarWhereInput[]
   }
 
+  export type documentosUncheckedUpdateManyWithoutUsuariosNestedInput = {
+    create?: XOR<documentosCreateWithoutUsuariosInput, documentosUncheckedCreateWithoutUsuariosInput> | documentosCreateWithoutUsuariosInput[] | documentosUncheckedCreateWithoutUsuariosInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutUsuariosInput | documentosCreateOrConnectWithoutUsuariosInput[]
+    upsert?: documentosUpsertWithWhereUniqueWithoutUsuariosInput | documentosUpsertWithWhereUniqueWithoutUsuariosInput[]
+    createMany?: documentosCreateManyUsuariosInputEnvelope
+    set?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    disconnect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    delete?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    update?: documentosUpdateWithWhereUniqueWithoutUsuariosInput | documentosUpdateWithWhereUniqueWithoutUsuariosInput[]
+    updateMany?: documentosUpdateManyWithWhereWithoutUsuariosInput | documentosUpdateManyWithWhereWithoutUsuariosInput[]
+    deleteMany?: documentosScalarWhereInput | documentosScalarWhereInput[]
+  }
+
   export type usuariosCreateNestedOneWithoutJwt_tokenInput = {
     create?: XOR<usuariosCreateWithoutJwt_tokenInput, usuariosUncheckedCreateWithoutJwt_tokenInput>
     connectOrCreate?: usuariosCreateOrConnectWithoutJwt_tokenInput
@@ -12329,11 +16383,25 @@ export namespace Prisma {
     connect?: variaveis_templateWhereUniqueInput | variaveis_templateWhereUniqueInput[]
   }
 
+  export type documentosCreateNestedManyWithoutTemplatesInput = {
+    create?: XOR<documentosCreateWithoutTemplatesInput, documentosUncheckedCreateWithoutTemplatesInput> | documentosCreateWithoutTemplatesInput[] | documentosUncheckedCreateWithoutTemplatesInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutTemplatesInput | documentosCreateOrConnectWithoutTemplatesInput[]
+    createMany?: documentosCreateManyTemplatesInputEnvelope
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+  }
+
   export type variaveis_templateUncheckedCreateNestedManyWithoutId_templateInput = {
     create?: XOR<variaveis_templateCreateWithoutId_templateInput, variaveis_templateUncheckedCreateWithoutId_templateInput> | variaveis_templateCreateWithoutId_templateInput[] | variaveis_templateUncheckedCreateWithoutId_templateInput[]
     connectOrCreate?: variaveis_templateCreateOrConnectWithoutId_templateInput | variaveis_templateCreateOrConnectWithoutId_templateInput[]
     createMany?: variaveis_templateCreateManyId_templateInputEnvelope
     connect?: variaveis_templateWhereUniqueInput | variaveis_templateWhereUniqueInput[]
+  }
+
+  export type documentosUncheckedCreateNestedManyWithoutTemplatesInput = {
+    create?: XOR<documentosCreateWithoutTemplatesInput, documentosUncheckedCreateWithoutTemplatesInput> | documentosCreateWithoutTemplatesInput[] | documentosUncheckedCreateWithoutTemplatesInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutTemplatesInput | documentosCreateOrConnectWithoutTemplatesInput[]
+    createMany?: documentosCreateManyTemplatesInputEnvelope
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
   }
 
   export type usuariosUpdateOneRequiredWithoutTemplatesNestedInput = {
@@ -12358,6 +16426,20 @@ export namespace Prisma {
     deleteMany?: variaveis_templateScalarWhereInput | variaveis_templateScalarWhereInput[]
   }
 
+  export type documentosUpdateManyWithoutTemplatesNestedInput = {
+    create?: XOR<documentosCreateWithoutTemplatesInput, documentosUncheckedCreateWithoutTemplatesInput> | documentosCreateWithoutTemplatesInput[] | documentosUncheckedCreateWithoutTemplatesInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutTemplatesInput | documentosCreateOrConnectWithoutTemplatesInput[]
+    upsert?: documentosUpsertWithWhereUniqueWithoutTemplatesInput | documentosUpsertWithWhereUniqueWithoutTemplatesInput[]
+    createMany?: documentosCreateManyTemplatesInputEnvelope
+    set?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    disconnect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    delete?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    update?: documentosUpdateWithWhereUniqueWithoutTemplatesInput | documentosUpdateWithWhereUniqueWithoutTemplatesInput[]
+    updateMany?: documentosUpdateManyWithWhereWithoutTemplatesInput | documentosUpdateManyWithWhereWithoutTemplatesInput[]
+    deleteMany?: documentosScalarWhereInput | documentosScalarWhereInput[]
+  }
+
   export type variaveis_templateUncheckedUpdateManyWithoutId_templateNestedInput = {
     create?: XOR<variaveis_templateCreateWithoutId_templateInput, variaveis_templateUncheckedCreateWithoutId_templateInput> | variaveis_templateCreateWithoutId_templateInput[] | variaveis_templateUncheckedCreateWithoutId_templateInput[]
     connectOrCreate?: variaveis_templateCreateOrConnectWithoutId_templateInput | variaveis_templateCreateOrConnectWithoutId_templateInput[]
@@ -12372,6 +16454,20 @@ export namespace Prisma {
     deleteMany?: variaveis_templateScalarWhereInput | variaveis_templateScalarWhereInput[]
   }
 
+  export type documentosUncheckedUpdateManyWithoutTemplatesNestedInput = {
+    create?: XOR<documentosCreateWithoutTemplatesInput, documentosUncheckedCreateWithoutTemplatesInput> | documentosCreateWithoutTemplatesInput[] | documentosUncheckedCreateWithoutTemplatesInput[]
+    connectOrCreate?: documentosCreateOrConnectWithoutTemplatesInput | documentosCreateOrConnectWithoutTemplatesInput[]
+    upsert?: documentosUpsertWithWhereUniqueWithoutTemplatesInput | documentosUpsertWithWhereUniqueWithoutTemplatesInput[]
+    createMany?: documentosCreateManyTemplatesInputEnvelope
+    set?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    disconnect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    delete?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    connect?: documentosWhereUniqueInput | documentosWhereUniqueInput[]
+    update?: documentosUpdateWithWhereUniqueWithoutTemplatesInput | documentosUpdateWithWhereUniqueWithoutTemplatesInput[]
+    updateMany?: documentosUpdateManyWithWhereWithoutTemplatesInput | documentosUpdateManyWithWhereWithoutTemplatesInput[]
+    deleteMany?: documentosScalarWhereInput | documentosScalarWhereInput[]
+  }
+
   export type templatesCreateNestedOneWithoutVariaveis_templateInput = {
     create?: XOR<templatesCreateWithoutVariaveis_templateInput, templatesUncheckedCreateWithoutVariaveis_templateInput>
     connectOrCreate?: templatesCreateOrConnectWithoutVariaveis_templateInput
@@ -12384,6 +16480,202 @@ export namespace Prisma {
     upsert?: templatesUpsertWithoutVariaveis_templateInput
     connect?: templatesWhereUniqueInput
     update?: XOR<XOR<templatesUpdateToOneWithWhereWithoutVariaveis_templateInput, templatesUpdateWithoutVariaveis_templateInput>, templatesUncheckedUpdateWithoutVariaveis_templateInput>
+  }
+
+  export type usuariosCreateNestedOneWithoutDocumentosInput = {
+    create?: XOR<usuariosCreateWithoutDocumentosInput, usuariosUncheckedCreateWithoutDocumentosInput>
+    connectOrCreate?: usuariosCreateOrConnectWithoutDocumentosInput
+    connect?: usuariosWhereUniqueInput
+  }
+
+  export type templatesCreateNestedOneWithoutDocumentosInput = {
+    create?: XOR<templatesCreateWithoutDocumentosInput, templatesUncheckedCreateWithoutDocumentosInput>
+    connectOrCreate?: templatesCreateOrConnectWithoutDocumentosInput
+    connect?: templatesWhereUniqueInput
+  }
+
+  export type assinantes_documentosCreateNestedManyWithoutDocumentosInput = {
+    create?: XOR<assinantes_documentosCreateWithoutDocumentosInput, assinantes_documentosUncheckedCreateWithoutDocumentosInput> | assinantes_documentosCreateWithoutDocumentosInput[] | assinantes_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: assinantes_documentosCreateOrConnectWithoutDocumentosInput | assinantes_documentosCreateOrConnectWithoutDocumentosInput[]
+    createMany?: assinantes_documentosCreateManyDocumentosInputEnvelope
+    connect?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+  }
+
+  export type dados_assinantesCreateNestedManyWithoutDocumentoInput = {
+    create?: XOR<dados_assinantesCreateWithoutDocumentoInput, dados_assinantesUncheckedCreateWithoutDocumentoInput> | dados_assinantesCreateWithoutDocumentoInput[] | dados_assinantesUncheckedCreateWithoutDocumentoInput[]
+    connectOrCreate?: dados_assinantesCreateOrConnectWithoutDocumentoInput | dados_assinantesCreateOrConnectWithoutDocumentoInput[]
+    createMany?: dados_assinantesCreateManyDocumentoInputEnvelope
+    connect?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+  }
+
+  export type status_documentosCreateNestedManyWithoutDocumentosInput = {
+    create?: XOR<status_documentosCreateWithoutDocumentosInput, status_documentosUncheckedCreateWithoutDocumentosInput> | status_documentosCreateWithoutDocumentosInput[] | status_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: status_documentosCreateOrConnectWithoutDocumentosInput | status_documentosCreateOrConnectWithoutDocumentosInput[]
+    createMany?: status_documentosCreateManyDocumentosInputEnvelope
+    connect?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+  }
+
+  export type assinantes_documentosUncheckedCreateNestedManyWithoutDocumentosInput = {
+    create?: XOR<assinantes_documentosCreateWithoutDocumentosInput, assinantes_documentosUncheckedCreateWithoutDocumentosInput> | assinantes_documentosCreateWithoutDocumentosInput[] | assinantes_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: assinantes_documentosCreateOrConnectWithoutDocumentosInput | assinantes_documentosCreateOrConnectWithoutDocumentosInput[]
+    createMany?: assinantes_documentosCreateManyDocumentosInputEnvelope
+    connect?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+  }
+
+  export type dados_assinantesUncheckedCreateNestedManyWithoutDocumentoInput = {
+    create?: XOR<dados_assinantesCreateWithoutDocumentoInput, dados_assinantesUncheckedCreateWithoutDocumentoInput> | dados_assinantesCreateWithoutDocumentoInput[] | dados_assinantesUncheckedCreateWithoutDocumentoInput[]
+    connectOrCreate?: dados_assinantesCreateOrConnectWithoutDocumentoInput | dados_assinantesCreateOrConnectWithoutDocumentoInput[]
+    createMany?: dados_assinantesCreateManyDocumentoInputEnvelope
+    connect?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+  }
+
+  export type status_documentosUncheckedCreateNestedManyWithoutDocumentosInput = {
+    create?: XOR<status_documentosCreateWithoutDocumentosInput, status_documentosUncheckedCreateWithoutDocumentosInput> | status_documentosCreateWithoutDocumentosInput[] | status_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: status_documentosCreateOrConnectWithoutDocumentosInput | status_documentosCreateOrConnectWithoutDocumentosInput[]
+    createMany?: status_documentosCreateManyDocumentosInputEnvelope
+    connect?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+  }
+
+  export type usuariosUpdateOneRequiredWithoutDocumentosNestedInput = {
+    create?: XOR<usuariosCreateWithoutDocumentosInput, usuariosUncheckedCreateWithoutDocumentosInput>
+    connectOrCreate?: usuariosCreateOrConnectWithoutDocumentosInput
+    upsert?: usuariosUpsertWithoutDocumentosInput
+    connect?: usuariosWhereUniqueInput
+    update?: XOR<XOR<usuariosUpdateToOneWithWhereWithoutDocumentosInput, usuariosUpdateWithoutDocumentosInput>, usuariosUncheckedUpdateWithoutDocumentosInput>
+  }
+
+  export type templatesUpdateOneRequiredWithoutDocumentosNestedInput = {
+    create?: XOR<templatesCreateWithoutDocumentosInput, templatesUncheckedCreateWithoutDocumentosInput>
+    connectOrCreate?: templatesCreateOrConnectWithoutDocumentosInput
+    upsert?: templatesUpsertWithoutDocumentosInput
+    connect?: templatesWhereUniqueInput
+    update?: XOR<XOR<templatesUpdateToOneWithWhereWithoutDocumentosInput, templatesUpdateWithoutDocumentosInput>, templatesUncheckedUpdateWithoutDocumentosInput>
+  }
+
+  export type assinantes_documentosUpdateManyWithoutDocumentosNestedInput = {
+    create?: XOR<assinantes_documentosCreateWithoutDocumentosInput, assinantes_documentosUncheckedCreateWithoutDocumentosInput> | assinantes_documentosCreateWithoutDocumentosInput[] | assinantes_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: assinantes_documentosCreateOrConnectWithoutDocumentosInput | assinantes_documentosCreateOrConnectWithoutDocumentosInput[]
+    upsert?: assinantes_documentosUpsertWithWhereUniqueWithoutDocumentosInput | assinantes_documentosUpsertWithWhereUniqueWithoutDocumentosInput[]
+    createMany?: assinantes_documentosCreateManyDocumentosInputEnvelope
+    set?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    disconnect?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    delete?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    connect?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    update?: assinantes_documentosUpdateWithWhereUniqueWithoutDocumentosInput | assinantes_documentosUpdateWithWhereUniqueWithoutDocumentosInput[]
+    updateMany?: assinantes_documentosUpdateManyWithWhereWithoutDocumentosInput | assinantes_documentosUpdateManyWithWhereWithoutDocumentosInput[]
+    deleteMany?: assinantes_documentosScalarWhereInput | assinantes_documentosScalarWhereInput[]
+  }
+
+  export type dados_assinantesUpdateManyWithoutDocumentoNestedInput = {
+    create?: XOR<dados_assinantesCreateWithoutDocumentoInput, dados_assinantesUncheckedCreateWithoutDocumentoInput> | dados_assinantesCreateWithoutDocumentoInput[] | dados_assinantesUncheckedCreateWithoutDocumentoInput[]
+    connectOrCreate?: dados_assinantesCreateOrConnectWithoutDocumentoInput | dados_assinantesCreateOrConnectWithoutDocumentoInput[]
+    upsert?: dados_assinantesUpsertWithWhereUniqueWithoutDocumentoInput | dados_assinantesUpsertWithWhereUniqueWithoutDocumentoInput[]
+    createMany?: dados_assinantesCreateManyDocumentoInputEnvelope
+    set?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    disconnect?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    delete?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    connect?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    update?: dados_assinantesUpdateWithWhereUniqueWithoutDocumentoInput | dados_assinantesUpdateWithWhereUniqueWithoutDocumentoInput[]
+    updateMany?: dados_assinantesUpdateManyWithWhereWithoutDocumentoInput | dados_assinantesUpdateManyWithWhereWithoutDocumentoInput[]
+    deleteMany?: dados_assinantesScalarWhereInput | dados_assinantesScalarWhereInput[]
+  }
+
+  export type status_documentosUpdateManyWithoutDocumentosNestedInput = {
+    create?: XOR<status_documentosCreateWithoutDocumentosInput, status_documentosUncheckedCreateWithoutDocumentosInput> | status_documentosCreateWithoutDocumentosInput[] | status_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: status_documentosCreateOrConnectWithoutDocumentosInput | status_documentosCreateOrConnectWithoutDocumentosInput[]
+    upsert?: status_documentosUpsertWithWhereUniqueWithoutDocumentosInput | status_documentosUpsertWithWhereUniqueWithoutDocumentosInput[]
+    createMany?: status_documentosCreateManyDocumentosInputEnvelope
+    set?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    disconnect?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    delete?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    connect?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    update?: status_documentosUpdateWithWhereUniqueWithoutDocumentosInput | status_documentosUpdateWithWhereUniqueWithoutDocumentosInput[]
+    updateMany?: status_documentosUpdateManyWithWhereWithoutDocumentosInput | status_documentosUpdateManyWithWhereWithoutDocumentosInput[]
+    deleteMany?: status_documentosScalarWhereInput | status_documentosScalarWhereInput[]
+  }
+
+  export type assinantes_documentosUncheckedUpdateManyWithoutDocumentosNestedInput = {
+    create?: XOR<assinantes_documentosCreateWithoutDocumentosInput, assinantes_documentosUncheckedCreateWithoutDocumentosInput> | assinantes_documentosCreateWithoutDocumentosInput[] | assinantes_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: assinantes_documentosCreateOrConnectWithoutDocumentosInput | assinantes_documentosCreateOrConnectWithoutDocumentosInput[]
+    upsert?: assinantes_documentosUpsertWithWhereUniqueWithoutDocumentosInput | assinantes_documentosUpsertWithWhereUniqueWithoutDocumentosInput[]
+    createMany?: assinantes_documentosCreateManyDocumentosInputEnvelope
+    set?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    disconnect?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    delete?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    connect?: assinantes_documentosWhereUniqueInput | assinantes_documentosWhereUniqueInput[]
+    update?: assinantes_documentosUpdateWithWhereUniqueWithoutDocumentosInput | assinantes_documentosUpdateWithWhereUniqueWithoutDocumentosInput[]
+    updateMany?: assinantes_documentosUpdateManyWithWhereWithoutDocumentosInput | assinantes_documentosUpdateManyWithWhereWithoutDocumentosInput[]
+    deleteMany?: assinantes_documentosScalarWhereInput | assinantes_documentosScalarWhereInput[]
+  }
+
+  export type dados_assinantesUncheckedUpdateManyWithoutDocumentoNestedInput = {
+    create?: XOR<dados_assinantesCreateWithoutDocumentoInput, dados_assinantesUncheckedCreateWithoutDocumentoInput> | dados_assinantesCreateWithoutDocumentoInput[] | dados_assinantesUncheckedCreateWithoutDocumentoInput[]
+    connectOrCreate?: dados_assinantesCreateOrConnectWithoutDocumentoInput | dados_assinantesCreateOrConnectWithoutDocumentoInput[]
+    upsert?: dados_assinantesUpsertWithWhereUniqueWithoutDocumentoInput | dados_assinantesUpsertWithWhereUniqueWithoutDocumentoInput[]
+    createMany?: dados_assinantesCreateManyDocumentoInputEnvelope
+    set?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    disconnect?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    delete?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    connect?: dados_assinantesWhereUniqueInput | dados_assinantesWhereUniqueInput[]
+    update?: dados_assinantesUpdateWithWhereUniqueWithoutDocumentoInput | dados_assinantesUpdateWithWhereUniqueWithoutDocumentoInput[]
+    updateMany?: dados_assinantesUpdateManyWithWhereWithoutDocumentoInput | dados_assinantesUpdateManyWithWhereWithoutDocumentoInput[]
+    deleteMany?: dados_assinantesScalarWhereInput | dados_assinantesScalarWhereInput[]
+  }
+
+  export type status_documentosUncheckedUpdateManyWithoutDocumentosNestedInput = {
+    create?: XOR<status_documentosCreateWithoutDocumentosInput, status_documentosUncheckedCreateWithoutDocumentosInput> | status_documentosCreateWithoutDocumentosInput[] | status_documentosUncheckedCreateWithoutDocumentosInput[]
+    connectOrCreate?: status_documentosCreateOrConnectWithoutDocumentosInput | status_documentosCreateOrConnectWithoutDocumentosInput[]
+    upsert?: status_documentosUpsertWithWhereUniqueWithoutDocumentosInput | status_documentosUpsertWithWhereUniqueWithoutDocumentosInput[]
+    createMany?: status_documentosCreateManyDocumentosInputEnvelope
+    set?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    disconnect?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    delete?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    connect?: status_documentosWhereUniqueInput | status_documentosWhereUniqueInput[]
+    update?: status_documentosUpdateWithWhereUniqueWithoutDocumentosInput | status_documentosUpdateWithWhereUniqueWithoutDocumentosInput[]
+    updateMany?: status_documentosUpdateManyWithWhereWithoutDocumentosInput | status_documentosUpdateManyWithWhereWithoutDocumentosInput[]
+    deleteMany?: status_documentosScalarWhereInput | status_documentosScalarWhereInput[]
+  }
+
+  export type documentosCreateNestedOneWithoutAssinantes_documentosInput = {
+    create?: XOR<documentosCreateWithoutAssinantes_documentosInput, documentosUncheckedCreateWithoutAssinantes_documentosInput>
+    connectOrCreate?: documentosCreateOrConnectWithoutAssinantes_documentosInput
+    connect?: documentosWhereUniqueInput
+  }
+
+  export type documentosUpdateOneRequiredWithoutAssinantes_documentosNestedInput = {
+    create?: XOR<documentosCreateWithoutAssinantes_documentosInput, documentosUncheckedCreateWithoutAssinantes_documentosInput>
+    connectOrCreate?: documentosCreateOrConnectWithoutAssinantes_documentosInput
+    upsert?: documentosUpsertWithoutAssinantes_documentosInput
+    connect?: documentosWhereUniqueInput
+    update?: XOR<XOR<documentosUpdateToOneWithWhereWithoutAssinantes_documentosInput, documentosUpdateWithoutAssinantes_documentosInput>, documentosUncheckedUpdateWithoutAssinantes_documentosInput>
+  }
+
+  export type documentosCreateNestedOneWithoutDados_assinantesInput = {
+    create?: XOR<documentosCreateWithoutDados_assinantesInput, documentosUncheckedCreateWithoutDados_assinantesInput>
+    connectOrCreate?: documentosCreateOrConnectWithoutDados_assinantesInput
+    connect?: documentosWhereUniqueInput
+  }
+
+  export type documentosUpdateOneRequiredWithoutDados_assinantesNestedInput = {
+    create?: XOR<documentosCreateWithoutDados_assinantesInput, documentosUncheckedCreateWithoutDados_assinantesInput>
+    connectOrCreate?: documentosCreateOrConnectWithoutDados_assinantesInput
+    upsert?: documentosUpsertWithoutDados_assinantesInput
+    connect?: documentosWhereUniqueInput
+    update?: XOR<XOR<documentosUpdateToOneWithWhereWithoutDados_assinantesInput, documentosUpdateWithoutDados_assinantesInput>, documentosUncheckedUpdateWithoutDados_assinantesInput>
+  }
+
+  export type documentosCreateNestedOneWithoutStatus_documentosInput = {
+    create?: XOR<documentosCreateWithoutStatus_documentosInput, documentosUncheckedCreateWithoutStatus_documentosInput>
+    connectOrCreate?: documentosCreateOrConnectWithoutStatus_documentosInput
+    connect?: documentosWhereUniqueInput
+  }
+
+  export type documentosUpdateOneRequiredWithoutStatus_documentosNestedInput = {
+    create?: XOR<documentosCreateWithoutStatus_documentosInput, documentosUncheckedCreateWithoutStatus_documentosInput>
+    connectOrCreate?: documentosCreateOrConnectWithoutStatus_documentosInput
+    upsert?: documentosUpsertWithoutStatus_documentosInput
+    connect?: documentosWhereUniqueInput
+    update?: XOR<XOR<documentosUpdateToOneWithWhereWithoutStatus_documentosInput, documentosUpdateWithoutStatus_documentosInput>, documentosUncheckedUpdateWithoutStatus_documentosInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -12598,6 +16890,7 @@ export namespace Prisma {
     is_ativo?: boolean
     jwt_token?: jwt_tokenCreateNestedManyWithoutId_usuarioInput
     templates?: templatesCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosUncheckedCreateWithoutUsuarios_organizacaoInput = {
@@ -12613,6 +16906,7 @@ export namespace Prisma {
     is_ativo?: boolean
     jwt_token?: jwt_tokenUncheckedCreateNestedManyWithoutId_usuarioInput
     templates?: templatesUncheckedCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosUncheckedCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosCreateOrConnectWithoutUsuarios_organizacaoInput = {
@@ -12663,6 +16957,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     jwt_token?: jwt_tokenUpdateManyWithoutId_usuarioNestedInput
     templates?: templatesUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUpdateManyWithoutUsuariosNestedInput
   }
 
   export type usuariosUncheckedUpdateWithoutUsuarios_organizacaoInput = {
@@ -12678,6 +16973,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     jwt_token?: jwt_tokenUncheckedUpdateManyWithoutId_usuarioNestedInput
     templates?: templatesUncheckedUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUncheckedUpdateManyWithoutUsuariosNestedInput
   }
 
   export type organizacaoUpsertWithoutUsuarios_organizacaoInput = {
@@ -12778,6 +17074,7 @@ export namespace Prisma {
     created_at?: Date | string
     is_ativo?: boolean
     variaveis_template?: variaveis_templateCreateNestedManyWithoutId_templateInput
+    documentos?: documentosCreateNestedManyWithoutTemplatesInput
   }
 
   export type templatesUncheckedCreateWithoutId_usuarioInput = {
@@ -12788,6 +17085,7 @@ export namespace Prisma {
     created_at?: Date | string
     is_ativo?: boolean
     variaveis_template?: variaveis_templateUncheckedCreateNestedManyWithoutId_templateInput
+    documentos?: documentosUncheckedCreateNestedManyWithoutTemplatesInput
   }
 
   export type templatesCreateOrConnectWithoutId_usuarioInput = {
@@ -12816,6 +17114,37 @@ export namespace Prisma {
 
   export type usuarios_organizacaoCreateManyId_usuarioInputEnvelope = {
     data: usuarios_organizacaoCreateManyId_usuarioInput | usuarios_organizacaoCreateManyId_usuarioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type documentosCreateWithoutUsuariosInput = {
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    templates: templatesCreateNestedOneWithoutDocumentosInput
+    assinantes_documentos?: assinantes_documentosCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosUncheckedCreateWithoutUsuariosInput = {
+    id?: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    assinantes_documentos?: assinantes_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesUncheckedCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosCreateOrConnectWithoutUsuariosInput = {
+    where: documentosWhereUniqueInput
+    create: XOR<documentosCreateWithoutUsuariosInput, documentosUncheckedCreateWithoutUsuariosInput>
+  }
+
+  export type documentosCreateManyUsuariosInputEnvelope = {
+    data: documentosCreateManyUsuariosInput | documentosCreateManyUsuariosInput[]
     skipDuplicates?: boolean
   }
 
@@ -12889,6 +17218,34 @@ export namespace Prisma {
     data: XOR<usuarios_organizacaoUpdateManyMutationInput, usuarios_organizacaoUncheckedUpdateManyWithoutId_usuarioInput>
   }
 
+  export type documentosUpsertWithWhereUniqueWithoutUsuariosInput = {
+    where: documentosWhereUniqueInput
+    update: XOR<documentosUpdateWithoutUsuariosInput, documentosUncheckedUpdateWithoutUsuariosInput>
+    create: XOR<documentosCreateWithoutUsuariosInput, documentosUncheckedCreateWithoutUsuariosInput>
+  }
+
+  export type documentosUpdateWithWhereUniqueWithoutUsuariosInput = {
+    where: documentosWhereUniqueInput
+    data: XOR<documentosUpdateWithoutUsuariosInput, documentosUncheckedUpdateWithoutUsuariosInput>
+  }
+
+  export type documentosUpdateManyWithWhereWithoutUsuariosInput = {
+    where: documentosScalarWhereInput
+    data: XOR<documentosUpdateManyMutationInput, documentosUncheckedUpdateManyWithoutUsuariosInput>
+  }
+
+  export type documentosScalarWhereInput = {
+    AND?: documentosScalarWhereInput | documentosScalarWhereInput[]
+    OR?: documentosScalarWhereInput[]
+    NOT?: documentosScalarWhereInput | documentosScalarWhereInput[]
+    id?: IntFilter<"documentos"> | number
+    usuariosId?: IntFilter<"documentos"> | number
+    templatesId?: IntFilter<"documentos"> | number
+    created_at?: DateTimeFilter<"documentos"> | Date | string
+    token_doc?: StringFilter<"documentos"> | string
+    is_ativo?: BoolFilter<"documentos"> | boolean
+  }
+
   export type usuariosCreateWithoutJwt_tokenInput = {
     nome: string
     email: string
@@ -12901,6 +17258,7 @@ export namespace Prisma {
     is_ativo?: boolean
     templates?: templatesCreateNestedManyWithoutId_usuarioInput
     usuarios_organizacao?: usuarios_organizacaoCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosUncheckedCreateWithoutJwt_tokenInput = {
@@ -12916,6 +17274,7 @@ export namespace Prisma {
     is_ativo?: boolean
     templates?: templatesUncheckedCreateNestedManyWithoutId_usuarioInput
     usuarios_organizacao?: usuarios_organizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosUncheckedCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosCreateOrConnectWithoutJwt_tokenInput = {
@@ -12946,6 +17305,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     templates?: templatesUpdateManyWithoutId_usuarioNestedInput
     usuarios_organizacao?: usuarios_organizacaoUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUpdateManyWithoutUsuariosNestedInput
   }
 
   export type usuariosUncheckedUpdateWithoutJwt_tokenInput = {
@@ -12961,6 +17321,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     templates?: templatesUncheckedUpdateManyWithoutId_usuarioNestedInput
     usuarios_organizacao?: usuarios_organizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUncheckedUpdateManyWithoutUsuariosNestedInput
   }
 
   export type usuariosCreateWithoutTemplatesInput = {
@@ -12975,6 +17336,7 @@ export namespace Prisma {
     is_ativo?: boolean
     jwt_token?: jwt_tokenCreateNestedManyWithoutId_usuarioInput
     usuarios_organizacao?: usuarios_organizacaoCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosUncheckedCreateWithoutTemplatesInput = {
@@ -12990,6 +17352,7 @@ export namespace Prisma {
     is_ativo?: boolean
     jwt_token?: jwt_tokenUncheckedCreateNestedManyWithoutId_usuarioInput
     usuarios_organizacao?: usuarios_organizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+    documentos?: documentosUncheckedCreateNestedManyWithoutUsuariosInput
   }
 
   export type usuariosCreateOrConnectWithoutTemplatesInput = {
@@ -13016,6 +17379,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type documentosCreateWithoutTemplatesInput = {
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    usuarios: usuariosCreateNestedOneWithoutDocumentosInput
+    assinantes_documentos?: assinantes_documentosCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosUncheckedCreateWithoutTemplatesInput = {
+    id?: number
+    usuariosId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    assinantes_documentos?: assinantes_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesUncheckedCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosCreateOrConnectWithoutTemplatesInput = {
+    where: documentosWhereUniqueInput
+    create: XOR<documentosCreateWithoutTemplatesInput, documentosUncheckedCreateWithoutTemplatesInput>
+  }
+
+  export type documentosCreateManyTemplatesInputEnvelope = {
+    data: documentosCreateManyTemplatesInput | documentosCreateManyTemplatesInput[]
+    skipDuplicates?: boolean
+  }
+
   export type usuariosUpsertWithoutTemplatesInput = {
     update: XOR<usuariosUpdateWithoutTemplatesInput, usuariosUncheckedUpdateWithoutTemplatesInput>
     create: XOR<usuariosCreateWithoutTemplatesInput, usuariosUncheckedCreateWithoutTemplatesInput>
@@ -13039,6 +17433,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     jwt_token?: jwt_tokenUpdateManyWithoutId_usuarioNestedInput
     usuarios_organizacao?: usuarios_organizacaoUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUpdateManyWithoutUsuariosNestedInput
   }
 
   export type usuariosUncheckedUpdateWithoutTemplatesInput = {
@@ -13054,6 +17449,7 @@ export namespace Prisma {
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     jwt_token?: jwt_tokenUncheckedUpdateManyWithoutId_usuarioNestedInput
     usuarios_organizacao?: usuarios_organizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+    documentos?: documentosUncheckedUpdateManyWithoutUsuariosNestedInput
   }
 
   export type variaveis_templateUpsertWithWhereUniqueWithoutId_templateInput = {
@@ -13081,6 +17477,22 @@ export namespace Prisma {
     templates_id?: IntFilter<"variaveis_template"> | number
   }
 
+  export type documentosUpsertWithWhereUniqueWithoutTemplatesInput = {
+    where: documentosWhereUniqueInput
+    update: XOR<documentosUpdateWithoutTemplatesInput, documentosUncheckedUpdateWithoutTemplatesInput>
+    create: XOR<documentosCreateWithoutTemplatesInput, documentosUncheckedCreateWithoutTemplatesInput>
+  }
+
+  export type documentosUpdateWithWhereUniqueWithoutTemplatesInput = {
+    where: documentosWhereUniqueInput
+    data: XOR<documentosUpdateWithoutTemplatesInput, documentosUncheckedUpdateWithoutTemplatesInput>
+  }
+
+  export type documentosUpdateManyWithWhereWithoutTemplatesInput = {
+    where: documentosScalarWhereInput
+    data: XOR<documentosUpdateManyMutationInput, documentosUncheckedUpdateManyWithoutTemplatesInput>
+  }
+
   export type templatesCreateWithoutVariaveis_templateInput = {
     nome_template: string
     diretorio_arquivo: string
@@ -13088,6 +17500,7 @@ export namespace Prisma {
     created_at?: Date | string
     is_ativo?: boolean
     id_usuario: usuariosCreateNestedOneWithoutTemplatesInput
+    documentos?: documentosCreateNestedManyWithoutTemplatesInput
   }
 
   export type templatesUncheckedCreateWithoutVariaveis_templateInput = {
@@ -13098,6 +17511,7 @@ export namespace Prisma {
     created_at?: Date | string
     is_ativo?: boolean
     usuarios_id: number
+    documentos?: documentosUncheckedCreateNestedManyWithoutTemplatesInput
   }
 
   export type templatesCreateOrConnectWithoutVariaveis_templateInput = {
@@ -13123,6 +17537,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     id_usuario?: usuariosUpdateOneRequiredWithoutTemplatesNestedInput
+    documentos?: documentosUpdateManyWithoutTemplatesNestedInput
   }
 
   export type templatesUncheckedUpdateWithoutVariaveis_templateInput = {
@@ -13133,6 +17548,455 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     usuarios_id?: IntFieldUpdateOperationsInput | number
+    documentos?: documentosUncheckedUpdateManyWithoutTemplatesNestedInput
+  }
+
+  export type usuariosCreateWithoutDocumentosInput = {
+    nome: string
+    email: string
+    nascimento: Date | string
+    senha: string
+    token: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    tipo_acesso: string
+    is_ativo?: boolean
+    jwt_token?: jwt_tokenCreateNestedManyWithoutId_usuarioInput
+    templates?: templatesCreateNestedManyWithoutId_usuarioInput
+    usuarios_organizacao?: usuarios_organizacaoCreateNestedManyWithoutId_usuarioInput
+  }
+
+  export type usuariosUncheckedCreateWithoutDocumentosInput = {
+    id?: number
+    nome: string
+    email: string
+    nascimento: Date | string
+    senha: string
+    token: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    tipo_acesso: string
+    is_ativo?: boolean
+    jwt_token?: jwt_tokenUncheckedCreateNestedManyWithoutId_usuarioInput
+    templates?: templatesUncheckedCreateNestedManyWithoutId_usuarioInput
+    usuarios_organizacao?: usuarios_organizacaoUncheckedCreateNestedManyWithoutId_usuarioInput
+  }
+
+  export type usuariosCreateOrConnectWithoutDocumentosInput = {
+    where: usuariosWhereUniqueInput
+    create: XOR<usuariosCreateWithoutDocumentosInput, usuariosUncheckedCreateWithoutDocumentosInput>
+  }
+
+  export type templatesCreateWithoutDocumentosInput = {
+    nome_template: string
+    diretorio_arquivo: string
+    token_template: string
+    created_at?: Date | string
+    is_ativo?: boolean
+    id_usuario: usuariosCreateNestedOneWithoutTemplatesInput
+    variaveis_template?: variaveis_templateCreateNestedManyWithoutId_templateInput
+  }
+
+  export type templatesUncheckedCreateWithoutDocumentosInput = {
+    id?: number
+    nome_template: string
+    diretorio_arquivo: string
+    token_template: string
+    created_at?: Date | string
+    is_ativo?: boolean
+    usuarios_id: number
+    variaveis_template?: variaveis_templateUncheckedCreateNestedManyWithoutId_templateInput
+  }
+
+  export type templatesCreateOrConnectWithoutDocumentosInput = {
+    where: templatesWhereUniqueInput
+    create: XOR<templatesCreateWithoutDocumentosInput, templatesUncheckedCreateWithoutDocumentosInput>
+  }
+
+  export type assinantes_documentosCreateWithoutDocumentosInput = {
+    nome_assinante: string
+    email_assinante: string
+  }
+
+  export type assinantes_documentosUncheckedCreateWithoutDocumentosInput = {
+    id?: number
+    nome_assinante: string
+    email_assinante: string
+  }
+
+  export type assinantes_documentosCreateOrConnectWithoutDocumentosInput = {
+    where: assinantes_documentosWhereUniqueInput
+    create: XOR<assinantes_documentosCreateWithoutDocumentosInput, assinantes_documentosUncheckedCreateWithoutDocumentosInput>
+  }
+
+  export type assinantes_documentosCreateManyDocumentosInputEnvelope = {
+    data: assinantes_documentosCreateManyDocumentosInput | assinantes_documentosCreateManyDocumentosInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type dados_assinantesCreateWithoutDocumentoInput = {
+    ip_assinante: string
+    localizacao_assinante: string
+  }
+
+  export type dados_assinantesUncheckedCreateWithoutDocumentoInput = {
+    id?: number
+    ip_assinante: string
+    localizacao_assinante: string
+  }
+
+  export type dados_assinantesCreateOrConnectWithoutDocumentoInput = {
+    where: dados_assinantesWhereUniqueInput
+    create: XOR<dados_assinantesCreateWithoutDocumentoInput, dados_assinantesUncheckedCreateWithoutDocumentoInput>
+  }
+
+  export type dados_assinantesCreateManyDocumentoInputEnvelope = {
+    data: dados_assinantesCreateManyDocumentoInput | dados_assinantesCreateManyDocumentoInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type status_documentosCreateWithoutDocumentosInput = {
+    status_documento: number
+  }
+
+  export type status_documentosUncheckedCreateWithoutDocumentosInput = {
+    id?: number
+    status_documento: number
+  }
+
+  export type status_documentosCreateOrConnectWithoutDocumentosInput = {
+    where: status_documentosWhereUniqueInput
+    create: XOR<status_documentosCreateWithoutDocumentosInput, status_documentosUncheckedCreateWithoutDocumentosInput>
+  }
+
+  export type status_documentosCreateManyDocumentosInputEnvelope = {
+    data: status_documentosCreateManyDocumentosInput | status_documentosCreateManyDocumentosInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type usuariosUpsertWithoutDocumentosInput = {
+    update: XOR<usuariosUpdateWithoutDocumentosInput, usuariosUncheckedUpdateWithoutDocumentosInput>
+    create: XOR<usuariosCreateWithoutDocumentosInput, usuariosUncheckedCreateWithoutDocumentosInput>
+    where?: usuariosWhereInput
+  }
+
+  export type usuariosUpdateToOneWithWhereWithoutDocumentosInput = {
+    where?: usuariosWhereInput
+    data: XOR<usuariosUpdateWithoutDocumentosInput, usuariosUncheckedUpdateWithoutDocumentosInput>
+  }
+
+  export type usuariosUpdateWithoutDocumentosInput = {
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nascimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    senha?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_acesso?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    jwt_token?: jwt_tokenUpdateManyWithoutId_usuarioNestedInput
+    templates?: templatesUpdateManyWithoutId_usuarioNestedInput
+    usuarios_organizacao?: usuarios_organizacaoUpdateManyWithoutId_usuarioNestedInput
+  }
+
+  export type usuariosUncheckedUpdateWithoutDocumentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nascimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    senha?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_acesso?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    jwt_token?: jwt_tokenUncheckedUpdateManyWithoutId_usuarioNestedInput
+    templates?: templatesUncheckedUpdateManyWithoutId_usuarioNestedInput
+    usuarios_organizacao?: usuarios_organizacaoUncheckedUpdateManyWithoutId_usuarioNestedInput
+  }
+
+  export type templatesUpsertWithoutDocumentosInput = {
+    update: XOR<templatesUpdateWithoutDocumentosInput, templatesUncheckedUpdateWithoutDocumentosInput>
+    create: XOR<templatesCreateWithoutDocumentosInput, templatesUncheckedCreateWithoutDocumentosInput>
+    where?: templatesWhereInput
+  }
+
+  export type templatesUpdateToOneWithWhereWithoutDocumentosInput = {
+    where?: templatesWhereInput
+    data: XOR<templatesUpdateWithoutDocumentosInput, templatesUncheckedUpdateWithoutDocumentosInput>
+  }
+
+  export type templatesUpdateWithoutDocumentosInput = {
+    nome_template?: StringFieldUpdateOperationsInput | string
+    diretorio_arquivo?: StringFieldUpdateOperationsInput | string
+    token_template?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    id_usuario?: usuariosUpdateOneRequiredWithoutTemplatesNestedInput
+    variaveis_template?: variaveis_templateUpdateManyWithoutId_templateNestedInput
+  }
+
+  export type templatesUncheckedUpdateWithoutDocumentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome_template?: StringFieldUpdateOperationsInput | string
+    diretorio_arquivo?: StringFieldUpdateOperationsInput | string
+    token_template?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    usuarios_id?: IntFieldUpdateOperationsInput | number
+    variaveis_template?: variaveis_templateUncheckedUpdateManyWithoutId_templateNestedInput
+  }
+
+  export type assinantes_documentosUpsertWithWhereUniqueWithoutDocumentosInput = {
+    where: assinantes_documentosWhereUniqueInput
+    update: XOR<assinantes_documentosUpdateWithoutDocumentosInput, assinantes_documentosUncheckedUpdateWithoutDocumentosInput>
+    create: XOR<assinantes_documentosCreateWithoutDocumentosInput, assinantes_documentosUncheckedCreateWithoutDocumentosInput>
+  }
+
+  export type assinantes_documentosUpdateWithWhereUniqueWithoutDocumentosInput = {
+    where: assinantes_documentosWhereUniqueInput
+    data: XOR<assinantes_documentosUpdateWithoutDocumentosInput, assinantes_documentosUncheckedUpdateWithoutDocumentosInput>
+  }
+
+  export type assinantes_documentosUpdateManyWithWhereWithoutDocumentosInput = {
+    where: assinantes_documentosScalarWhereInput
+    data: XOR<assinantes_documentosUpdateManyMutationInput, assinantes_documentosUncheckedUpdateManyWithoutDocumentosInput>
+  }
+
+  export type assinantes_documentosScalarWhereInput = {
+    AND?: assinantes_documentosScalarWhereInput | assinantes_documentosScalarWhereInput[]
+    OR?: assinantes_documentosScalarWhereInput[]
+    NOT?: assinantes_documentosScalarWhereInput | assinantes_documentosScalarWhereInput[]
+    id?: IntFilter<"assinantes_documentos"> | number
+    nome_assinante?: StringFilter<"assinantes_documentos"> | string
+    email_assinante?: StringFilter<"assinantes_documentos"> | string
+    documentosId?: IntFilter<"assinantes_documentos"> | number
+  }
+
+  export type dados_assinantesUpsertWithWhereUniqueWithoutDocumentoInput = {
+    where: dados_assinantesWhereUniqueInput
+    update: XOR<dados_assinantesUpdateWithoutDocumentoInput, dados_assinantesUncheckedUpdateWithoutDocumentoInput>
+    create: XOR<dados_assinantesCreateWithoutDocumentoInput, dados_assinantesUncheckedCreateWithoutDocumentoInput>
+  }
+
+  export type dados_assinantesUpdateWithWhereUniqueWithoutDocumentoInput = {
+    where: dados_assinantesWhereUniqueInput
+    data: XOR<dados_assinantesUpdateWithoutDocumentoInput, dados_assinantesUncheckedUpdateWithoutDocumentoInput>
+  }
+
+  export type dados_assinantesUpdateManyWithWhereWithoutDocumentoInput = {
+    where: dados_assinantesScalarWhereInput
+    data: XOR<dados_assinantesUpdateManyMutationInput, dados_assinantesUncheckedUpdateManyWithoutDocumentoInput>
+  }
+
+  export type dados_assinantesScalarWhereInput = {
+    AND?: dados_assinantesScalarWhereInput | dados_assinantesScalarWhereInput[]
+    OR?: dados_assinantesScalarWhereInput[]
+    NOT?: dados_assinantesScalarWhereInput | dados_assinantesScalarWhereInput[]
+    id?: IntFilter<"dados_assinantes"> | number
+    ip_assinante?: StringFilter<"dados_assinantes"> | string
+    localizacao_assinante?: StringFilter<"dados_assinantes"> | string
+    documentosId?: IntFilter<"dados_assinantes"> | number
+  }
+
+  export type status_documentosUpsertWithWhereUniqueWithoutDocumentosInput = {
+    where: status_documentosWhereUniqueInput
+    update: XOR<status_documentosUpdateWithoutDocumentosInput, status_documentosUncheckedUpdateWithoutDocumentosInput>
+    create: XOR<status_documentosCreateWithoutDocumentosInput, status_documentosUncheckedCreateWithoutDocumentosInput>
+  }
+
+  export type status_documentosUpdateWithWhereUniqueWithoutDocumentosInput = {
+    where: status_documentosWhereUniqueInput
+    data: XOR<status_documentosUpdateWithoutDocumentosInput, status_documentosUncheckedUpdateWithoutDocumentosInput>
+  }
+
+  export type status_documentosUpdateManyWithWhereWithoutDocumentosInput = {
+    where: status_documentosScalarWhereInput
+    data: XOR<status_documentosUpdateManyMutationInput, status_documentosUncheckedUpdateManyWithoutDocumentosInput>
+  }
+
+  export type status_documentosScalarWhereInput = {
+    AND?: status_documentosScalarWhereInput | status_documentosScalarWhereInput[]
+    OR?: status_documentosScalarWhereInput[]
+    NOT?: status_documentosScalarWhereInput | status_documentosScalarWhereInput[]
+    id?: IntFilter<"status_documentos"> | number
+    status_documento?: IntFilter<"status_documentos"> | number
+    documentosId?: IntFilter<"status_documentos"> | number
+  }
+
+  export type documentosCreateWithoutAssinantes_documentosInput = {
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    usuarios: usuariosCreateNestedOneWithoutDocumentosInput
+    templates: templatesCreateNestedOneWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosUncheckedCreateWithoutAssinantes_documentosInput = {
+    id?: number
+    usuariosId: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    dados_assinantes?: dados_assinantesUncheckedCreateNestedManyWithoutDocumentoInput
+    status_documentos?: status_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosCreateOrConnectWithoutAssinantes_documentosInput = {
+    where: documentosWhereUniqueInput
+    create: XOR<documentosCreateWithoutAssinantes_documentosInput, documentosUncheckedCreateWithoutAssinantes_documentosInput>
+  }
+
+  export type documentosUpsertWithoutAssinantes_documentosInput = {
+    update: XOR<documentosUpdateWithoutAssinantes_documentosInput, documentosUncheckedUpdateWithoutAssinantes_documentosInput>
+    create: XOR<documentosCreateWithoutAssinantes_documentosInput, documentosUncheckedCreateWithoutAssinantes_documentosInput>
+    where?: documentosWhereInput
+  }
+
+  export type documentosUpdateToOneWithWhereWithoutAssinantes_documentosInput = {
+    where?: documentosWhereInput
+    data: XOR<documentosUpdateWithoutAssinantes_documentosInput, documentosUncheckedUpdateWithoutAssinantes_documentosInput>
+  }
+
+  export type documentosUpdateWithoutAssinantes_documentosInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    usuarios?: usuariosUpdateOneRequiredWithoutDocumentosNestedInput
+    templates?: templatesUpdateOneRequiredWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateWithoutAssinantes_documentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    dados_assinantes?: dados_assinantesUncheckedUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosCreateWithoutDados_assinantesInput = {
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    usuarios: usuariosCreateNestedOneWithoutDocumentosInput
+    templates: templatesCreateNestedOneWithoutDocumentosInput
+    assinantes_documentos?: assinantes_documentosCreateNestedManyWithoutDocumentosInput
+    status_documentos?: status_documentosCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosUncheckedCreateWithoutDados_assinantesInput = {
+    id?: number
+    usuariosId: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    assinantes_documentos?: assinantes_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+    status_documentos?: status_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+  }
+
+  export type documentosCreateOrConnectWithoutDados_assinantesInput = {
+    where: documentosWhereUniqueInput
+    create: XOR<documentosCreateWithoutDados_assinantesInput, documentosUncheckedCreateWithoutDados_assinantesInput>
+  }
+
+  export type documentosUpsertWithoutDados_assinantesInput = {
+    update: XOR<documentosUpdateWithoutDados_assinantesInput, documentosUncheckedUpdateWithoutDados_assinantesInput>
+    create: XOR<documentosCreateWithoutDados_assinantesInput, documentosUncheckedCreateWithoutDados_assinantesInput>
+    where?: documentosWhereInput
+  }
+
+  export type documentosUpdateToOneWithWhereWithoutDados_assinantesInput = {
+    where?: documentosWhereInput
+    data: XOR<documentosUpdateWithoutDados_assinantesInput, documentosUncheckedUpdateWithoutDados_assinantesInput>
+  }
+
+  export type documentosUpdateWithoutDados_assinantesInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    usuarios?: usuariosUpdateOneRequiredWithoutDocumentosNestedInput
+    templates?: templatesUpdateOneRequiredWithoutDocumentosNestedInput
+    assinantes_documentos?: assinantes_documentosUpdateManyWithoutDocumentosNestedInput
+    status_documentos?: status_documentosUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateWithoutDados_assinantesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    assinantes_documentos?: assinantes_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+    status_documentos?: status_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosCreateWithoutStatus_documentosInput = {
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    usuarios: usuariosCreateNestedOneWithoutDocumentosInput
+    templates: templatesCreateNestedOneWithoutDocumentosInput
+    assinantes_documentos?: assinantes_documentosCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesCreateNestedManyWithoutDocumentoInput
+  }
+
+  export type documentosUncheckedCreateWithoutStatus_documentosInput = {
+    id?: number
+    usuariosId: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+    assinantes_documentos?: assinantes_documentosUncheckedCreateNestedManyWithoutDocumentosInput
+    dados_assinantes?: dados_assinantesUncheckedCreateNestedManyWithoutDocumentoInput
+  }
+
+  export type documentosCreateOrConnectWithoutStatus_documentosInput = {
+    where: documentosWhereUniqueInput
+    create: XOR<documentosCreateWithoutStatus_documentosInput, documentosUncheckedCreateWithoutStatus_documentosInput>
+  }
+
+  export type documentosUpsertWithoutStatus_documentosInput = {
+    update: XOR<documentosUpdateWithoutStatus_documentosInput, documentosUncheckedUpdateWithoutStatus_documentosInput>
+    create: XOR<documentosCreateWithoutStatus_documentosInput, documentosUncheckedCreateWithoutStatus_documentosInput>
+    where?: documentosWhereInput
+  }
+
+  export type documentosUpdateToOneWithWhereWithoutStatus_documentosInput = {
+    where?: documentosWhereInput
+    data: XOR<documentosUpdateWithoutStatus_documentosInput, documentosUncheckedUpdateWithoutStatus_documentosInput>
+  }
+
+  export type documentosUpdateWithoutStatus_documentosInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    usuarios?: usuariosUpdateOneRequiredWithoutDocumentosNestedInput
+    templates?: templatesUpdateOneRequiredWithoutDocumentosNestedInput
+    assinantes_documentos?: assinantes_documentosUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUpdateManyWithoutDocumentoNestedInput
+  }
+
+  export type documentosUncheckedUpdateWithoutStatus_documentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    assinantes_documentos?: assinantes_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUncheckedUpdateManyWithoutDocumentoNestedInput
   }
 
   export type chaves_apiCreateManyId_organizacaoInput = {
@@ -13196,6 +18060,14 @@ export namespace Prisma {
     organizacao_id: number
   }
 
+  export type documentosCreateManyUsuariosInput = {
+    id?: number
+    templatesId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
+  }
+
   export type jwt_tokenUpdateWithoutId_usuarioInput = {
     jwt_token?: StringFieldUpdateOperationsInput | string
   }
@@ -13217,6 +18089,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     variaveis_template?: variaveis_templateUpdateManyWithoutId_templateNestedInput
+    documentos?: documentosUpdateManyWithoutTemplatesNestedInput
   }
 
   export type templatesUncheckedUpdateWithoutId_usuarioInput = {
@@ -13227,6 +18100,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_ativo?: BoolFieldUpdateOperationsInput | boolean
     variaveis_template?: variaveis_templateUncheckedUpdateManyWithoutId_templateNestedInput
+    documentos?: documentosUncheckedUpdateManyWithoutTemplatesNestedInput
   }
 
   export type templatesUncheckedUpdateManyWithoutId_usuarioInput = {
@@ -13252,9 +18126,46 @@ export namespace Prisma {
     organizacao_id?: IntFieldUpdateOperationsInput | number
   }
 
+  export type documentosUpdateWithoutUsuariosInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    templates?: templatesUpdateOneRequiredWithoutDocumentosNestedInput
+    assinantes_documentos?: assinantes_documentosUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateWithoutUsuariosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    assinantes_documentos?: assinantes_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUncheckedUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateManyWithoutUsuariosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    templatesId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type variaveis_templateCreateManyId_templateInput = {
     id?: number
     nome_variavel: string
+  }
+
+  export type documentosCreateManyTemplatesInput = {
+    id?: number
+    usuariosId: number
+    created_at?: Date | string
+    token_doc: string
+    is_ativo?: boolean
   }
 
   export type variaveis_templateUpdateWithoutId_templateInput = {
@@ -13269,6 +18180,100 @@ export namespace Prisma {
   export type variaveis_templateUncheckedUpdateManyWithoutId_templateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome_variavel?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type documentosUpdateWithoutTemplatesInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    usuarios?: usuariosUpdateOneRequiredWithoutDocumentosNestedInput
+    assinantes_documentos?: assinantes_documentosUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateWithoutTemplatesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+    assinantes_documentos?: assinantes_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+    dados_assinantes?: dados_assinantesUncheckedUpdateManyWithoutDocumentoNestedInput
+    status_documentos?: status_documentosUncheckedUpdateManyWithoutDocumentosNestedInput
+  }
+
+  export type documentosUncheckedUpdateManyWithoutTemplatesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuariosId?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token_doc?: StringFieldUpdateOperationsInput | string
+    is_ativo?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type assinantes_documentosCreateManyDocumentosInput = {
+    id?: number
+    nome_assinante: string
+    email_assinante: string
+  }
+
+  export type dados_assinantesCreateManyDocumentoInput = {
+    id?: number
+    ip_assinante: string
+    localizacao_assinante: string
+  }
+
+  export type status_documentosCreateManyDocumentosInput = {
+    id?: number
+    status_documento: number
+  }
+
+  export type assinantes_documentosUpdateWithoutDocumentosInput = {
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type assinantes_documentosUncheckedUpdateWithoutDocumentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type assinantes_documentosUncheckedUpdateManyWithoutDocumentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome_assinante?: StringFieldUpdateOperationsInput | string
+    email_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type dados_assinantesUpdateWithoutDocumentoInput = {
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type dados_assinantesUncheckedUpdateWithoutDocumentoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type dados_assinantesUncheckedUpdateManyWithoutDocumentoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ip_assinante?: StringFieldUpdateOperationsInput | string
+    localizacao_assinante?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type status_documentosUpdateWithoutDocumentosInput = {
+    status_documento?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type status_documentosUncheckedUpdateWithoutDocumentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status_documento?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type status_documentosUncheckedUpdateManyWithoutDocumentosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status_documento?: IntFieldUpdateOperationsInput | number
   }
 
 

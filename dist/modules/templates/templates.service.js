@@ -64,6 +64,7 @@ let TemplatesService = class TemplatesService {
         });
         return template;
     }
+    async carregaVariaveisDocx() { }
     async extractTextFromDocx(filePath) {
         return new Promise((resolve, reject) => {
             docx.parseDocx(filePath, (data) => {

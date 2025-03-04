@@ -15,6 +15,7 @@ const admins_module_1 = require("./modules/admins/admins.module");
 const core_module_1 = require("./core/core.module");
 const templates_module_1 = require("./modules/templates/templates.module");
 const auth_module_1 = require("./modules/auth/auth.module");
+const documentos_module_1 = require("./modules/documentos/documentos.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -28,6 +29,7 @@ exports.AppModule = AppModule = __decorate([
             core_module_1.CoreModule,
             templates_module_1.TemplatesModule,
             auth_module_1.AuthModule,
+            documentos_module_1.DocumentosModule,
         ],
         controllers: [],
         providers: [],

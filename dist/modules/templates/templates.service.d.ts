@@ -15,5 +15,6 @@ export declare class TemplatesService {
         is_ativo: boolean;
         usuarios_id: number;
     }>;
+    carregaVariaveisDocx(): Promise<void>;
     private extractTextFromDocx;
 }

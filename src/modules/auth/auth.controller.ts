@@ -18,4 +18,6 @@ export class AuthController {
       throw err;
     }
   }
+
+  async loginAdmin() {}
 }

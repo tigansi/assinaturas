@@ -25,7 +25,6 @@ export class TemplatesService {
     }
 
     const dirPath = join(__dirname, "..", "..", "..", "storage", "templates");
-    //const filePath = join(dirPath, "arquivo.docx");
 
     // Criar a pasta se não existir
     await mkdir(dirPath, { recursive: true });
@@ -81,6 +80,8 @@ export class TemplatesService {
 
     return template;
   }
+
+  async carregaVariaveisDocx() {}
 
   private async extractTextFromDocx(filePath: string): Promise<string> {
     return new Promise((resolve, reject) => {

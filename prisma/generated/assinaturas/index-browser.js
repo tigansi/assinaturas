@@ -179,9 +179,33 @@ exports.Prisma.Variaveis_templateScalarFieldEnum = {
   templates_id: 'templates_id'
 };
 
+exports.Prisma.DocumentosScalarFieldEnum = {
+  id: 'id',
+  usuariosId: 'usuariosId',
+  templatesId: 'templatesId',
+  created_at: 'created_at',
+  token_doc: 'token_doc',
+  is_ativo: 'is_ativo'
+};
+
+exports.Prisma.Assinantes_documentosScalarFieldEnum = {
+  id: 'id',
+  nome_assinante: 'nome_assinante',
+  email_assinante: 'email_assinante',
+  documentosId: 'documentosId'
+};
+
+exports.Prisma.Dados_assinantesScalarFieldEnum = {
+  id: 'id',
+  ip_assinante: 'ip_assinante',
+  localizacao_assinante: 'localizacao_assinante',
+  documentosId: 'documentosId'
+};
+
 exports.Prisma.Status_documentosScalarFieldEnum = {
   id: 'id',
-  status_documento: 'status_documento'
+  status_documento: 'status_documento',
+  documentosId: 'documentosId'
 };
 
 exports.Prisma.SortOrder = {
@@ -225,6 +249,20 @@ exports.Prisma.variaveis_templateOrderByRelevanceFieldEnum = {
   nome_variavel: 'nome_variavel'
 };
 
+exports.Prisma.documentosOrderByRelevanceFieldEnum = {
+  token_doc: 'token_doc'
+};
+
+exports.Prisma.assinantes_documentosOrderByRelevanceFieldEnum = {
+  nome_assinante: 'nome_assinante',
+  email_assinante: 'email_assinante'
+};
+
+exports.Prisma.dados_assinantesOrderByRelevanceFieldEnum = {
+  ip_assinante: 'ip_assinante',
+  localizacao_assinante: 'localizacao_assinante'
+};
+
 
 exports.Prisma.ModelName = {
   admins: 'admins',
@@ -235,6 +273,9 @@ exports.Prisma.ModelName = {
   jwt_token: 'jwt_token',
   templates: 'templates',
   variaveis_template: 'variaveis_template',
+  documentos: 'documentos',
+  assinantes_documentos: 'assinantes_documentos',
+  dados_assinantes: 'dados_assinantes',
   status_documentos: 'status_documentos'
 };
 

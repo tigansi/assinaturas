@@ -11,4 +11,5 @@ export declare class AuthController {
             token: string;
         };
     }>;
+    loginAdmin(): Promise<void>;
 }
