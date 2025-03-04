@@ -17,6 +17,7 @@ const token_service_1 = require("../../core/services/token.service");
 const prisma_service_1 = require("../../prisma/prisma.service");
 const usuarios_service_1 = require("../usuarios/usuarios.service");
 const docx = require("docx-parser");
+const libre = require("libreoffice-convert");
 let TemplatesService = class TemplatesService {
     prismaAssinaturas;
     tokenService;
@@ -64,13 +65,42 @@ let TemplatesService = class TemplatesService {
         });
         return template;
     }
-    async carregaVariaveisDocx() { }
+    async carregaVariaveisDocx(tokenTemplate, valores, diretorio) {
+        const docxPath = diretorio;
+        const tempDir = (0, path_1.join)(__dirname, "..", "..", "..", "storage", "docs");
+        await (0, promises_1.mkdir)(tempDir, { recursive: true });
+        const tokenDoc = await this.tokenService.generateToken("documentos", "token_doc");
+        const processedDocxPath = (0, path_1.join)(tempDir, `${tokenDoc}.docx`);
+        const pdfPath = processedDocxPath.replace(".docx", ".pdf");
+        let text = await this.extractTextFromDocx(docxPath);
+        for (const [key, value] of Object.entries(valores)) {
+            const regex = new RegExp(`\\{\\{${key}\\}\\}`, "g");
+            text = text.replace(regex, value);
+        }
+        await (0, promises_1.writeFile)(processedDocxPath, text);
+        await this.convertToPDF(processedDocxPath, pdfPath);
+        await (0, promises_1.unlink)(processedDocxPath).catch(() => {
+            console.warn(`Não foi possível remover o arquivo: ${processedDocxPath}`);
+        });
+        return { pdfPath };
+    }
     async extractTextFromDocx(filePath) {
         return new Promise((resolve, reject) => {
             docx.parseDocx(filePath, (data) => {
                 if (!data)
                     reject("Erro ao extrair texto do DOCX");
                 resolve(data);
+            });
+        });
+    }
+    async convertToPDF(docxPath, pdfPath) {
+        const docxBuffer = await (0, promises_1.readFile)(docxPath);
+        return new Promise((resolve, reject) => {
+            libre.convert(docxBuffer, ".pdf", undefined, (err, done) => {
+                if (err) {
+                    return reject("Erro na conversão para PDF");
+                }
+                (0, promises_1.writeFile)(pdfPath, done).then(resolve).catch(reject);
             });
         });
     }

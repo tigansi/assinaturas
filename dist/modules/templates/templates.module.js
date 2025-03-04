@@ -21,6 +21,7 @@ exports.TemplatesModule = TemplatesModule = __decorate([
         imports: [prisma_module_1.PrismaModule, core_module_1.CoreModule, usuarios_module_1.UsuariosModule],
         controllers: [templates_controller_1.TemplatesController],
         providers: [templates_service_1.TemplatesService],
+        exports: [templates_service_1.TemplatesService],
     })
 ], TemplatesModule);
 //# sourceMappingURL=templates.module.js.map

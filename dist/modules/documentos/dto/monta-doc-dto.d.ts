@@ -1,7 +1,7 @@
 export declare class MontaDocDto {
     tokenTemplate: string;
     tokenUsuarioCriacao: string;
-    variaveis: object;
+    variaveis: Record<string, string>;
     nomeAssinante: string;
     emailAssinante: string;
 }

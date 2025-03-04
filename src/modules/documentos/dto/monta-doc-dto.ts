@@ -18,7 +18,7 @@ export class MontaDocDto {
 
   @IsObject()
   @IsNotEmpty()
-  variaveis: object;
+  variaveis: Record<string, string>;
 
   @IsString()
   @MinLength(3)

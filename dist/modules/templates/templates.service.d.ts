@@ -15,6 +15,9 @@ export declare class TemplatesService {
         is_ativo: boolean;
         usuarios_id: number;
     }>;
-    carregaVariaveisDocx(): Promise<void>;
+    carregaVariaveisDocx(tokenTemplate: string, valores: Record<string, string>, diretorio: string): Promise<{
+        pdfPath: string;
+    }>;
     private extractTextFromDocx;
+    private convertToPDF;
 }

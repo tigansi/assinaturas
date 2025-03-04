@@ -12,10 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DocumentosService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../prisma/prisma.service");
+const templates_service_1 = require("../templates/templates.service");
 let DocumentosService = class DocumentosService {
     prismaAssinaturas;
-    constructor(prismaAssinaturas) {
+    templatesService;
+    constructor(prismaAssinaturas, templatesService) {
         this.prismaAssinaturas = prismaAssinaturas;
+        this.templatesService = templatesService;
     }
     async montaDocAssinante(montaDocDto) {
         const user = await this.prismaAssinaturas.usuarios.findUnique({
@@ -31,11 +34,14 @@ let DocumentosService = class DocumentosService {
         if (!user || !template) {
             throw new common_1.HttpException("Dados do documento não encontrados", common_1.HttpStatus.UNAUTHORIZED);
         }
+        const pdf = await this.templatesService.carregaVariaveisDocx(montaDocDto.tokenTemplate, montaDocDto.variaveis, template.diretorio_arquivo);
+        return pdf;
     }
 };
 exports.DocumentosService = DocumentosService;
 exports.DocumentosService = DocumentosService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaAssinaturas])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaAssinaturas,
+        templates_service_1.TemplatesService])
 ], DocumentosService);
 //# sourceMappingURL=documentos.service.js.map

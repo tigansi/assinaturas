@@ -22,21 +22,28 @@ let DocumentosController = class DocumentosController {
         this.documentosService = documentosService;
     }
     async montaDoc(body) {
-        return {
-            body
-        };
+        try {
+            const ret = await this.documentosService.montaDocAssinante(body);
+            return {
+                message: "Montagem concluida",
+                data: ret,
+            };
+        }
+        catch (err) {
+            throw err;
+        }
     }
 };
 exports.DocumentosController = DocumentosController;
 __decorate([
-    (0, common_1.Post)('/monta_doc'),
+    (0, common_1.Post)("/monta_doc"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [monta_doc_dto_1.MontaDocDto]),
     __metadata("design:returntype", Promise)
 ], DocumentosController.prototype, "montaDoc", null);
 exports.DocumentosController = DocumentosController = __decorate([
-    (0, common_1.Controller)('documentos'),
+    (0, common_1.Controller)("documentos"),
     __metadata("design:paramtypes", [documentos_service_1.DocumentosService])
 ], DocumentosController);
 //# sourceMappingURL=documentos.controller.js.map

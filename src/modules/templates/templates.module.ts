@@ -9,5 +9,6 @@ import { UsuariosModule } from "../usuarios/usuarios.module";
   imports: [PrismaModule, CoreModule, UsuariosModule],
   controllers: [TemplatesController],
   providers: [TemplatesService],
+  exports: [TemplatesService],
 })
 export class TemplatesModule {}

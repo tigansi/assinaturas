@@ -1,10 +1,14 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { PrismaAssinaturas } from "src/prisma/prisma.service";
 import { MontaDocDto } from "./dto/monta-doc-dto";
+import { TemplatesService } from "../templates/templates.service";
 
 @Injectable()
 export class DocumentosService {
-  constructor(private readonly prismaAssinaturas: PrismaAssinaturas) {}
+  constructor(
+    private readonly prismaAssinaturas: PrismaAssinaturas,
+    private readonly templatesService: TemplatesService
+  ) {}
 
   async montaDocAssinante(montaDocDto: MontaDocDto) {
     const user = await this.prismaAssinaturas.usuarios.findUnique({
@@ -26,6 +30,12 @@ export class DocumentosService {
       );
     }
 
-    
+    const pdf = await this.templatesService.carregaVariaveisDocx(
+      montaDocDto.tokenTemplate,
+      montaDocDto.variaveis,
+      template.diretorio_arquivo
+    );
+
+    return pdf;
   }
 }
