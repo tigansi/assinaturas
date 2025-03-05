@@ -15,9 +15,7 @@ export declare class TemplatesService {
         is_ativo: boolean;
         usuarios_id: number;
     }>;
-    carregaVariaveisDocx(tokenTemplate: string, valores: Record<string, string>, diretorio: string): Promise<{
-        pdfPath: string;
-    }>;
+    criaDocDocx(diretorio: string, valores: Record<string, string>): Promise<void>;
+    convertePDF(docxPath: string): Promise<string>;
     private extractTextFromDocx;
-    private convertToPDF;
 }

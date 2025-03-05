@@ -5,7 +5,5 @@ export declare class DocumentosService {
     private readonly prismaAssinaturas;
     private readonly templatesService;
     constructor(prismaAssinaturas: PrismaAssinaturas, templatesService: TemplatesService);
-    montaDocAssinante(montaDocDto: MontaDocDto): Promise<{
-        pdfPath: string;
-    }>;
+    montaDocAssinante(montaDocDto: MontaDocDto): Promise<void>;
 }

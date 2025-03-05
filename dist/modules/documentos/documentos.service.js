@@ -34,8 +34,7 @@ let DocumentosService = class DocumentosService {
         if (!user || !template) {
             throw new common_1.HttpException("Dados do documento não encontrados", common_1.HttpStatus.UNAUTHORIZED);
         }
-        const pdf = await this.templatesService.carregaVariaveisDocx(montaDocDto.tokenTemplate, montaDocDto.variaveis, template.diretorio_arquivo);
-        return pdf;
+        await this.templatesService.criaDocDocx(template.diretorio_arquivo, montaDocDto.variaveis);
     }
 };
 exports.DocumentosService = DocumentosService;

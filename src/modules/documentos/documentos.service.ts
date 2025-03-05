@@ -30,12 +30,9 @@ export class DocumentosService {
       );
     }
 
-    const pdf = await this.templatesService.carregaVariaveisDocx(
-      montaDocDto.tokenTemplate,
-      montaDocDto.variaveis,
-      template.diretorio_arquivo
+    await this.templatesService.criaDocDocx(
+      template.diretorio_arquivo,
+      montaDocDto.variaveis
     );
-
-    return pdf;
   }
 }

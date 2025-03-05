@@ -22,16 +22,8 @@ let DocumentosController = class DocumentosController {
         this.documentosService = documentosService;
     }
     async montaDoc(body) {
-        try {
-            const ret = await this.documentosService.montaDocAssinante(body);
-            return {
-                message: "Montagem concluida",
-                data: ret,
-            };
-        }
-        catch (err) {
-            throw err;
-        }
+        const ret = await this.documentosService.montaDocAssinante(body);
+        return ret;
     }
 };
 exports.DocumentosController = DocumentosController;
