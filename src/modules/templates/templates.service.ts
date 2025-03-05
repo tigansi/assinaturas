@@ -131,6 +131,21 @@ export class TemplatesService {
     await unlink(processedDocxPath).catch(() => {
       console.warn(`Não foi possível remover o arquivo: ${processedDocxPath}`);
     });
+
+    const docRegistro = await this.prismaAssinaturas.documentos.create({
+      data: {
+        token_doc: tokenDoc,
+        usuariosId: 0,
+        templatesId: 0,
+      },
+    });
+
+    const statusDoc = await this.prismaAssinaturas.status_documentos.createMany({
+      data:{
+        documentosId:docRegistro.id,
+        status_documento:0
+      }
+    })
   }
 
   async convertePDF(docxPath: string) {
