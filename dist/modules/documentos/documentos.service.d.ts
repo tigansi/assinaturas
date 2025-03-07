@@ -6,4 +6,5 @@ export declare class DocumentosService {
     private readonly templatesService;
     constructor(prismaAssinaturas: PrismaAssinaturas, templatesService: TemplatesService);
     montaDocAssinante(montaDocDto: MontaDocDto): Promise<void>;
+    verificaDoc(tokenDoc: string): Promise<void>;
 }

@@ -1,4 +1,12 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  Post,
+} from "@nestjs/common";
 import { DocumentosService } from "./documentos.service";
 import { MontaDocDto } from "./dto/monta-doc-dto";
 
@@ -18,4 +26,7 @@ export class DocumentosController {
       throw err;
     }
   }
+
+  @Get("/verifica-doc/:tokenDoc")
+  async verificaDoc(@Param() tokenDoc: string) {}
 }

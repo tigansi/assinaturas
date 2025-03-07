@@ -36,6 +36,14 @@ let DocumentosService = class DocumentosService {
         }
         await this.templatesService.criaDocDocx(template.diretorio_arquivo, montaDocDto.variaveis);
     }
+    async verificaDoc(tokenDoc) {
+        const token = await this.prismaAssinaturas.documentos.findUnique({
+            where: { token_doc: tokenDoc },
+        });
+        if (!token) {
+            throw new common_1.HttpException("Documento não encontrado", common_1.HttpStatus.NOT_FOUND);
+        }
+    }
 };
 exports.DocumentosService = DocumentosService;
 exports.DocumentosService = DocumentosService = __decorate([

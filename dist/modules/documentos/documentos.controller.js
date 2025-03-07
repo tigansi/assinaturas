@@ -22,9 +22,18 @@ let DocumentosController = class DocumentosController {
         this.documentosService = documentosService;
     }
     async montaDoc(body) {
-        const ret = await this.documentosService.montaDocAssinante(body);
-        return ret;
+        try {
+            const ret = await this.documentosService.montaDocAssinante(body);
+            return {
+                message: "Documento criado e enviado com sucesso",
+                data: ret,
+            };
+        }
+        catch (err) {
+            throw err;
+        }
     }
+    async verificaDoc(tokenDoc) { }
 };
 exports.DocumentosController = DocumentosController;
 __decorate([
@@ -34,6 +43,13 @@ __decorate([
     __metadata("design:paramtypes", [monta_doc_dto_1.MontaDocDto]),
     __metadata("design:returntype", Promise)
 ], DocumentosController.prototype, "montaDoc", null);
+__decorate([
+    (0, common_1.Get)("/verifica-doc/:tokenDoc"),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], DocumentosController.prototype, "verificaDoc", null);
 exports.DocumentosController = DocumentosController = __decorate([
     (0, common_1.Controller)("documentos"),
     __metadata("design:paramtypes", [documentos_service_1.DocumentosService])

@@ -35,4 +35,17 @@ export class DocumentosService {
       montaDocDto.variaveis
     );
   }
+
+  async verificaDoc(tokenDoc: string) {
+    const token = await this.prismaAssinaturas.documentos.findUnique({
+      where: { token_doc: tokenDoc },
+    });
+
+    if (!token) {
+      throw new HttpException(
+        "Documento não encontrado",
+        HttpStatus.NOT_FOUND
+      );
+    }
+  }
 }
