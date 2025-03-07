@@ -8,20 +8,14 @@ export class DocumentosController {
 
   @Post("/monta_doc")
   async montaDoc(@Body() body: MontaDocDto) {
-
-    const ret = await this.documentosService.montaDocAssinante(body);
-
-    return ret
-    //try {
-    //  const ret = await this.documentosService.montaDocAssinante(body);
-    //  return {
-    //    message: "Montagem concluida",
-    //    data: ret,
-    //  };
-    //} catch (err) {
-    //  throw err;
-    //}
+    try {
+      const ret = await this.documentosService.montaDocAssinante(body);
+      return {
+        message: "Documento criado e enviado com sucesso",
+        data: ret,
+      };
+    } catch (err) {
+      throw err;
+    }
   }
-
-  
 }
