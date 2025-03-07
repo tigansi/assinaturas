@@ -8,12 +8,12 @@ export declare class TemplatesService {
     constructor(prismaAssinaturas: PrismaAssinaturas, tokenService: TokenService, usuariosService: UsuariosService);
     tradaDocx(file: Express.Multer.File, idUser: number): Promise<{
         id: number;
-        nome_template: string;
-        diretorio_arquivo: string;
-        token_template: string;
         created_at: Date;
         is_ativo: boolean;
         usuarios_id: number;
+        token_template: string;
+        nome_template: string;
+        diretorio_arquivo: string;
     }>;
     criaDocDocx(diretorio: string, valores: Record<string, string>): Promise<void>;
     convertePDF(docxPath: string): Promise<string>;

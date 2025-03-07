@@ -16,12 +16,16 @@ const core_module_1 = require("./core/core.module");
 const templates_module_1 = require("./modules/templates/templates.module");
 const auth_module_1 = require("./modules/auth/auth.module");
 const documentos_module_1 = require("./modules/documentos/documentos.module");
+const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+            }),
             prisma_module_1.PrismaModule,
             usuarios_module_1.UsuariosModule,
             organizacao_module_1.OrganizacaoModule,

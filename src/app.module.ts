@@ -6,10 +6,14 @@ import { AdminsModule } from "./modules/admins/admins.module";
 import { CoreModule } from "./core/core.module";
 import { TemplatesModule } from "./modules/templates/templates.module";
 import { AuthModule } from "./modules/auth/auth.module";
-import { DocumentosModule } from './modules/documentos/documentos.module';
+import { DocumentosModule } from "./modules/documentos/documentos.module";
+import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     PrismaModule,
     UsuariosModule,
     OrganizacaoModule,

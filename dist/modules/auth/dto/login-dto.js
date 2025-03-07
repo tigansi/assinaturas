@@ -17,7 +17,7 @@ class LoginDto {
 }
 exports.LoginDto = LoginDto;
 __decorate([
-    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsEmail)({}, { message: "E-mail inválido" }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], LoginDto.prototype, "email", void 0);
@@ -29,7 +29,7 @@ __decorate([
         minNumbers: 1,
         minSymbols: 1,
         minUppercase: 1,
-    }),
+    }, { message: "Senha inválida" }),
     __metadata("design:type", String)
 ], LoginDto.prototype, "senha", void 0);
 //# sourceMappingURL=login-dto.js.map

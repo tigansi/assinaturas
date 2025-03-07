@@ -6,12 +6,12 @@ export declare class TemplatesController {
         message: string;
         data: {
             id: number;
-            nome_template: string;
-            diretorio_arquivo: string;
-            token_template: string;
             created_at: Date;
             is_ativo: boolean;
             usuarios_id: number;
+            token_template: string;
+            nome_template: string;
+            diretorio_arquivo: string;
         };
     }>;
 }
